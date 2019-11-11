@@ -1,0 +1,53 @@
+body {
+  display: grid;
+  margin: auto;
+  padding: 0px;
+  width: auto;
+  font-family: "Montserrat", sans-serif;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-template-rows: auto;
+  grid-gap: 0px;
+  padding: 0px;
+}
+.tarjetas{
+    background-color: #ced3dc;
+}
+header {
+  background-color: #0a2342;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  color: #ffffff;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+.perfil {
+  background-color: #0a2342;
+  color: #ffffff;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+  height: auto;
+}
+
+.principal {
+  height: 100%;
+}
+.saldo {
+  background-color: #f9dc5c;
+}
+
+.informacion h2 {
+  font-size: 20px;
+}
+.informacion a {
+  text-decoration: none;
+  color: #ffffff;
+}
