@@ -1,0 +1,14 @@
+extends layout
+
+block content
+    h1 SISTEMA DE TRANSACCIONES ESTUDIANtes
+    form(method ="post")
+        label(for="user" class="form") Username
+        br
+        input#user(type="text", name="user" , required, placeholder="username")
+        br
+        label(for="user") Password
+        br
+        input#password(type="password" name="password", required, placeholder="password")
+        br
+        input(type="submit" value="Log In")
