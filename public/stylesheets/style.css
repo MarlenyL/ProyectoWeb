@@ -14,6 +14,7 @@ body {
   padding: 0px;
   width: auto;
   font-family: 'Nanum Gothic', sans-serif;  
+  height: 100vh;
 }
 .hide-mobile{
   display: none;
@@ -42,6 +43,10 @@ header {
   width: 80%;
   box-shadow: 2px 2px 3px #928a926e;
 }
+.container{
+  display: flex;
+}
+
 /* 
 .grid-container {
   display: grid;
@@ -75,3 +80,18 @@ header {
   text-decoration: none;
   color: #ffffff;
 } */
+
+@media only screen and (min-width: 768px) {
+  .major{
+    display:inline;
+  }
+  .movil{
+    display:none;
+  }
+  .perfil{
+    width: 20%;
+  }
+  .principal{
+    width: 80%;
+  }
+}
