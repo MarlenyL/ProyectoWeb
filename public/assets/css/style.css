@@ -8,10 +8,8 @@
   font-size: calc(0.5em + 1vh);
 } */
 
-
 body {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   margin: auto;
   padding: 0px;
   width: auto;
@@ -21,39 +19,22 @@ body {
 .hide-mobile{
   display: none;
 }
-.title{
-  text-align: end;
-}
-.header {
+
+header {
   display: flex;
-  align-items: center;
-  flex-wrap: wrap;
   justify-content: space-between;
   background-color: #0a2342;
   color: #ffffff;
-  height: 15%;
-  padding: 10px;
 }
-.major{
-  display: none;
-}
+
 .saldo{
   background-color: #f9dc5c;
   padding: 0.5em;
   margin: 3em auto;
   width: 80%;
   border-radius: 1em;
-  text-align: center;
 }
-.tarjetas:hover{
-  border-left: 0.5em solid #f9dc5c;
-}
-.header img{
-  height: 5em;
-}
-.lateral{
-  height: 100vh;
-}
+
 .tarjetas{
   background-color: #ced3dc;
   padding: 0.5em;
@@ -64,9 +45,6 @@ body {
 }
 .container{
   display: flex;
-}
-.principal{
-  width: 100%;
 }
 
 /* 
@@ -115,11 +93,5 @@ body {
   }
   .principal{
     width: 80%;
-  }
-  .perfil{
-    background-color: #0a2342;
-  }
-  .fas{
-    display: none;
   }
 }

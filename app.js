@@ -6,6 +6,8 @@ var logger = require('morgan');
 var database = require('./Database/elephantsql');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var principalERouter = require('./routes/principalE');
+var transaccionesRouter = require('./routes/transacciones');
 
 var app = express();
 
@@ -22,6 +24,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/principalE', principalERouter);
+app.use('/transacciones', transaccionesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
