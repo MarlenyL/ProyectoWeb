@@ -7,6 +7,18 @@
   box-sizing: border-box;
   font-size: calc(0.5em + 1vh);
 } */
+.perfil{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  width: 100%;
+  text-align: center;
+  color: #ffffff;
+}
+.informacion{
+  width: 100%;
+  justify-content: center;
+}
 
 body {
   display: grid;
@@ -91,7 +103,30 @@ header {
   .perfil{
     width: 20%;
   }
+  .tarjetas{
+    width: 10em;
+    height: 7em;
+    border-left: 0px;
+    border-bottom: 0.5em solid #0a2342;
+  }
   .principal{
     width: 80%;
   }
+<<<<<<< HEAD:public/assets/css/style.css
+=======
+  .perfil{
+    background-color: #0a2342;
+  }
+  .fas{
+    display: none;
+  }
+  .tarjetas:hover{
+    border-bottom: 0.5em solid #f9dc5c;
+    border-left: 0px;
+  }
+  .tarjeta{
+    display: flex;
+    flex-direction: row;
+  }
+>>>>>>> Fer:public/stylesheets/style.css
 }
