@@ -80,39 +80,6 @@ body {
   width: 100%;
 }
 
-/* 
-.grid-container {
-  display: grid;
-  grid-template-columns: 20% 80%;
-  grid-template-rows: auto;
-  grid-gap: 0px;
-  padding: 0px;
-}
-.perfil {
-  background-color: #0a2342;
-  color: #ffffff;
-  grid-row-start: 1;
-  grid-row-end: 3;
-  align-content: center;
-  justify-content: center;
-  text-align: center;
-  height: auto;
-}
-
-.principal {
-  height: 100%;
-}
-.saldo {
-  background-color: #f9dc5c;
-}
-
-.informacion h2 {
-  font-size: 20px;
-}
-.informacion a {
-  text-decoration: none;
-  color: #ffffff;
-} */
 
 @media only screen and (min-width: 768px) {
   .major{
@@ -146,5 +113,10 @@ body {
   .tarjeta{
     display: flex;
     flex-direction: row;
+  }
+}
+@media only screen and (min-width: 1440px){
+  h1{
+    
   }
 }
