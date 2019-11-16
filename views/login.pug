@@ -1,14 +1,14 @@
-extends layout
+git extends layout
 
 block content
     include header
+    body
+    div#container
+    div(class= 'Formulario')
     form(method ="post")
-        label(for="user" class="form") Username
-        br
-        input#user(type="text", name="user" , required, placeholder="username")
-        br
-        label(for="user") Password
-        br
-        input#password(type="password" name="password", required, placeholder="password")
-        br
-        input(type="submit" value="Log In")
+        label(for="user" class="form") Usuario
+        input#user(type="text", name="Usuario" , required, placeholder="Usuario", maxlength="8")
+        label(for="user") Contraseña
+        input#password(type="password" name="Contraseña", required, placeholder="Contrseña")
+        div#lower       
+        input(type="submit" value="Acceder")
