@@ -16,12 +16,27 @@ const conn = (err)=>{
         return console.error('error running query', err);
       }
       console.log(result.rows[0].theTime);
-      console.log("hi");
-      // >> output: 2018-08-23T14:02:57.117Z
       client.end();
     
     })});
   }
 
+const loga = (u,p,err)=>{
+  client.connect(conn2 = (err)=>{
+    if(err) {
+      return console.error('could not connect to postgres', err);
+    }
+    client.query('SELECT * FROM usuario WHERE usuario = ? AND contrasea = ?',[u,p], function(err, result) {
+      if(err) {
+        return console.error('error running query', err);
+      }
+      Response.redirect('/principalE');
+      client.end();
+    
+    })})};
+
+
 module.exports= {conn};
+module.exports= {log};
+
 

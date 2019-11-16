@@ -8,9 +8,17 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var principalERouter = require('./routes/principalE');
 var transaccionesRouter = require('./routes/transacciones');
-
+var session = require('express-session');
+var bodyParser = require('body-parser');
 var app = express();
 
+app.use(session({
+	secret: 'secret',
+	resave: true,
+	saveUninitialized: true
+}));
+app.use(bodyParser.urlencoded({extended : true}));
+app.use(bodyParser.json());
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 //app.set('view engine', 'jade');
@@ -43,5 +51,15 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-database.conn();
+database.conn;
+
+
+app.post('/', function(request, response) {
+	var username = request.body.user;
+  var password = request.body.password;
+  console.log(username);
+	if (username && password) {
+		database.loga(username,password);
+  }});
+
 module.exports = app; 
