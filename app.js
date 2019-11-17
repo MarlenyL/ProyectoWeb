@@ -8,7 +8,8 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var principalERouter = require('./routes/principalE');
 var transaccionesRouter = require('./routes/transacciones');
-
+var imgChangeRouter = require('./routes/imgChange');
+//var lateralRouter = require('./routes/lateral');
 var app = express();
 
 // view engine setup
@@ -26,6 +27,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/principalE', principalERouter);
 app.use('/transacciones', transaccionesRouter);
+app.use('/principalE/imgChange', imgChangeRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
