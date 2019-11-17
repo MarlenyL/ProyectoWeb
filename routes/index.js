@@ -4,7 +4,16 @@ var StudentManager = require('../controllers/StudentManager');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', StudentManager.get() );
+  res.render('index', StudentManager.myJson );
+});
+var info = {};
+router.post('/principalE', function(req, res, next) {
+  var values  = [req.body.usuario,req.body.contrasea];
+  info = StudentManager.consultar(values);
+});
+
+router.get('/principalE', function(req, res, next) {
+  res.render('principalE', info);
 });
 
 module.exports = router;

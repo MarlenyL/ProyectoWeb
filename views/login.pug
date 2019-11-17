@@ -2,13 +2,13 @@ extends layout
 
 block content
     include header
-    form(method ="post")
-        label(for="user" class="form") Username
+    form(method ="post" action ="/principalE")
+        label(for="usuario" class="form") Username
         br
-        input#user(type="text", name="user" , required, placeholder="username")
+        input#user(type="text", name="usuario" , required, placeholder="username")
         br
-        label(for="user") Password
+        label(for="contrasea") Password
         br
-        input#password(type="password" name="password", required, placeholder="password")
+        input#password(type="password" name="contrasea", required, placeholder="password")
         br
         input(type="submit" value="Log In")
