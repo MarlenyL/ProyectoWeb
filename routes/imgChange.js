@@ -1,10 +1,9 @@
 var express = require('express');
 var router = express.Router();
-var StudentManager = require('../controllers/StudentManager');
 
-
+/* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('principalE');
+  res.render('imgChange', { title: 'SET' });
 });
 
 module.exports = router;

@@ -15,6 +15,23 @@ router.get('/', function(req, res, next) {
 
 var conString = "postgres://bsotqenl:SIi5Keq54evR9YTlT-3uQLL57vg0DDGA@salt.db.elephantsql.com:5432/bsotqenl" //Can be found in the Details page
 var client = new pg.Client(conString);
+
+var StudentManager = require('../controllers/StudentManager');
+
+
+/* GET home page. */
+router.get('/', function(req, res, next) {
+  res.render('index');
+});
+
+router.post('/principalE', function(req, res, next) {
+  var values  = [req.body.usuario,req.body.contrasea];
+  var info = StudentManager.consultar(values);
+  console.log(info);
+  //res.render('principalE', info);
+});
+
+
 /* GET users listing. */
 router.post('/', function (req, res, next) {
   var username = req.body.user;
@@ -40,9 +57,8 @@ router.post('/', function (req, res, next) {
 	} else {
 		res.send('Please enter Username and Password!');
 		res.end();
-  }
+  }})
 
-});
 
 module.exports = router;
 
