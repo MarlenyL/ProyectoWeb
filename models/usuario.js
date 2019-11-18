@@ -12,7 +12,10 @@ const usuario = sequelize.define("usuario", {
     },
     contrasea: {
         type: Sequelize.STRING
-    }
+    },
+    /*timestamps: false,
+    createdAt:false,
+    updatedAt: false*/
 })
 
 module.exports = usuario;
