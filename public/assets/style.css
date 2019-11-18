@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap");
 
 /* Aplicando un formato general al html
 *, ::before, ::after {
@@ -15,22 +15,52 @@ body {
   margin: auto;
   padding: 0px;
   width: auto;
-  font-family: 'Nanum Gothic', sans-serif;  
+  font-family: "Nanum Gothic", sans-serif;
+  height: 100vh;
 }
 
-.yellowbar{
+.yellowbar {
   display: flex;
   justify-content: center;
   background-color: #f9dc5c;
-  padding: 0.5em;
   width: 100%;
   text-align: center;
-  font-size: 1.5em;
 }
-.imgY{
-  width: 5em;
+.imgY {
+  width: 6em;
   height: auto;
 }
+.Ayuda {
+  display: flex;
+  flex-direction: row;
+}
+.Ayuda a {
+  margin-left: 45%;
+  padding: 0px;
+}
+.Ayuda p {
+  margin-left: 10%;
+  padding: 0px;
+}
+.Ayuda:hover {
+  background-color: #3c445f;
+}
+.close {
+  display: flex;
+  flex-direction: row;
+}
+.close:hover {
+  background-color: #3c445f;
+}
+.close a {
+  margin-left: 26%;
+  padding: 0px;
+}
+.close p {
+  margin-left: 10%;
+  padding: 0px;
+}
+
 .hide-mobile{
   display: none;
 }
@@ -47,21 +77,19 @@ body {
   justify-content: space-between;
   background-color: #0a2342;
   color: #ffffff;
-  height: 12%;
+  height: 15%;
   padding: 10px;
 }
 
-.major{
+.major {
   display: none;
 }
 
-.title{
+.title {
   text-align: end;
 }
 
-/* Lateral */ 
-
-.perfil{
+.perfil {
   display: flex;
   flex-direction: column;
   align-content: center;
@@ -69,21 +97,25 @@ body {
   text-align: center;
   color: #ffffff;
 }
-.informacion{
+.informacion {
   width: 100%;
   justify-content: center;
+  height: 25vh;
+}
+.hide-mobile {
+  display: none;
 }
 
-.header img{
-  height: 5em;
+.tarjetas:hover {
+  border-left: 0.5em solid #f9dc5c;
 }
-.lateral{
+.header img {
+  height: 4em;
+}
+.lateral {
   height: 100vh;
 }
-
-/* Principal */
-
-.tarjetas{
+.tarjetas {
   background-color: #ced3dc;
   padding: 0.5em;
   border-left: 0.5em solid #0a2342;
@@ -91,127 +123,74 @@ body {
   width: 80%;
   box-shadow: 2px 2px 3px #928a926e;
 }
-.container{
+.container {
   display: flex;
+}
+.principal {
+  width: 100%;
+}
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+@media only screen and (min-width: 768px) {
+  .major {
+    display: inline;
+  }
+  .movil {
+    display: none;
+  }
+  .perfil {
+    width: 20%;
+  }
+  .header {
+    display: flex;
     align-items: center;
     flex-wrap: wrap;
     justify-content: space-between;
-    background-color: #f9dc5c;
+    background-color: #0a2342;
     color: #ffffff;
-    height: 12%;
+    height: 15%;
     padding: 10px;
-}
-
-.tarjetas:hover{
-  border-left: 0.5em solid #f9dc5c;
-}
-
-.principal{
-  width: 100%;
-}
-
-/* Transacciones */
-
-.tarjeta{
-  background-color: #ced3dc;
-  border-style: solid;
-  border-color: #0a2342;
-  margin: 1.5em;
-}
-
-.bluebar{
-  display: flex;
-  background-color: #0a2342;
-  color: white;
-  font-size: 1em;
-  justify-content: space-between;
-  padding: 0.4em 1em;
-}
-
-
-h2{
-  display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: center;
-    background-color: #f9dc5c;
-    color: black;
-    height: 60%;
-    padding: 10px;
-    margin: 0px;
-}
-footer{
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  background-color: #0a2342;
-  color: #ffffff;
-  height: 12%;
-  padding: 10px;
-  margin-top: 410px;
-}
-
-
- form {
-    display: block;
-    width: 100%;
-    padding: 2em;
-    border: 2px solid blue;
+    align-content: center;
   }
-
-  
-  input {
-    display: block;
-    margin: auto auto;
-    width: 100%;
-    margin-bottom: 2em;
-    padding: .5em 0;
-    border: none;
-    border-bottom: 1px solid #eaeaea;
-    padding-bottom: 1.25em;
-    color: #757575;
-    &:focus {
-      outline: none;
-    }
-  }
-
-
-
-@media only screen and (min-width: 768px) {
-  .major{
-    display:inline;
-  }
-  .movil{
-    display:none;
-  }
-  .perfil{
-    width: 20%;
-  }
-  .tarjetas{
+  .tarjetas {
     width: 10em;
     height: 7em;
     border-left: 0px;
     border-bottom: 0.5em solid #0a2342;
+    text-align: center;
   }
-  .principal{
+  .principal {
     width: 80%;
   }
-  .perfil{
+  .perfil {
     background-color: #0a2342;
   }
-  .fas{
+  .fas {
     display: none;
   }
-  .tarjetas:hover{
+  .tarjetas:hover {
     border-bottom: 0.5em solid #f9dc5c;
     border-left: 0px;
   }
-  .tarjeta{
+  .tarjeta {
     display: flex;
     flex-direction: row;
   }
+  .yellowbar {
+    background-color: #f9dc5c;
+    padding: 0.5em;
+    margin: 3em auto;
+    width: 80%;
+    height: 10%;
+    justify-content: center;
+    border-radius: 1em;
+    text-align: center;
+  }
 }
-@media only screen and (min-width: 1440px){
-
+@media only screen and (min-width: 1440px) {
+  h1 {
+  }
 }
