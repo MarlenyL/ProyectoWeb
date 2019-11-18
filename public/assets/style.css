@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap");
 
 /* Aplicando un formato general al html
 *, ::before, ::after {
@@ -21,25 +21,63 @@ body {
   margin: auto;
   padding: 0px;
   width: auto;
+<<<<<<< HEAD
   font-family: 'Nanum Gothic', sans-serif;  
   width: 100%;
   height: 100%;
 
+=======
+  font-family: "Nanum Gothic", sans-serif;
+  height: 100vh;
+>>>>>>> c8df9f34ff88b2e27f67410125acea48caf01527
 }
 
-.yellowbar{
+.yellowbar {
   display: flex;
   justify-content: center;
   background-color: #f9dc5c;
+<<<<<<< HEAD
   padding: 0 0.5em;
+=======
+>>>>>>> c8df9f34ff88b2e27f67410125acea48caf01527
   width: 100%;
   text-align: center;
-  font-size: 1.5em;
 }
-.imgY{
-  width: 5em;
+.imgY {
+  width: 6em;
   height: auto;
 }
+.Ayuda {
+  display: flex;
+  flex-direction: row;
+}
+.Ayuda a {
+  margin-left: 45%;
+  padding: 0px;
+}
+.Ayuda p {
+  margin-left: 10%;
+  padding: 0px;
+}
+.Ayuda:hover {
+  background-color: #3c445f;
+}
+.close {
+  display: flex;
+  flex-direction: row;
+}
+.close:hover {
+  background-color: #3c445f;
+}
+.close a {
+  margin-left: 26%;
+  padding: 0px;
+}
+.close p {
+  margin-left: 10%;
+  padding: 0px;
+}
+
 .hide-mobile{
   display: none;
 }
@@ -56,24 +94,22 @@ body {
   justify-content: space-between;
   background-color: #0a2342;
   color: #ffffff;
-  height: 12%;
-  padding: 0 10px;
+  height: 15%;
+  padding: 10px;
 }
 
-.major{
+.major {
   display: none;
 }
 
-.title{
+.title {
   text-align: end;
 }
 .header img{
   height: 4em;
 }
 
-/* Lateral */ 
-
-.perfil{
+.perfil {
   display: flex;
   flex-direction: column;
   align-content: center;
@@ -81,18 +117,25 @@ body {
   text-align: center;
   color: #ffffff;
 }
-.informacion{
+.informacion {
   width: 100%;
   justify-content: center;
+  height: 25vh;
+}
+.hide-mobile {
+  display: none;
 }
 
-.lateral{
+.tarjetas:hover {
+  border-left: 0.5em solid #f9dc5c;
+}
+.header img {
+  height: 4em;
+}
+.lateral {
   height: 100vh;
 }
-
-/* Principal */
-
-.tarjetas{
+.tarjetas {
   background-color: #ced3dc;
   padding: 0.5em;
   border-left: 0.5em solid #0a2342;
@@ -100,12 +143,10 @@ body {
   width: 80%;
   box-shadow: 2px 2px 3px #928a926e;
 }
-
-.tarjetas:hover{
-  border-left: 0.5em solid #f9dc5c;
+.container {
+  display: flex;
 }
-
-.principal{
+.principal {
   width: 100%;
 }
 
@@ -142,42 +183,68 @@ body {
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
 @media only screen and (min-width: 768px) {
-  .major{
-    display:inline;
+  .major {
+    display: inline;
   }
-  .movil{
-    display:none;
+  .movil {
+    display: none;
   }
-  .perfil{
+  .perfil {
     width: 20%;
   }
-  .tarjetas{
+  .header {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: #0a2342;
+    color: #ffffff;
+    height: 15%;
+    padding: 10px;
+    align-content: center;
+  }
+  .tarjetas {
     width: 10em;
     height: 7em;
     border-left: 0px;
     border-bottom: 0.5em solid #0a2342;
+    text-align: center;
   }
-  .principal{
+  .principal {
     width: 80%;
   }
-  .perfil{
+  .perfil {
     background-color: #0a2342;
   }
-  .fas{
+  .fas {
     display: none;
   }
-  .tarjetas:hover{
+  .tarjetas:hover {
     border-bottom: 0.5em solid #f9dc5c;
     border-left: 0px;
   }
-  .tarjeta{
+  .tarjeta {
     display: flex;
     flex-direction: row;
   }
+  .yellowbar {
+    background-color: #f9dc5c;
+    padding: 0.5em;
+    margin: 3em auto;
+    width: 80%;
+    height: 10%;
+    justify-content: center;
+    border-radius: 1em;
+    text-align: center;
+  }
 }
-@media only screen and (min-width: 1440px){
-  h1{
-    
+@media only screen and (min-width: 1440px) {
+  h1 {
   }
 }
