@@ -1,15 +1,4 @@
 
-/*var StudentManager = {};
-
-let myJson={
-    name: 'Rocio Marleny Landaverde Solis',
-    someone:'rocio',
-    saldo: 20
-}
-
-module.exports = {myJson};
-*/
-
 var conexion = require('../Database/elephantsql.js')
 var usuario = require('../models/usuario');
 const text = 'SELECT * FROM "usuario" where "usuario" = $1 and "contrasea"= $2'

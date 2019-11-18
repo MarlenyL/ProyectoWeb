@@ -16,7 +16,6 @@ body {
   padding: 0px;
   width: auto;
   font-family: 'Nanum Gothic', sans-serif;  
-  height: 100vh;
 }
 
 .yellowbar{
@@ -92,6 +91,16 @@ body {
   width: 80%;
   box-shadow: 2px 2px 3px #928a926e;
 }
+.container{
+  display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: #f9dc5c;
+    color: #ffffff;
+    height: 12%;
+    padding: 10px;
+}
 
 .tarjetas:hover{
   border-left: 0.5em solid #f9dc5c;
@@ -118,6 +127,55 @@ body {
   justify-content: space-between;
   padding: 0.4em 1em;
 }
+
+
+h2{
+  display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #f9dc5c;
+    color: black;
+    height: 60%;
+    padding: 10px;
+    margin: 0px;
+}
+footer{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: #0a2342;
+  color: #ffffff;
+  height: 12%;
+  padding: 10px;
+  margin-top: 410px;
+}
+
+
+ form {
+    display: block;
+    width: 100%;
+    padding: 2em;
+    border: 2px solid blue;
+  }
+
+  
+  input {
+    display: block;
+    margin: auto auto;
+    width: 100%;
+    margin-bottom: 2em;
+    padding: .5em 0;
+    border: none;
+    border-bottom: 1px solid #eaeaea;
+    padding-bottom: 1.25em;
+    color: #757575;
+    &:focus {
+      outline: none;
+    }
+  }
+
 
 
 @media only screen and (min-width: 768px) {
