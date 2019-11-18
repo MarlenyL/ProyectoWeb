@@ -20,7 +20,8 @@ const conn = (err)=>{
     
     })});
   }
-module.exports= {conn};
+
+module.exports= {conn, client};
 
 
 

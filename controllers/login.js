@@ -15,10 +15,10 @@ app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 
 app.post('/', function(request, response) {
-	var username = request.body.username;
+	var username = request.body.user;
 	var password = request.body.password;
 	if (username && password) {
-		connection.query(`SELECT * FROM usuario WHERE usuario = {username} AND contrase = {contrasea}`, function(error, results, fields) {
+		connection.query("SELECT * FROM usuario WHERE usuario =" +username+ "AND contrase = "+password, function(error, results, fields) {
 			if (results.length > 0) {
 				request.session.loggedin = true;
 				request.session.username = username;
