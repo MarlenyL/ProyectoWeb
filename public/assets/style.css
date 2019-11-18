@@ -26,13 +26,19 @@ body {
   padding: 0.5em;
   width: 100%;
   text-align: center;
+  font-size: 1.5em;
 }
 .imgY{
-  width: 6em;
+  width: 5em;
   height: auto;
 }
+.hide-mobile{
+  display: none;
+}
 
-
+.container{
+  display: flex;
+}
 /* Header */
 
 .header {
@@ -54,6 +60,8 @@ body {
   text-align: end;
 }
 
+/* Lateral */ 
+
 .perfil{
   display: flex;
   flex-direction: column;
@@ -67,20 +75,15 @@ body {
   justify-content: center;
 }
 
-.hide-mobile{
-  display: none;
-}
-
-
-.tarjetas:hover{
-  border-left: 0.5em solid #f9dc5c;
-}
 .header img{
   height: 5em;
 }
 .lateral{
   height: 100vh;
 }
+
+/* Principal */
+
 .tarjetas{
   background-color: #ced3dc;
   padding: 0.5em;
@@ -89,11 +92,31 @@ body {
   width: 80%;
   box-shadow: 2px 2px 3px #928a926e;
 }
-.container{
-  display: flex;
+
+.tarjetas:hover{
+  border-left: 0.5em solid #f9dc5c;
 }
+
 .principal{
   width: 100%;
+}
+
+/* Transacciones */
+
+.tarjeta{
+  background-color: #ced3dc;
+  border-style: solid;
+  border-color: #0a2342;
+  margin: 1.5em;
+}
+
+.bluebar{
+  display: flex;
+  background-color: #0a2342;
+  color: white;
+  font-size: 1em;
+  justify-content: space-between;
+  padding: 0.4em 1em;
 }
 
 
