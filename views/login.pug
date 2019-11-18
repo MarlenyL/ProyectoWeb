@@ -4,11 +4,12 @@ block content
     include header
     div#container
     div(class= 'Formulario')
-    form(method ="post")
-        label(for="user" class="form") Usuario
-        input#user(type="text", name="Usuario" , required, placeholder="Usuario", maxlength="8")
-        label(for="user") Contraseña
-        input#password(type="password" name="Contraseña", required, placeholder="Contrseña")
+     form(method ="post" action ="/principalE")
+        label(for="usuario" class="form") Usuario
+        input#user(type="text", name="usuario" , required, placeholder="Usuario", maxlength="8")
+        label(for="contrasea") Contraseña
+        input#password(type="password" name="contrasea", required, placeholder="Contraseña")
         div#lower       
         input(type="submit" value="Acceder")
     footer
+   
