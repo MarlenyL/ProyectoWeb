@@ -3,9 +3,11 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+var database = require('./Database/elephantsql');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var principalERouter = require('./routes/principalE');
+var transaccionesRouter = require('./routes/transaccionesE');
 
 var app = express();
 
@@ -22,6 +24,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/principalE', principalERouter);
+app.use('/transaccionesE', transaccionesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -39,4 +43,5 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+database.conn();
+module.exports = app; 
