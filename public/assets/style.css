@@ -7,6 +7,53 @@
   box-sizing: border-box;
   font-size: calc(0.5em + 1vh);
 } */
+
+/* General */
+body {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  padding: 0px;
+  width: auto;
+  font-family: 'Nanum Gothic', sans-serif;  
+  height: 100vh;
+}
+
+.yellowbar{
+  display: flex;
+  justify-content: center;
+  background-color: #f9dc5c;
+  padding: 0.5em;
+  width: 100%;
+  text-align: center;
+}
+.imgY{
+  width: 6em;
+  height: auto;
+}
+
+
+/* Header */
+
+.header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: #0a2342;
+  color: #ffffff;
+  height: 12%;
+  padding: 10px;
+}
+
+.major{
+  display: none;
+}
+
+.title{
+  text-align: end;
+}
+
 .perfil{
   display: flex;
   flex-direction: column;
@@ -20,42 +67,11 @@
   justify-content: center;
 }
 
-body {
-  display: flex;
-  flex-direction: column;
-  margin: auto;
-  padding: 0px;
-  width: auto;
-  font-family: 'Nanum Gothic', sans-serif;  
-  height: 100vh;
-}
 .hide-mobile{
   display: none;
 }
-.title{
-  text-align: end;
-}
-.header {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  background-color: #0a2342;
-  color: #ffffff;
-  height: 15%;
-  padding: 10px;
-}
-.major{
-  display: none;
-}
-.saldo{
-  background-color: #f9dc5c;
-  padding: 0.5em;
-  margin: 3em auto;
-  width: 80%;
-  border-radius: 1em;
-  text-align: center;
-}
+
+
 .tarjetas:hover{
   border-left: 0.5em solid #f9dc5c;
 }

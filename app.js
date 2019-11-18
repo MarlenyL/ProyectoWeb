@@ -7,9 +7,8 @@ var database = require('./Database/elephantsql');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var principalERouter = require('./routes/principalE');
-var transaccionesRouter = require('./routes/transacciones');
+var transaccionesRouter = require('./routes/transaccionesE');
 var session = require('express-session');
-var bodyParser = require('body-parser');
 var app = express();
 
 app.use(session({
@@ -17,8 +16,8 @@ app.use(session({
 	resave: true,
 	saveUninitialized: true
 }));
-app.use(bodyParser.urlencoded({extended : true}));
-app.use(bodyParser.json());
+//app.use(bodyParser.urlencoded({extended : true}));
+//app.use(bodyParser.json());
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 //app.set('view engine', 'jade');
@@ -33,7 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/principalE', principalERouter);
-app.use('/transacciones', transaccionesRouter);
+app.use('/transaccionesE', transaccionesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -51,7 +50,7 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-database.conn;
+database.conn();
 
 
 app.post('/', function(request, response) {
