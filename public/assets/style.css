@@ -16,7 +16,6 @@ body {
   padding: 0px;
   width: auto;
   font-family: 'Nanum Gothic', sans-serif;  
-  height: 100vh;
 }
 
 .yellowbar{
@@ -25,9 +24,10 @@ body {
   background-color: #f9dc5c;
   width: 100%;
   text-align: center;
+  font-size: 1.5em;
 }
 .imgY{
-  width: 6em;
+  width: 5em;
   height: auto;
 }
 .Ayuda{
@@ -61,6 +61,13 @@ body {
   padding: 0px;
 }
 
+.hide-mobile{
+  display: none;
+}
+
+.container{
+  display: flex;
+}
 /* Header */
 
 .header {
@@ -82,6 +89,8 @@ body {
   text-align: end;
 }
 
+/* Lateral */ 
+
 .perfil{
   display: flex;
   flex-direction: column;
@@ -101,20 +110,15 @@ body {
   height: auto;
 }
 
-.hide-mobile{
-  display: none;
-}
-
-
-.tarjetas:hover{
-  border-left: 0.5em solid #f9dc5c;
-}
 .header img{
   height: 5em;
 }
 .lateral{
   height: 100vh;
 }
+
+/* Principal */
+
 .tarjetas{
   background-color: #ced3dc;
   padding: 0.5em;
@@ -125,7 +129,19 @@ body {
 }
 .container{
   display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: #f9dc5c;
+    color: #ffffff;
+    height: 12%;
+    padding: 10px;
 }
+
+.tarjetas:hover{
+  border-left: 0.5em solid #f9dc5c;
+}
+
 .principal{
   width: 100%;
 }
@@ -133,6 +149,73 @@ a{
   text-decoration: none;
   color: #fff;
 }
+
+/* Transacciones */
+
+.tarjeta{
+  background-color: #ced3dc;
+  border-style: solid;
+  border-color: #0a2342;
+  margin: 1.5em;
+}
+
+.bluebar{
+  display: flex;
+  background-color: #0a2342;
+  color: white;
+  font-size: 1em;
+  justify-content: space-between;
+  padding: 0.4em 1em;
+}
+
+
+h2{
+  display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #f9dc5c;
+    color: black;
+    height: 60%;
+    padding: 10px;
+    margin: 0px;
+}
+footer{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: #0a2342;
+  color: #ffffff;
+  height: 12%;
+  padding: 10px;
+  margin-top: 410px;
+}
+
+
+ form {
+    display: block;
+    width: 100%;
+    padding: 2em;
+    border: 2px solid blue;
+  }
+
+  
+  input {
+    display: block;
+    margin: auto auto;
+    width: 100%;
+    margin-bottom: 2em;
+    padding: .5em 0;
+    border: none;
+    border-bottom: 1px solid #eaeaea;
+    padding-bottom: 1.25em;
+    color: #757575;
+    &:focus {
+      outline: none;
+    }
+  }
+
 
 
 @media only screen and (min-width: 768px) {
@@ -181,7 +264,5 @@ a{
   }
 }
 @media only screen and (min-width: 1440px){
-  h1{
-    
-  }
+
 }
