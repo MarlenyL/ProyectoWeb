@@ -9,6 +9,12 @@
 } */
 
 /* General */
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -16,14 +22,16 @@ body {
   padding: 0px;
   width: auto;
   font-family: 'Nanum Gothic', sans-serif;  
-  height: 100vh;
+  width: 100%;
+  height: 100%;
+
 }
 
 .yellowbar{
   display: flex;
   justify-content: center;
   background-color: #f9dc5c;
-  padding: 0.5em;
+  padding: 0 0.5em;
   width: 100%;
   text-align: center;
   font-size: 1.5em;
@@ -49,7 +57,7 @@ body {
   background-color: #0a2342;
   color: #ffffff;
   height: 12%;
-  padding: 10px;
+  padding: 0 10px;
 }
 
 .major{
@@ -58,6 +66,9 @@ body {
 
 .title{
   text-align: end;
+}
+.header img{
+  height: 4em;
 }
 
 /* Lateral */ 
@@ -75,9 +86,6 @@ body {
   justify-content: center;
 }
 
-.header img{
-  height: 5em;
-}
 .lateral{
   height: 100vh;
 }
@@ -107,18 +115,32 @@ body {
   background-color: #ced3dc;
   border-style: solid;
   border-color: #0a2342;
+  border-radius: 1em;
+  height: 130%;
   margin: 1.5em;
 }
 
 .bluebar{
   display: flex;
   background-color: #0a2342;
+  border-radius: 0.8em 0.8em 0 0;
   color: white;
   font-size: 1em;
   justify-content: space-between;
-  padding: 0.4em 1em;
+  padding: 0.4em 2.5em;
 }
 
+.transaccion{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8em 0;
+  border-bottom: solid white;
+}
+.transaccion h3{
+  padding: 0 1em;
+  margin: 0;
+}
 
 @media only screen and (min-width: 768px) {
   .major{
