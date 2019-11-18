@@ -70,7 +70,7 @@ body {
   justify-content: space-between;
   background-color: #0a2342;
   color: #ffffff;
-  height: 12%;
+  height: 15%;
   padding: 10px;
 }
 
@@ -95,12 +95,6 @@ body {
   justify-content: center;
   height: 25vh;
 }
-
-.informacion img{
-  width: 50%;
-  height: auto;
-}
-
 .hide-mobile{
   display: none;
 }
@@ -110,7 +104,8 @@ body {
   border-left: 0.5em solid #f9dc5c;
 }
 .header img{
-  height: 5em;
+  height: 4em;
+  padding-bottom: 10%;
 }
 .lateral{
   height: 100vh;
