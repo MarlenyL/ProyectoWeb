@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap');
+
+/* Aplicando un formato general al html
+*, ::before, ::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: calc(0.5em + 1vh);
+} */
+
+/* General */
+body {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  padding: 0px;
+  width: auto;
+  font-family: 'Nanum Gothic', sans-serif;  
+  height: 100vh;
+}
+
+.yellowbar{
+  display: flex;
+  justify-content: center;
+  background-color: #f9dc5c;
+  padding: 0.5em;
+  width: 100%;
+  text-align: center;
+  font-size: 1.5em;
+}
+.imgY{
+  width: 5em;
+  height: auto;
+}
+.hide-mobile{
+  display: none;
+}
+
+.container{
+  display: flex;
+}
+/* Header */
+
+.header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: #0a2342;
+  color: #ffffff;
+  height: 12%;
+  padding: 10px;
+}
+
+.major{
+  display: none;
+}
+
+.title{
+  text-align: end;
+}
+
+/* Lateral */ 
+
+.perfil{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  width: 100%;
+  text-align: center;
+  color: #ffffff;
+}
+.informacion{
+  width: 100%;
+  justify-content: center;
+}
+
+.header img{
+  height: 5em;
+}
+.lateral{
+  height: 100vh;
+}
+
+/* Principal */
+
+.tarjetas{
+  background-color: #ced3dc;
+  padding: 0.5em;
+  border-left: 0.5em solid #0a2342;
+  margin: 3em auto;
+  width: 80%;
+  box-shadow: 2px 2px 3px #928a926e;
+}
+
+.tarjetas:hover{
+  border-left: 0.5em solid #f9dc5c;
+}
+
+.principal{
+  width: 100%;
+}
+
+/* Transacciones */
+
+.tarjeta{
+  background-color: #ced3dc;
+  border-style: solid;
+  border-color: #0a2342;
+  margin: 1.5em;
+}
+
+.bluebar{
+  display: flex;
+  background-color: #0a2342;
+  color: white;
+  font-size: 1em;
+  justify-content: space-between;
+  padding: 0.4em 1em;
+}
+
+.
+
+
+@media only screen and (min-width: 768px) {
+  .major{
+    display:inline;
+  }
+  .movil{
+    display:none;
+  }
+  .perfil{
+    width: 20%;
+  }
+  .tarjetas{
+    width: 10em;
+    height: 7em;
+    border-left: 0px;
+    border-bottom: 0.5em solid #0a2342;
+  }
+  .principal{
+    width: 80%;
+  }
+  .perfil{
+    background-color: #0a2342;
+  }
+  .fas{
+    display: none;
+  }
+  .tarjetas:hover{
+    border-bottom: 0.5em solid #f9dc5c;
+    border-left: 0px;
+  }
+  .tarjeta{
+    display: flex;
+    flex-direction: row;
+  }
+}
+@media only screen and (min-width: 1440px){
+  h1{
+    
+  }
+}
