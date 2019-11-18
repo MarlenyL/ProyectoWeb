@@ -11,6 +11,8 @@ var transaccionesRouter = require('./routes/transacciones');
 var imgChangeRouter = require('./routes/imgChange');
 //var lateralRouter = require('./routes/lateral');
 var app = express();
+//var session = require('express-session');
+var cookieSession = require('cookie-session')
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -21,6 +23,12 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(cookieSession({
+  secret: "burritos al pastor",
+  name: 'session',
+  // Cookie Options
+  maxAge: 24 * 60 * 60 * 1000 // 24 hours
+}))
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);

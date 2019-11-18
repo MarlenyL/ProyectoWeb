@@ -1,8 +1,18 @@
-var StudentManager = require('../controllers/StudentManager')
+var {sequelize,Sequelize} = require('../Database/connection')
 
-var usuario = {};
+const usuario = sequelize.define("usuario", {
+    id_usuario:{
+        type:Sequelize.NUMBER
+    },
+    nombre :{
+        type: Sequelize.STRING
+    },
+    usuario: {
+        type: Sequelize.STRING
+    },
+    contrasea: {
+        type: Sequelize.STRING
+    }
+})
 
-module.exports.set{
-    
-}
 module.exports = usuario;

@@ -17,10 +17,9 @@ const text = 'SELECT * FROM "usuario" where "usuario" = $1 and "contrasea"= $2'
 module.exports.consultar = (values) => {
     //conexion.client.connect(
         conexion.client.query(text,values)
-        .then(res => {
+        .then((res, req) => {
             var result = res.rows[0];
-            console.log(res.rows);
-            return result;
+            req.session.info = result;
         })
         .catch(e => console.error(e.stack))
     //)
