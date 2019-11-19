@@ -14,6 +14,7 @@ const usuarios = sequelize.define("usuarios", {
     contrasea: {
         type: Sequelize.STRING
     },
+<<<<<<< HEAD
     
 },
 {
@@ -23,6 +24,11 @@ const usuarios = sequelize.define("usuarios", {
     tableName: "usuarios",
     freezeTableName:true,
     schema: "public"
+=======
+    /*timestamps: false,
+    createdAt:false,
+    updatedAt: false*/
+>>>>>>> 18d69b19bb943b9944d8c60b5a7fc8d743133740
 })
 //animals.sync({force:true});
 module.exports = usuarios;
