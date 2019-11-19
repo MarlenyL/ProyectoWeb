@@ -6,7 +6,11 @@
     "start": "nodemon ./bin/www"
   },
   "dependencies": {
+<<<<<<< HEAD
     "body-parser": "^1.19.0",
+=======
+    "bluebird": "^3.7.1",
+>>>>>>> 31b57554b7d951552477a5ced22141e906cb13e8
     "cookie-parser": "^1.4.4",
     "cookie-session": "^1.3.3",
     "deamon": "^1.0.0",
