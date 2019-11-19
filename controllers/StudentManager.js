@@ -1,26 +1,16 @@
 
-/*var StudentManager = {};
-
-let myJson={
-    name: 'Rocio Marleny Landaverde Solis',
-    someone:'rocio',
-    saldo: 20
-}
-
-module.exports = {myJson};
-*/
-
-var conexion = require('../Database/elephantsql.js')
+var {sequelize,Sequelize}= require('../Database/connection')
 var usuario = require('../models/usuario');
-const text = 'SELECT * FROM "usuario" where "usuario" = $1 and "contrasea"= $2'
-//const values = ['00153118','00153118'];
-module.exports.consultar = (values) => {
-    //conexion.client.connect(
-        conexion.client.query(text,values)
-        .then((res, req) => {
-            var result = res.rows[0];
-            req.session.info = result;
+
+sequelize
+    .authenticate()
+    .then(async () => {
+        console.log('Connection has been established successfully.');
+        await usuario.findAll({ attributes: ['id', 'nombre', 'usuario', 'contrasea'] }).then(usuario => {
+            console.log(JSON.stringify(usuario));
         })
-        .catch(e => console.error(e.stack))
-    //)
-}
+        await sequelize.query(`SELECT now();`).then((data) => { console.log(data) })
+    })
+    .catch(err => {
+        console.error('Unable to connect to the database:', err);
+    });
