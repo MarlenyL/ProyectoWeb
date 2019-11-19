@@ -9,6 +9,12 @@
 } */
 
 /* General */
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -23,6 +29,7 @@ body {
   display: flex;
   justify-content: center;
   background-color: #f9dc5c;
+  padding: 0 0.5em;
   width: 100%;
   text-align: center;
 }
@@ -88,6 +95,9 @@ body {
 .title {
   text-align: end;
 }
+.header img{
+  height: 4em;
+}
 
 .perfil {
   display: flex;
@@ -129,6 +139,40 @@ body {
 .principal {
   width: 100%;
 }
+
+/* Transacciones */
+
+.movimientos{
+  background-color: #ced3dc;
+  border-style: solid;
+  border-color: #0a2342;
+  border-radius: 1em;
+  height: 130%;
+  margin: 1.5em;
+}
+
+.bluebar{
+  display: flex;
+  background-color: #0a2342;
+  border-radius: 0.8em 0.8em 0 0;
+  color: white;
+  font-size: 1em;
+  justify-content: space-between;
+  padding: 0.4em 2.5em;
+}
+
+.transaccion{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8em 0;
+  border-bottom: solid white;
+}
+.transaccion h3{
+  padding: 0 1em;
+  margin: 0;
+}
+
 a {
   text-decoration: none;
   color: #fff;
