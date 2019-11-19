@@ -1,9 +1,8 @@
 var {sequelize,Sequelize} = require('../Database/connection')
 
-const usuarios = sequelize.define("usuarios", {
-    id:{
-        type:Sequelize.INTEGER,
-        primaryKey: true
+const animals = sequelize.define("animals", {
+    id_usuario:{
+        type:Sequelize.INTEGER
     },
     nombre :{
         type: Sequelize.STRING
@@ -20,9 +19,9 @@ const usuarios = sequelize.define("usuarios", {
     timestamps: false,
     createdAt:false,
     updatedAt: false,
-    tableName: "usuarios",
+    tableName: "animals",
     freezeTableName:true,
     schema: "public"
 })
-//animals.sync({force:true});
-module.exports = usuarios;
+animals.sync({force:true})
+module.exports = animals;
