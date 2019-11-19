@@ -2,21 +2,22 @@ extends layout
 
 block content
     include header
-    div(class="containe")
+    div
+        include lateral
         div(class="yellowbar")
             h3 Transacciones 
             img(src="/img/vector.ico", alt="$" class="imgY")
-        div(class="tarjeta")
+        div(class="movimientos")
             div(class="bluebar")
                 h3 Movimientos
                 h3 Monto
-            div(class="movimientos")
+            div(class="transaccion")
                 h3 Compra: Las Terrazas
                 div(class="monto")
                     h3 -$1.00
                     h3 $14.00
-
-
-
-
-        
+            div(class="transaccion")
+                h3 Compra: Libreria Uca
+                div(class="monto")
+                    h3 -$1.00
+                    h3 $14.00
