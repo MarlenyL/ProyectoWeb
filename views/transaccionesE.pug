@@ -2,21 +2,18 @@ extends layout
 
 block content
     include header
-    div(class="containe")
+    div(main="container")
+        include lateral
         div(class="yellowbar")
             h3 Transacciones 
             img(src="/img/vector.ico", alt="$" class="imgY")
-        div(class="tarjeta")
+        div(class="movimientos")
             div(class="bluebar")
                 h3 Movimientos
                 h3 Monto
-<<<<<<< HEAD
             div(class="fecha-mobile")
                     h4 4 noviembre de 2019
             div(class="transaccion")
-=======
-            div(class="movimientos")
->>>>>>> c8df9f34ff88b2e27f67410125acea48caf01527
                 h3 Compra: Las Terrazas
                 div(class="monto")
                     h3 -$1.00
@@ -26,8 +23,3 @@ block content
                 div(class="monto")
                     h3 -$1.00
                     h3 $14.00
-
-
-
-
-        
