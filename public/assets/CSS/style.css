@@ -9,12 +9,6 @@
 } */
 
 /* General */
-
-html {
-  width: 100%;
-  height: 100%;
-}
-
 body {
   display: flex;
   flex-direction: column;
@@ -29,9 +23,9 @@ body {
   display: flex;
   justify-content: center;
   background-color: #f9dc5c;
-  padding: 0 0.5em;
   width: 100%;
   text-align: center;
+  margin-top: 5em;
 }
 .imgY {
   width: 6em;
@@ -110,9 +104,6 @@ body {
 .title {
   text-align: end;
 }
-.header img{
-  height: 4em;
-}
 
 .perfil {
   display: flex;
@@ -154,47 +145,77 @@ body {
 }
 .container {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  height: 50vh;
 }
 .principal {
   width: 100%;
 }
-
-/* Transacciones */
-
-.movimientos{
-  background-color: #ced3dc;
-  border-style: solid;
-  border-color: #0a2342;
-  border-radius: 1em;
-  height: 130%;
-  margin: 1.5em;
-}
-
-.bluebar{
-  display: flex;
-  background-color: #0a2342;
-  border-radius: 0.8em 0.8em 0 0;
-  color: white;
-  font-size: 1em;
-  justify-content: space-between;
-  padding: 0.4em 2.5em;
-}
-
-.transaccion{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.8em 0;
-  border-bottom: solid white;
-}
-.transaccion h3{
-  padding: 0 1em;
-  margin: 0;
-}
-
 a {
   text-decoration: none;
   color: #fff;
+}
+
+/* Login */
+
+/*label{
+  margin-bottom: 0.5em;
+}*/
+
+#boton{
+  background-color: #0a2342;
+  color: #fff;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: #0a2342;
+  height: 15%;
+  padding: 10px;
+  position:relative;
+    bottom:-110px;
+    right:0px;
+}
+
+.container{
+  align-content: center;
+}
+.Formulario{
+  background-color: #ced3dc;
+  width: 85%;
+  margin-top: 40px;
+  border-radius: 0.5em;
+}
+
+form {
+  display:flex;
+  width: 100%;
+  padding:0px;
+  text-align: center;
+  margin-top: 50px;
+  flex-direction: column;
+}
+.data{
+  padding-bottom: 20px;
+  width: 100%;
+}
+input {
+  display: block;
+  margin: auto auto;
+  width: 70%;
+  margin-bottom: 2em;
+  padding: .5em 0;
+  border: none;
+  border-bottom: 1px solid #eaeaea;
+  padding-bottom: 1.25em;
+  color: #757575;
+  border-radius: 0.5em;
 }
 .tarjetas img{
   width: 20%;
@@ -222,12 +243,12 @@ a {
     color: #ffffff;
     height: 15%;
     padding: 10px;
-    align-content: center;
+    align-content: top;
   }
   .tarjetas {
     width: 10em;
     height: 7em;
-    border-left: 0px;
+    border-left: 100px;
     border-bottom: 0.5em solid #0a2342;
     text-align: center;
   }
@@ -281,6 +302,10 @@ a {
     align-items: center;
   }
 }
+
+/* Login */
+
+
 @media only screen and (min-width: 1440px) {
   h1 {
   }
