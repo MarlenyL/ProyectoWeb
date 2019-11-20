@@ -9,12 +9,6 @@
 } */
 
 /* General */
-
-html {
-  width: 100%;
-  height: 100%;
-}
-
 body {
   display: flex;
   flex-direction: column;
@@ -28,15 +22,10 @@ body {
 .yellowbar {
   display: flex;
   justify-content: center;
-  align-items: center;
   background-color: #f9dc5c;
-  padding: 0 0.5em;
   width: 100%;
-<<<<<<< HEAD:public/assets/css/style.css
   text-align: center;
   margin-top: 5em;
-=======
->>>>>>> de7da0c227f270e4eea74966361d08a305de7916:public/assets/CSS/style.css
 }
 .imgY {
   width: 6em;
@@ -73,9 +62,12 @@ body {
   padding: 0px;
 }
 
+.hide-mobile{
+  display: none;
+}
+
 .container{
   display: flex;
-  height: 85%;
 }
 /* Header */
 
@@ -96,9 +88,6 @@ body {
 
 .title {
   text-align: end;
-}
-.header img{
-  height: 4em;
 }
 
 .perfil {
@@ -137,11 +126,15 @@ body {
 }
 .container {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  height: 50vh;
 }
 .principal {
   width: 100%;
 }
-<<<<<<< HEAD:public/assets/css/style.css
 a {
   text-decoration: none;
   color: #fff;
@@ -175,19 +168,8 @@ a {
   align-content: center;
 }
 .Formulario{
-=======
-
-/* Transacciones */
-
-.movimientos{
->>>>>>> de7da0c227f270e4eea74966361d08a305de7916:public/assets/CSS/style.css
   background-color: #ced3dc;
-  border-style: solid;
-  border-color: #0a2342;
-  border-radius: 1em;
-  overflow: scroll;
   width: 85%;
-<<<<<<< HEAD:public/assets/css/style.css
   margin-top: 40px;
   border-radius: 0.5em;
 }
@@ -215,45 +197,6 @@ input {
   padding-bottom: 1.25em;
   color: #757575;
   border-radius: 0.5em;
-=======
-  height: 70%;
-  margin: 1em;
-  margin-left: 1.6em ;
-}
-
-.bluebar{
-  display: flex;
-  background-color: #0a2342;
-  border-radius: 0.8em 0.8em 0 0;
-  color: white;
-  font-size: 1em;
-  justify-content: space-between;
-  position: fixed;
-  width: 66%;
-  padding: 0.4em 2.5em;
-}
-
-.transaccion{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1em 0;
-  border-bottom: solid white;
-}
-.transaccion h3{
-  padding: 0 1em;
-  margin: 0;
-}
-
-a {
-  text-decoration: none;
-  color: #fff;
-}
-
-.datos{
-  display: flex;
-
->>>>>>> de7da0c227f270e4eea74966361d08a305de7916:public/assets/CSS/style.css
 }
 
 @media only screen and (min-width: 768px) {
@@ -273,7 +216,7 @@ a {
     justify-content: space-between;
     background-color: #0a2342;
     color: #ffffff;
-    height: 10%;
+    height: 15%;
     padding: 10px;
     align-content: top;
   }
@@ -310,25 +253,6 @@ a {
     justify-content: center;
     border-radius: 1em;
     text-align: center;
-  }
-
-  /*Transacciones*/
-
-  .imgY{
-    height: 5em;
-    width: auto;
-  }
-  .yellowbar{
-    font-size: 1.4em;
-    margin: 1em;
-    margin-left: 4em;
-  }
-  .movimientos{
-    margin-left: 5em;
-  }
-
-  .bluebar{
-    width: 62.3%;
   }
 }
 
