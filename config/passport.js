@@ -34,7 +34,9 @@ module.exports= function(passport,user){
             usernameField: 'usuario',
     
             passwordField: 'contrasea',
-    
+
+            nameField: 'nombre',
+            
             passReqToCallback: true // allows us to pass back the entire request to the callback
     
         },
@@ -61,7 +63,7 @@ module.exports= function(passport,user){
                 if (!user) {
                     
                     return done(null, false, {
-                        message: 'usuario does not exist'
+                        message: 'Credenciales incorrectas'
                     });
     
                 }
@@ -69,7 +71,7 @@ module.exports= function(passport,user){
                 if (!isValidPassword(user.contrasea, contrasea)) {
     
                     return done(null, false, {
-                        message: 'Incorrect password.'
+                        message: 'Credenciales incorrectas'
                     });
     
                 }

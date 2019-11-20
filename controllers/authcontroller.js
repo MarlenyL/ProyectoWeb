@@ -6,14 +6,14 @@ exportss.signin = function(req, res) {
  
 }
 exportss.principalE = function(req, res) {
-    res.render('principalE');
+    res.redirect('/principalE');
  
 }
 exportss.logout = function(req, res) {
  
     req.session.destroy(function(err) {
  
-        res.redirect('/');
+        res.redirect('/signin');
  
     });
  

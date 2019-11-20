@@ -12,7 +12,7 @@ var authRoute = require('./routes/auth');
 var indexRouter = require('./routes/index');
 var principalERouter = require('./routes/principalE');
 var transaccionesRouter = require('./routes/transaccionesE');
-
+var logoutRouter = require('./routes/logout');
 var app = express();
 
 // view engine setup
@@ -60,10 +60,9 @@ usuario.sequelize.sync().then(function() {
 
 app.use('/', indexRouter);
 app.use('/signin',authRoute);
-app.use('/signin',authRoute);
-//app.use('/principalE');
+app.use('/principalE',principalERouter);
 app.use('/transaccionesE', transaccionesRouter);
-
+app.use('/logout',logoutRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
