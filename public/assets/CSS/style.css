@@ -68,8 +68,13 @@ body {
   padding: 0px;
 }
 
+.hide-mobile{
+  display: none;
+}
+
 .container{
   display: flex;
+  justify-content: center;
   height: 85%;
 }
 /* Header */
@@ -106,7 +111,7 @@ body {
 }
 .informacion {
   width: 100%;
-  justify-content: center;
+  justify-items: center;
   height: 25vh;
 }
 .hide-mobile {
@@ -130,12 +135,54 @@ body {
   width: 80%;
   box-shadow: 2px 2px 3px #928a926e;
 }
-.container {
-  display: flex;
-}
-.principal {
+.principal{
   width: 100%;
 }
+
+a{
+  text-decoration: none;
+} 
+
+/* Login */
+
+/*label{
+  margin-bottom: 0.5em;
+}*/
+
+#boton{
+  background-color: #0a2342;
+  color: #fff;
+}
+
+footer {
+  background-color: #0a2342;
+  height: 15%;
+}
+
+.Formulario{
+  background-color: #ced3dc;
+  width: 80%;
+  margin: auto;
+  margin-top: 10%;
+  padding: 1em;
+  text-align: center;
+}
+  .data{
+    padding-bottom: 20px;
+    width: 100%;
+  }
+  input {
+    display: block;
+    margin: auto auto;
+    width: 70%;
+    margin-bottom: 2em;
+    padding: .5em 0;
+    border: none;
+    border-bottom: 1px solid #eaeaea;
+    padding-bottom: 1.25em;
+    color: #757575;
+    border-radius: 0.5em;
+  }
 
 /* Transacciones */
 
@@ -214,7 +261,9 @@ a {
     text-align: center;
   }
   .principal {
+    display: flex;
     width: 80%;
+    justify-content: center;
   }
   .perfil {
     background-color: #0a2342;
@@ -263,4 +312,4 @@ a {
 @media only screen and (min-width: 1440px) {
   h1 {
   }
-}
+} 
