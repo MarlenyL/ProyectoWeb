@@ -4,12 +4,12 @@ block content
     include header
     div(class="container")
         div(class="yellowbar")
-                h3 bienvenido
+            h3 bienvenido
         div(class='Formulario')
             form(method ="post" action ="/principalE")
                 label(for="usuario" class="form") Usuario
                 input#user(type="text", name="usuario" , required, placeholder="Usuario", maxlength="8")
                 label(for="contrasea") Contraseña
                 input#password(type="password" name="contrasea", required, placeholder="Contraseña")      
-                button(class="btn") Acceder
+                input(type="submit" value="Acceder")
     //footer

@@ -126,8 +126,6 @@ body {
   height: 100vh;
 }
 .tarjetas {
-  display: flex;
-  justify-content: space-around;
   background-color: #ced3dc;
   padding: 0.5em;
   border-left: 0.5em solid #0a2342;
@@ -179,10 +177,6 @@ a {
   text-decoration: none;
   color: #fff;
 }
-.tarjetas img{
-  width: 20%;
-  margin-left: 35%;
-}
 
 @media only screen and (min-width: 768px) {
   .major {
@@ -212,30 +206,14 @@ a {
     border-bottom: 0.5em solid #0a2342;
     text-align: center;
   }
-  .header img{
-    justify-content;: flex-end;
-  }
-  .header h1{
-    font-size: vh;
-    justify-content:center;
-  }
   .principal {
     width: 80%;
   }
   .perfil {
     background-color: #0a2342;
   }
-  
-  .tarjetas{
-    flex-direction: column;
-    align-content: center;
-    align-items: center;
-    height: auto;
-  }
-  .tarjetas img{
-    margin-left: 0px;
-    justify-content: space-between;
-    width: 40%;
+  .fas {
+    display: none;
   }
   .tarjetas:hover {
     border-bottom: 0.5em solid #f9dc5c;
@@ -254,11 +232,8 @@ a {
     justify-content: center;
     border-radius: 1em;
     text-align: center;
-    align-content: center;
-    align-items: center;
   }
 }
 @media only screen and (min-width: 1440px) {
-  h1 {
-  }
+  
 }
