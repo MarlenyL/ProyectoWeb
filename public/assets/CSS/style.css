@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap");
 
 /* Aplicando un formato general al html
 *, ::before, ::after {
@@ -21,28 +21,56 @@ body {
   margin: auto;
   padding: 0px;
   width: auto;
-  font-family: 'Nanum Gothic', sans-serif;  
-  width: 100%;
-  height: 100%;
-
+  font-family: "Nanum Gothic", sans-serif;
+  height: 100vh;
 }
 
-.yellowbar{
+.yellowbar {
   display: flex;
   justify-content: center;
+  align-items: center;
   background-color: #f9dc5c;
   padding: 0 0.5em;
   width: 100%;
-  text-align: center;
-  font-size: 1.5em;
 }
-.imgY{
-  width: 5em;
+.imgY {
+  width: 6em;
   height: auto;
+}
+.Ayuda {
+  display: flex;
+  flex-direction: row;
+}
+.Ayuda a {
+  margin-left: 45%;
+  padding: 0px;
+}
+.Ayuda p {
+  margin-left: 10%;
+  padding: 0px;
+}
+.Ayuda:hover {
+  background-color: #3c445f;
+}
+.close {
+  display: flex;
+  flex-direction: row;
+}
+.close:hover {
+  background-color: #3c445f;
+}
+.close a {
+  margin-left: 26%;
+  padding: 0px;
+}
+.close p {
+  margin-left: 10%;
+  padding: 0px;
 }
 
 .container{
   display: flex;
+  height: 85%;
 }
 /* Header */
 
@@ -54,27 +82,21 @@ body {
   background-color: #0a2342;
   color: #ffffff;
   height: 15%;
-  padding: 0 10px;
+  padding: 10px;
 }
 
-.major{
+.major {
   display: none;
 }
 
-.title{
+.title {
   text-align: end;
 }
 .header img{
   height: 4em;
 }
 
-/* Lateral */ 
-
-.hide-mobile{
-  display: none;
-}
-
-.perfil{
+.perfil {
   display: flex;
   flex-direction: column;
   align-content: center;
@@ -82,22 +104,25 @@ body {
   text-align: center;
   color: #ffffff;
 }
-.informacion{
+.informacion {
   width: 100%;
   justify-content: center;
+  height: 25vh;
 }
-
-.lateral{
-  height: 100vh;
-}
-
-.hide-mobile{
+.hide-mobile {
   display: none;
 }
 
-/* Principal */
-
-.tarjetas{
+.tarjetas:hover {
+  border-left: 0.5em solid #f9dc5c;
+}
+.header img {
+  height: 4em;
+}
+.lateral {
+  height: 100vh;
+}
+.tarjetas {
   background-color: #ced3dc;
   padding: 0.5em;
   border-left: 0.5em solid #0a2342;
@@ -105,12 +130,10 @@ body {
   width: 80%;
   box-shadow: 2px 2px 3px #928a926e;
 }
-
-.tarjetas:hover{
-  border-left: 0.5em solid #f9dc5c;
+.container {
+  display: flex;
 }
-
-.principal{
+.principal {
   width: 100%;
 }
 
@@ -121,8 +144,11 @@ body {
   border-style: solid;
   border-color: #0a2342;
   border-radius: 1em;
-  height: 130%;
-  margin: 1.5em;
+  overflow: scroll;
+  width: 85%;
+  height: 70%;
+  margin: 1em;
+  margin-left: 1.6em ;
 }
 
 .bluebar{
@@ -132,6 +158,8 @@ body {
   color: white;
   font-size: 1em;
   justify-content: space-between;
+  position: fixed;
+  width: 66%;
   padding: 0.4em 2.5em;
 }
 
@@ -139,7 +167,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.8em 0;
+  padding: 1em 0;
   border-bottom: solid white;
 }
 .transaccion h3{
@@ -147,43 +175,92 @@ body {
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.datos{
+  display: flex;
+
+}
+
 @media only screen and (min-width: 768px) {
-  .major{
-    display:inline;
+  .major {
+    display: inline;
   }
-  .movil{
-    display:none;
+  .movil {
+    display: none;
   }
-  .perfil{
+  .perfil {
     width: 20%;
   }
-  .tarjetas{
+  .header {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: #0a2342;
+    color: #ffffff;
+    height: 10%;
+    padding: 10px;
+    align-content: center;
+  }
+  .tarjetas {
     width: 10em;
     height: 7em;
     border-left: 0px;
     border-bottom: 0.5em solid #0a2342;
+    text-align: center;
   }
-  .principal{
+  .principal {
     width: 80%;
   }
-  .perfil{
+  .perfil {
     background-color: #0a2342;
   }
-  .fas{
+  .fas {
     display: none;
   }
-  .tarjetas:hover{
+  .tarjetas:hover {
     border-bottom: 0.5em solid #f9dc5c;
     border-left: 0px;
   }
-  .tarjeta{
+  .tarjeta {
     display: flex;
     flex-direction: row;
   }
-  
+  .yellowbar {
+    background-color: #f9dc5c;
+    padding: 0.5em;
+    margin: 3em auto;
+    width: 80%;
+    height: 10%;
+    justify-content: center;
+    border-radius: 1em;
+    text-align: center;
+  }
+
+  /*Transacciones*/
+
+  .imgY{
+    height: 5em;
+    width: auto;
+  }
+  .yellowbar{
+    font-size: 1.4em;
+    margin: 1em;
+    margin-left: 4em;
+  }
+  .movimientos{
+    margin-left: 5em;
+  }
+
+  .bluebar{
+    width: 62.3%;
+  }
 }
-@media only screen and (min-width: 1440px){
-  h1{
-    
+@media only screen and (min-width: 1440px) {
+  h1 {
   }
 }
