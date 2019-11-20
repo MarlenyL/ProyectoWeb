@@ -8,9 +8,9 @@ module.exports= function(passport,user){
      
     })
     passport.deserializeUser(function(id, done) {
- 
-        User.findById(id).then(function(user) {
-     
+        
+        User.findByPk(id).then(function(user) {
+            
             if (user) {
      
                 done(null, user.get());
@@ -24,19 +24,6 @@ module.exports= function(passport,user){
         });
      
     });
-    /*passport.use('local-signup', new LocalStrategy(
- 
-        {
-            usernameField: 'usuario',
-            passwordField: 'contrasea',
-            passReqToCallback: true // allows us to pass back the entire request to the callback
-     
-        },
-        function(req, usuario, contrasea, done) {
- 
-        }
-     
-    ));*/
     //LOCAL SIGNIN
     passport.use('local-signin', new LocalStrategy(
     
@@ -56,10 +43,13 @@ module.exports= function(passport,user){
         function(req, usuario, contrasea, done) {
     
             var User = user;
-    
+            
             var isValidPassword = function(userpass, contrasea) {
-    
-                return bCrypt.compareSync(contrasea, userpass);
+                
+                if (userpass==contrasea){
+                    return true;
+                }
+                return false;
     
             }
     
@@ -68,9 +58,8 @@ module.exports= function(passport,user){
                     usuario: usuario
                 }
             }).then(function(user) {
-    
                 if (!user) {
-    
+                    
                     return done(null, false, {
                         message: 'usuario does not exist'
                     });

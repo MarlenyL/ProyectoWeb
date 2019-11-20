@@ -4,7 +4,7 @@ var StudentManager = require('../controllers/StudentManager');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.redirect('/signup');
+  res.redirect('/signin')
 });
 
 /*router.post('/principalE', function(req, res, next) {

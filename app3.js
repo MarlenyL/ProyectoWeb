@@ -6,10 +6,8 @@ var session = require('express-session');
 var passport   = require('passport');
 var bodyParser = require('body-parser');
 
-//Routes
- 
-var authRoute = require('./routes/auth');
 var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
 var principalERouter = require('./routes/principalE');
 var transaccionesRouter = require('./routes/transaccionesE');
 
@@ -36,10 +34,12 @@ app.use(session({
   saveUninitialized:true})); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
-
 //Models
 var usuario = require("./models/usuario");
  
+//Routes
+ 
+var authRoute = require('./routes/auth2')(app,passport);
 
 //load passport strategies
  
@@ -59,9 +59,9 @@ usuario.sequelize.sync().then(function() {
 });
 
 app.use('/', indexRouter);
-app.use('/signin',authRoute);
-app.use('/signin',authRoute);
-//app.use('/principalE');
+app.use('/users', usersRouter);
+app.use('/index/signin',authRoute);
+app.use('/principalE', principalERouter);
 app.use('/transaccionesE', transaccionesRouter);
 
 // catch 404 and forward to error handler

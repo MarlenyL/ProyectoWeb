@@ -24,5 +24,5 @@ const usuarios = sequelize.define("usuarios", {
     freezeTableName:true,
     schema: "public"
 })
-//animals.sync({force:true});
+
 module.exports = usuarios;

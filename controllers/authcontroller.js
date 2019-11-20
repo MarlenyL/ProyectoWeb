@@ -1,21 +1,15 @@
-var exports = module.exports = {}
+var exportss =  {}
  
-exports.signup = function(req, res) {
+exportss.signin = function(req, res) {
  
-    res.render('login');
- 
-}
-exports.signin = function(req, res) {
- 
-    res.render('signin');
+    res.render('index');
  
 }
-exports.principalE = function(req, res) {
- 
+exportss.principalE = function(req, res) {
     res.render('principalE');
  
 }
-exports.logout = function(req, res) {
+exportss.logout = function(req, res) {
  
     req.session.destroy(function(err) {
  
@@ -24,3 +18,5 @@ exports.logout = function(req, res) {
     });
  
 }
+
+module.exports = exportss;

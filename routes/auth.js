@@ -1,29 +1,33 @@
+var express = require('express');
+var router = express.Router();
+var passport   = require('passport');
 var authController = require('../controllers/authcontroller');
  
-module.exports = function(app,passport) {
+
  
-    app.get('/signin', authController.signin);
-    app.get('/principalE',isLoggedIn,authController.principalE);
-    app.get('/logout', authController.logout);
+router.get('/', authController.signin);
+
  
+router.get('/principalE',isLoggedIn,authController.principalE);
+router.get('/logout', authController.logout);
+
+router.post('/', passport.authenticate('local-signin', {
+        successRedirect: '/principalE',
  
-    app.post('/signin', passport.authenticate('local-signin', {
-            successRedirect: '/principalE',
- 
-            failureRedirect: '/signin'
-        }
- 
-    ));
- 
- 
-    function isLoggedIn(req, res, next) {
- 
-        if (req.isAuthenticated())
- 
-            return next();
- 
-        res.redirect('/signin');
- 
+        failureRedirect: '/signin'
     }
+));
+
+ 
+ 
+function isLoggedIn(req, res, next) {
+ 
+    if (req.isAuthenticated()){
+        return next();
+    }
+    res.redirect('/signin');
  
 }
+
+module.exports = router;
+ 
