@@ -40,6 +40,8 @@ body {
 .Ayuda {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 .Ayuda a {
   margin-left: 45%;
@@ -49,12 +51,18 @@ body {
   margin-left: 10%;
   padding: 0px;
 }
+.Ayuda img{
+  width: 20%;
+  height: 20%;
+}
 .Ayuda:hover {
   background-color: #3c445f;
 }
 .close {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 .close:hover {
   background-color: #3c445f;
@@ -67,7 +75,14 @@ body {
   margin-left: 10%;
   padding: 0px;
 }
-
+.close img{
+  width: 20%;
+  height: 20%;
+}
+.fa-bars:before {
+  content: "\f0c9";
+  font-size: xx-large;
+}
 .hide-mobile{
   display: none;
 }
@@ -108,6 +123,7 @@ body {
   color: #ffffff;
 }
 .informacion {
+  display: grid;
   width: 100%;
   justify-content: center;
   height: 25vh;
@@ -126,12 +142,15 @@ body {
   height: 100vh;
 }
 .tarjetas {
+  display: flex;
+  justify-content: space-around;
   background-color: #ced3dc;
   padding: 0.5em;
   border-left: 0.5em solid #0a2342;
   margin: 3em auto;
   width: 80%;
   box-shadow: 2px 2px 3px #928a926e;
+  align-items: center;
 }
 .container {
   display: flex;
@@ -177,6 +196,12 @@ a {
   text-decoration: none;
   color: #fff;
 }
+.tarjetas img{
+  width: 20%;
+  height: 20%;
+  /*margin-left: 35%;*/
+}
+
 
 @media only screen and (min-width: 768px) {
   .major {
@@ -206,14 +231,34 @@ a {
     border-bottom: 0.5em solid #0a2342;
     text-align: center;
   }
+  .tarjetas img{
+    width: 60%;
+    height: 60%;
+  }
+  .header img{
+    justify-content;: flex-end;
+  }
+  .header h1{
+    font-size: vh;
+    justify-content:center;
+  }
   .principal {
     width: 80%;
   }
   .perfil {
     background-color: #0a2342;
   }
-  .fas {
-    display: none;
+  
+  .tarjetas{
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    height: auto;
+  }
+  .tarjetas img{
+    margin-left: 0px;
+    justify-content: space-between;
+    width: 40%;
   }
   .tarjetas:hover {
     border-bottom: 0.5em solid #f9dc5c;
@@ -232,8 +277,11 @@ a {
     justify-content: center;
     border-radius: 1em;
     text-align: center;
+    align-content: center;
+    align-items: center;
   }
 }
 @media only screen and (min-width: 1440px) {
-  
+  h1 {
+  }
 }
