@@ -1,22 +1,55 @@
 extends layout
 
 block content
-    include header
-    div(class="containe")
-        div(class="yellowbar")
-            h3 Transacciones 
-            img(src="/img/vector.ico", alt="$" class="imgY")
-        div(class="tarjeta")
-            div(class="bluebar")
-                h3 Movimientos
-                h3 Monto
+    div(class="container")
+        include lateral
+        div(class="principal")
+            include header
+            div(class="yellowbar")
+                h3 Transacciones 
+                img(src="/img/vector.ico", alt="$" class="imgY")
             div(class="movimientos")
-                h3 Compra: Las Terrazas
-                div(class="monto")
-                    h3 -$1.00
-                    h3 $14.00
-
-
-
-
-        
+                div(class="bluebar")
+                    h3 Movimientos
+                    h3(class="major") Fecha/Hora
+                    h3(class="major") N° Transaccion
+                    h3 Monto
+                div(class="transaccion")
+                    h3 Compra: Las Terrazas
+                    div(class="datos")
+                        h3(class="major") Fecha/Hora
+                        h3(class="major") N° Transaccion
+                        div(class="monto")
+                            h3 -$1.00
+                            h3 $14.00
+                div(class="transaccion")
+                    h3 Compra: Libreria Uca
+                    div(class="datos")
+                        div(class="monto")
+                            h3 -$1.00
+                            h3 $14.00
+                div(class="transaccion")
+                    h3 Compra: Libreria Uca
+                    div(class="datos")
+                        h3 -$1.00
+                        h3 $14.00
+                div(class="transaccion")
+                    h3 Compra: Libreria Uca
+                    div(class="datos")
+                        h3 -$1.00
+                        h3 $14.00
+                div(class="transaccion")
+                    h3 Compra: Libreria Uca
+                    div(class="datos")
+                        h3 -$1.00
+                        h3 $14.00
+                div(class="transaccion")
+                    h3 Compra: Libreria Uca
+                    div(class="datos")
+                        h3 -$1.00
+                        h3 $14.00
+                div(class="transaccion")
+                    h3 Compra: Libreria Uca
+                    div(class="datos")
+                        h3 -$1.00
+                        h3 $14.00

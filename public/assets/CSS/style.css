@@ -9,6 +9,12 @@
 } */
 
 /* General */
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -22,9 +28,10 @@ body {
 .yellowbar {
   display: flex;
   justify-content: center;
+  align-items: center;
   background-color: #f9dc5c;
+  padding: 0 0.5em;
   width: 100%;
-  text-align: center;
 }
 .imgY {
   width: 6em;
@@ -61,12 +68,9 @@ body {
   padding: 0px;
 }
 
-.hide-mobile{
-  display: none;
-}
-
 .container{
   display: flex;
+  height: 85%;
 }
 /* Header */
 
@@ -87,6 +91,9 @@ body {
 
 .title {
   text-align: end;
+}
+.header img{
+  height: 4em;
 }
 
 .perfil {
@@ -129,9 +136,53 @@ body {
 .principal {
   width: 100%;
 }
+
+/* Transacciones */
+
+.movimientos{
+  background-color: #ced3dc;
+  border-style: solid;
+  border-color: #0a2342;
+  border-radius: 1em;
+  overflow: scroll;
+  width: 85%;
+  height: 70%;
+  margin: 1em;
+  margin-left: 1.6em ;
+}
+
+.bluebar{
+  display: flex;
+  background-color: #0a2342;
+  border-radius: 0.8em 0.8em 0 0;
+  color: white;
+  font-size: 1em;
+  justify-content: space-between;
+  position: fixed;
+  width: 66%;
+  padding: 0.4em 2.5em;
+}
+
+.transaccion{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1em 0;
+  border-bottom: solid white;
+}
+.transaccion h3{
+  padding: 0 1em;
+  margin: 0;
+}
+
 a {
   text-decoration: none;
   color: #fff;
+}
+
+.datos{
+  display: flex;
+
 }
 
 @media only screen and (min-width: 768px) {
@@ -151,7 +202,7 @@ a {
     justify-content: space-between;
     background-color: #0a2342;
     color: #ffffff;
-    height: 15%;
+    height: 10%;
     padding: 10px;
     align-content: center;
   }
@@ -188,6 +239,25 @@ a {
     justify-content: center;
     border-radius: 1em;
     text-align: center;
+  }
+
+  /*Transacciones*/
+
+  .imgY{
+    height: 5em;
+    width: auto;
+  }
+  .yellowbar{
+    font-size: 1.4em;
+    margin: 1em;
+    margin-left: 4em;
+  }
+  .movimientos{
+    margin-left: 5em;
+  }
+
+  .bluebar{
+    width: 62.3%;
   }
 }
 @media only screen and (min-width: 1440px) {
