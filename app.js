@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var database = require('./Database/elephantsql');
+var database = require('./Database/connection');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var principalERouter = require('./routes/principalE');
@@ -53,5 +53,4 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-database.conn();
 module.exports = app; 
