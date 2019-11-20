@@ -40,6 +40,8 @@ body {
 .Ayuda {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 .Ayuda a {
   margin-left: 45%;
@@ -49,12 +51,18 @@ body {
   margin-left: 10%;
   padding: 0px;
 }
+.Ayuda img{
+  width: 20%;
+  height: 20%;
+}
 .Ayuda:hover {
   background-color: #3c445f;
 }
 .close {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 .close:hover {
   background-color: #3c445f;
@@ -67,7 +75,14 @@ body {
   margin-left: 10%;
   padding: 0px;
 }
-
+.close img{
+  width: 20%;
+  height: 20%;
+}
+.fa-bars:before {
+  content: "\f0c9";
+  font-size: xx-large;
+}
 .hide-mobile{
   display: none;
 }
@@ -108,6 +123,7 @@ body {
   color: #ffffff;
 }
 .informacion {
+  display: grid;
   width: 100%;
   justify-content: center;
   height: 25vh;
@@ -134,6 +150,7 @@ body {
   margin: 3em auto;
   width: 80%;
   box-shadow: 2px 2px 3px #928a926e;
+  align-items: center;
 }
 .container {
   display: flex;
@@ -181,8 +198,10 @@ a {
 }
 .tarjetas img{
   width: 20%;
-  margin-left: 35%;
+  height: 20%;
+  /*margin-left: 35%;*/
 }
+
 
 @media only screen and (min-width: 768px) {
   .major {
@@ -211,6 +230,10 @@ a {
     border-left: 0px;
     border-bottom: 0.5em solid #0a2342;
     text-align: center;
+  }
+  .tarjetas img{
+    width: 60%;
+    height: 60%;
   }
   .header img{
     justify-content;: flex-end;
