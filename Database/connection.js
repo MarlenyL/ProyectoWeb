@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize('postgres://wdpdgbvn:6bJjbdfE0G1RAXs8ra2EErf8X2LT1zO7@isilo.db.elephantsql.com:5432/wdpdgbvn');
+const sequelize = new Sequelize('postgres://bsotqenl:SIi5Keq54evR9YTlT-3uQLL57vg0DDGA@salt.db.elephantsql.com:5432/bsotqenl');
 
 
 /*sequelize

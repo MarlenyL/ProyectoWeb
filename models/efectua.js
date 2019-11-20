@@ -1,4 +1,6 @@
 var {sequelize,Sequelize} = require('../Database/connection')
+var transferencia = require('../models/transferencia');
+var beneficiario = require('../models/beneficiario');
 
 const efectua = sequelize.define("efectua", {
     id:{
@@ -6,13 +8,19 @@ const efectua = sequelize.define("efectua", {
         primaryKey: true
     },
     id_transferencia :{
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: transferencia,
+        referenceKey: 'id',
     },
     id_beneficiario_donador: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: beneficiario,
+        referenceKey: 'id',
     },
     id_beneficiario_receptor: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: beneficiario,
+        referenceKey: 'id',
     },
     monto: {
         type: Sequelize.DECIMAL(10, 2)
@@ -27,5 +35,7 @@ const efectua = sequelize.define("efectua", {
     freezeTableName:true,
     schema: "public"
 })
-//animals.sync({force:true});
+transferencia.hasOne(efectua);
+beneficiario.hasOne(efectua);
+
 module.exports = efectua;

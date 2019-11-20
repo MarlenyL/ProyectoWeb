@@ -1,4 +1,5 @@
 var {sequelize,Sequelize} = require('../Database/connection')
+var usuario = require('../models/usuario'); 
 
 const beneficiario = sequelize.define("beneficiario", {
     id:{
@@ -6,7 +7,9 @@ const beneficiario = sequelize.define("beneficiario", {
         primaryKey: true
     },
     id_usuario:{
-        type:Sequelize.INTEGER
+        type:Sequelize.INTEGER,
+        references: usuario,
+        referenceKey: 'id',
     },
     carnet:{
         type: Sequelize.STRING
@@ -24,5 +27,5 @@ const beneficiario = sequelize.define("beneficiario", {
     freezeTableName:true,
     schema: "public"
 })
-animals.sync({force:true})
+usuario.hasMany(beneficiario);
 module.exports = beneficiario;

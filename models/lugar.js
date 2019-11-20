@@ -18,5 +18,5 @@ const lugar = sequelize.define("lugar", {
     freezeTableName:true,
     schema: "public"
 })
-//animals.sync({force:true});
+
 module.exports = lugar;

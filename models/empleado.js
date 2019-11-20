@@ -1,4 +1,5 @@
 var {sequelize,Sequelize} = require('../Database/connection')
+var usuario = require('../models/usuario'); 
 
 const empleado = sequelize.define("empleado", {
     id:{
@@ -6,7 +7,9 @@ const empleado = sequelize.define("empleado", {
         primaryKey: true
     },
     id_usuario:{
-        type:Sequelize.INTEGER
+        type:Sequelize.INTEGER,
+        references: usuario,
+        referenceKey: 'id',
     },
     telefono :{
         type: Sequelize.STRING
@@ -21,5 +24,5 @@ const empleado = sequelize.define("empleado", {
     freezeTableName:true,
     schema: "public"
 })
-
+usuario.hasMany(empleado);
 module.exports = empleado;

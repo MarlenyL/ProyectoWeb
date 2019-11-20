@@ -1,19 +1,22 @@
 var {sequelize,Sequelize} = require('../Database/connection')
+var transaccion = require('../models/Transaccion')
 
 const compra = sequelize.define("compra", {
     id:{
         type:Sequelize.INTEGER,
         primaryKey: true
     },
-    id_compra :{
-        type: Sequelize.INTEGER
-    },
     id_transaccion: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        references: transaccion,
+        referenceKey: 'id',
     },
     detalle: {
         type: Sequelize.STRING
     },
+    tipo: {
+        type: Sequelize.TEXT
+    }
     
 },
 {
@@ -24,5 +27,5 @@ const compra = sequelize.define("compra", {
     freezeTableName:true,
     schema: "public"
 })
-//animals.sync({force:true});
+transaccion.hasMany(compra);
 module.exports = compra;
