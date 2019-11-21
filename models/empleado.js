@@ -1,17 +1,17 @@
 var {sequelize,Sequelize} = require('../Database/connection')
+var usuario = require('../models/usuario'); 
 
-const usuarios = sequelize.define("usuarios", {
+const empleado = sequelize.define("empleado", {
     id:{
         type:Sequelize.INTEGER,
         primaryKey: true
     },
-    nombre :{
-        type: Sequelize.STRING
+    id_usuario:{
+        type:Sequelize.INTEGER,
+        references: usuario,
+        referenceKey: 'id',
     },
-    usuario: {
-        type: Sequelize.STRING
-    },
-    contrasea: {
+    telefono :{
         type: Sequelize.STRING
     },
     
@@ -20,9 +20,9 @@ const usuarios = sequelize.define("usuarios", {
     timestamps: false,
     createdAt:false,
     updatedAt: false,
-    tableName: "usuarios",
+    tableName: "animals",
     freezeTableName:true,
     schema: "public"
 })
-
-module.exports = usuarios;
+usuario.hasMany(empleado);
+module.exports = empleado;

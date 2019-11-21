@@ -9,11 +9,19 @@ var usersRouter = require('./routes/users');
 var principalERouter = require('./routes/principalE');
 var transaccionesRouter = require('./routes/transaccionesE');
 var imgChangeRouter = require('./routes/imgChange');
+var session = require('express-session')
 //var lateralRouter = require('./routes/lateral');
 var app = express();
 //var session = require('express-session');
 var cookieSession = require('cookie-session')
 
+app.use(session({
+	secret: 'secret',
+	resave: true,
+	saveUninitialized: true
+}));
+//app.use(bodyParser.urlencoded({extended : true}));
+//app.use(bodyParser.json());
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 //app.set('view engine', 'jade');
