@@ -1,17 +1,11 @@
 var {sequelize,Sequelize} = require('../Database/connection')
 
-const usuarios = sequelize.define("usuarios", {
+const lugar = sequelize.define("lugar", {
     id:{
         type:Sequelize.INTEGER,
         primaryKey: true
     },
     nombre :{
-        type: Sequelize.STRING
-    },
-    usuario: {
-        type: Sequelize.STRING
-    },
-    contrasea: {
         type: Sequelize.STRING
     },
     
@@ -20,9 +14,9 @@ const usuarios = sequelize.define("usuarios", {
     timestamps: false,
     createdAt:false,
     updatedAt: false,
-    tableName: "usuarios",
+    tableName: "lugar",
     freezeTableName:true,
     schema: "public"
 })
 
-module.exports = usuarios;
+module.exports = lugar;
