@@ -1,5 +1,5 @@
 
-var {sequelize,Sequelize}= require('../Database/connection')
+/*var {sequelize,Sequelize}= require('../Database/connection')
 var usuario = require('../models/usuario');
 var beneficiario = require('../models/beneficiario');
 sequelize
@@ -23,6 +23,6 @@ module.exports.getAll = function(){
     .then(usuario => {
         console.log(JSON.stringify(usuario)," ");
     })
-}
+}*/
 
 
