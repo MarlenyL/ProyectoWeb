@@ -12,13 +12,10 @@ var authRoute = require('./routes/auth');
 var indexRouter = require('./routes/index');
 var principalERouter = require('./routes/principalE');
 var transaccionesRouter = require('./routes/transaccionesE');
-<<<<<<< HEAD
 var imgChangeRouter = require('./routes/imgChange');
 var session = require('express-session')
 //var lateralRouter = require('./routes/lateral');
-=======
 var logoutRouter = require('./routes/logout');
->>>>>>> rocio
 var app = express();
 
 app.use(session({
