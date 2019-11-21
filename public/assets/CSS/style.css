@@ -9,6 +9,12 @@
 } */
 
 /* General */
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -23,9 +29,9 @@ body {
   display: flex;
   justify-content: center;
   background-color: #f9dc5c;
+  padding: 0 0.5em;
   width: 100%;
   text-align: center;
-  margin-top: 5em;
 }
 .imgY {
   width: 6em;
@@ -73,16 +79,15 @@ body {
   width: 20%;
   height: 20%;
 }
-.fa-bars:before {
-  content: "\f0c9";
-  font-size: xx-large;
-}
+
 .hide-mobile{
   display: none;
 }
 
 .container{
   display: flex;
+  justify-content: center;
+  height: 85%;
 }
 /* Header */
 
@@ -103,6 +108,9 @@ body {
 
 .title {
   text-align: end;
+}
+.header img{
+  height: 4em;
 }
 
 .perfil {
@@ -145,18 +153,9 @@ body {
 }
 .container {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  height: 50vh;
 }
 .principal {
   width: 100%;
-}
-a {
-  text-decoration: none;
-  color: #fff;
 }
 
 /* Login */
@@ -170,59 +169,83 @@ a {
   color: #fff;
 }
 
-.footer {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: space-between;
+footer {
   background-color: #0a2342;
   height: 15%;
-  padding: 10px;
-  position:relative;
-    bottom:-110px;
-    right:0px;
 }
 
-.container{
-  align-content: center;
-}
 .Formulario{
   background-color: #ced3dc;
-  width: 85%;
-  margin-top: 40px;
-  border-radius: 0.5em;
-}
-
-form {
-  display:flex;
-  width: 100%;
-  padding:0px;
+  width: 80%;
+  margin: auto;
+  margin-top: 10%;
+  padding: 1em;
   text-align: center;
-  margin-top: 50px;
-  flex-direction: column;
 }
-.data{
-  padding-bottom: 20px;
-  width: 100%;
-}
-input {
-  display: block;
-  margin: auto auto;
-  width: 70%;
-  margin-bottom: 2em;
-  padding: .5em 0;
-  border: none;
-  border-bottom: 1px solid #eaeaea;
-  padding-bottom: 1.25em;
-  color: #757575;
-  border-radius: 0.5em;
-}
-.tarjetas img{
-  width: 20%;
-  height: 20%;
-  /*margin-left: 35%;*/
+  .data{
+    padding-bottom: 20px;
+    width: 100%;
+  }
+  input {
+    display: block;
+    margin: auto auto;
+    width: 70%;
+    margin-bottom: 2em;
+    padding: .5em 0;
+    border: none;
+    border-bottom: 1px solid #eaeaea;
+    padding-bottom: 1.25em;
+    color: #757575;
+    border-radius: 0.5em;
+  }
+
+/* Transacciones */
+
+.movimientos{
+  background-color: #ced3dc;
+  border-style: solid;
+  border-color: #0a2342;
+  border-radius: 1em;
+  overflow: scroll;
+  width: 85%;
+  height: 70%;
+  margin: 1em;
+  margin-left: 1.6em ;
 }
 
+.bluebar{
+  display: flex;
+  background-color: #0a2342;
+  border-radius: 0.8em 0.8em 0 0;
+  color: white;
+  font-size: 1em;
+  justify-content: space-between;
+  position: fixed;
+  width: 66%;
+  padding: 0.4em 2.5em;
+}
+
+.transaccion{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1em 0;
+  border-bottom: solid white;
+}
+.transaccion h3{
+  padding: 0 1em;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.datos{
+  display: flex;
+
+}
 
 @media only screen and (min-width: 768px) {
   .major {
@@ -243,12 +266,12 @@ input {
     color: #ffffff;
     height: 15%;
     padding: 10px;
-    align-content: top;
+    align-content: center;
   }
   .tarjetas {
     width: 10em;
     height: 7em;
-    border-left: 100px;
+    border-left: 0px;
     border-bottom: 0.5em solid #0a2342;
     text-align: center;
   }
@@ -281,6 +304,10 @@ input {
     justify-content: space-between;
     width: 40%;
   }
+  .tarjeta .trans{
+    width: 60%;
+    height: 60%;
+  }
   .tarjetas:hover {
     border-bottom: 0.5em solid #f9dc5c;
     border-left: 0px;
@@ -301,11 +328,25 @@ input {
     align-content: center;
     align-items: center;
   }
+  /*Transacciones*/
+
+  .imgY{
+    height: 5em;
+    width: auto;
+  }
+  .yellowbar{
+    font-size: 1.4em;
+    margin: 1em;
+    margin-left: 4em;
+  }
+  .movimientos{
+    margin-left: 5em;
+  }
+
+  .bluebar{
+    width: 62.3%;
+  }
 }
-
-/* Login */
-
-
 @media only screen and (min-width: 1440px) {
   h1 {
   }
