@@ -6,8 +6,13 @@ block content
         div(class="yellowbar")
             h3 BIENVENIDO
         div(class='Formulario')
+<<<<<<< HEAD
             form(method ="post" action ="/principalE")
                 label(for="usuario" class="data") Usuario:
+=======
+            form(method ="post" action ="signin" name="signin" id="signin")
+                label(for="usuario" class="form") Usuario
+>>>>>>> 1fc7658b46094a0e9523d3ce031533c797d923e6
                 input#user(type="text", name="usuario" , required, placeholder="Usuario", maxlength="8")
                 label(for="contrasea" class="data") Contraseña:
                 input#password(type="password" name="contrasea", required, placeholder="Contraseña")      
