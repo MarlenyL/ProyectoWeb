@@ -261,9 +261,7 @@ a {
     text-align: center;
   }
   .principal {
-    display: flex;
     width: 80%;
-    justify-content: center;
   }
   .perfil {
     background-color: #0a2342;
