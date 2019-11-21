@@ -21,43 +21,8 @@ var StudentManager = require('../controllers/StudentManager');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index');
+  res.redirect('/signin')
 });
-
-router.post('/principalE', function(req, res, next) {
-  var values  = [req.body.usuario,req.body.contrasea];
-  var info = StudentManager.consultar(values);
-  console.log(info);
-  //res.render('principalE', info);
-});
-
-
-/* GET users listing. */
-router.post('/', function (req, res, next) {
-  var username = req.body.user;
-  var password = req.body.password;
-
-  console.log(username);
-  console.log(password);
-  var quer ="SELECT * FROM usuario WHERE usuario = " +"'"+username+"'" +" AND contrasea = "+"'"+password+"'";
-  console.log(quer);
-  
-	if (username && password) {
-		client.query(quer, function(error, results, fields) {
-      console.log(results);
-     client.end();
-      if (error) {
-        res.send('Incorrect Username and/or Password!');
-			
-			} else {
-				res.render('/principalE');
-			}			
-			res.end();
-		});
-	} else {
-		res.send('Please enter Username and Password!');
-		res.end();
-  }})
 
 
 module.exports = router;
