@@ -13,12 +13,19 @@ var indexRouter = require('./routes/index');
 var principalERouter = require('./routes/principalE');
 var transaccionesRouter = require('./routes/transaccionesE');
 <<<<<<< HEAD
+<<<<<<< HEAD
 var imgChangeRouter = require('./routes/imgChange');
 var session = require('express-session')
 //var lateralRouter = require('./routes/lateral');
 =======
 var logoutRouter = require('./routes/logout');
 >>>>>>> rocio
+=======
+var imgChangeRouter = require('./routes/imgChange');
+var session = require('express-session')
+//var lateralRouter = require('./routes/lateral');
+var logoutRouter = require('./routes/logout');
+>>>>>>> 62a45a1e7264c494b1f816d8b929b44092611614
 var app = express();
 
 app.use(session({

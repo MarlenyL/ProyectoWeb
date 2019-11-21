@@ -3,6 +3,7 @@ extends layout
 block content
     include header
     div(class="container")
+<<<<<<< HEAD
         div(class="yellowbar")
             h3 BIENVENIDO
         div(class='Formulario')
@@ -13,3 +14,16 @@ block content
                 input#password(type="password" name="contrasea", required, placeholder="Contraseña")      
                 input(id="boton" type="submit" value="Acceder")
     div(class="footer")
+=======
+        div(class="principal")
+            div(class="yellowbar")
+                h3 BIENVENIDO
+            div(class='Formulario')
+                form(method ="post" action ="/principalE")
+                    label(for="usuario" class="data") Usuario:
+                    input#user(type="text", name="usuario" , required, placeholder="Usuario", maxlength="8")
+                    label(for="contrasea" class="data") Contraseña:
+                    input#password(type="password" name="contrasea", required, placeholder="Contraseña")      
+                    input(id="boton" type="submit" value="Acceder")
+    footer
+>>>>>>> 62a45a1e7264c494b1f816d8b929b44092611614
