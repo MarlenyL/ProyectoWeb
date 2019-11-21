@@ -29,7 +29,6 @@ body {
   display: flex;
   justify-content: center;
   background-color: #f9dc5c;
-  padding: 0 0.5em;
   width: 100%;
   text-align: center;
 }
@@ -207,10 +206,10 @@ footer {
   border-color: #0a2342;
   border-radius: 1em;
   overflow: scroll;
-  width: 85%;
+  width: 80%;
   height: 70%;
   margin: 1em;
-  margin-left: 1.6em ;
+  margin-left: 2.4em ;
 }
 
 .bluebar{
@@ -220,8 +219,8 @@ footer {
   color: white;
   font-size: 1em;
   justify-content: space-between;
-  position: fixed;
-  width: 66%;
+  position:fixed;
+  width: 61%;
   padding: 0.4em 2.5em;
 }
 
@@ -244,10 +243,56 @@ a {
 
 .datos{
   display: flex;
-
 }
 
 @media only screen and (min-width: 768px) {
+
+
+  /* General */
+
+  .yellowbar{
+    font-size: 1.5em;
+  }
+  .imgY{
+    height: 6em;
+    width: auto;
+  } 
+
+  /* Header */
+
+  .fa-bars{
+    font-size: 2em;
+    margin-left: 1em;
+  }
+
+  .header img{
+    height: 6em;
+    margin-right: 1em;
+  }
+  
+  /*Transacciones*/
+
+  .movimientos{
+    height: 60%;
+    margin-left: 4em;
+    margin-top: 7em;
+    padding-top: 2em ;
+  }
+
+  .bluebar{
+    width: 70.5%;
+    margin-left: 4em;
+    margin-top: 4em;
+    
+  }
+  .bluebar h3{
+    font-size: 1.5em;
+  }
+
+
+
+}
+@media only screen and (min-width: 1024px) {
   .major {
     display: inline;
   }
@@ -328,26 +373,18 @@ a {
     align-content: center;
     align-items: center;
   }
-  /*Transacciones*/
+    /*Transacciones*/
 
-  .imgY{
-    height: 5em;
-    width: auto;
-  }
-  .yellowbar{
-    font-size: 1.4em;
-    margin: 1em;
-    margin-left: 4em;
-  }
-  .movimientos{
-    margin-left: 5em;
-  }
-
-  .bluebar{
-    width: 62.3%;
-  }
-}
-@media only screen and (min-width: 1440px) {
-  h1 {
-  }
+    .yellowbar{
+      font-size: 1.4em;
+      margin: 1em;
+      margin-left: 4em;
+    }
+    .movimientos{
+      margin-left: 6em; 
+    }
+  
+    .bluebar{
+      width: 58.48%;
+    }
 }
