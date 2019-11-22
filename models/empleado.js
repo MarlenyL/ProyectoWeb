@@ -25,4 +25,5 @@ const empleado = sequelize.define("empleado", {
     schema: "public"
 })
 usuario.hasMany(empleado);
+empleado.belongsTo(usuario);
 module.exports = empleado;

@@ -22,4 +22,5 @@ const transferencia = sequelize.define("transferencia", {
     schema: "public"
 })
 transaccion.hasMany(transferencia);
+transferencia.belongsTo(transaccion);
 module.exports = transferencia;

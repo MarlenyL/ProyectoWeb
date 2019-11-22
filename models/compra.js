@@ -28,4 +28,5 @@ const compra = sequelize.define("compra", {
     schema: "public"
 })
 transaccion.hasMany(compra);
+compra.belongsTo(transaccion);
 module.exports = compra;
