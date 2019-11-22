@@ -1,12 +1,15 @@
 var express = require('express');
 var router = express.Router();
-var passport   = require('passport');
 var StudentManager = require('../controllers/StudentManager');
 
 
 router.get('/',isLoggedIn,function(req, res, next) {
-  console.log(req.user);
-  res.render('principalE',req.user);
+  var data = req.user;
+  data['saldo'] = StudentManager.saldo(data,res)
+  .then(function(data){
+    console.log(data);
+    res.render('principalE',data)
+  })
 });
 
 function isLoggedIn(req, res, next) {

@@ -1,28 +1,74 @@
+var modelo = require('../models/beneficiario');
 
-/*var {sequelize,Sequelize}= require('../Database/connection')
-var usuario = require('../models/usuario');
-var beneficiario = require('../models/beneficiario');
-sequelize
-    .authenticate()
-    .then(async () => {
-        console.log('Connection has been established successfully.');
-        await usuario.findAll({ attributes: ['id', 'nombre', 'usuario', 'contrasea'] }).then(usuario => {
-            console.log(JSON.stringify(usuario));
-        })
-        await sequelize.query(`SELECT now();`).then((data) => { console.log(data) })
-    }) 
-    .then(async () => {
-        await beneficiario.findAll({ attributes: ['id', 'id_usuario', 'carnet', 'saldo'] }).then(beneficiario => {
-        console.log(JSON.stringify(beneficiario));
-        })
-        await sequelize.query(`SELECT now();`).then((data) => { console.log(data) })
-    })
-//obtiene todos los usuarios
-module.exports.getAll = function(){
-    usuario.findAll({ attributes: ['id', 'nombre', 'usuario', 'contrasea'] })
-    .then(usuario => {
-        console.log(JSON.stringify(usuario)," ");
-    })
-}*/
+var beneficiario = {};
+beneficiario.saldo = function(req,res){
+    var id=req.id;
+    obtenerSaldo(id);
+    
+}
+
+var obtenerSaldo=function(id=4){
+    var Modelo = modelo;
+    Modelo.findByPk(id,{attributes:['saldo']}).then(function(modelo) {
+            
+        if (modelo) {
+            console.log(JSON.stringify(modelo.get()))
+            return JSON.stringify(modelo.get());
+        }
+        else{
+            return 0;
+        }
+ 
+    });
+}
+obtenerSaldo();
+/*function(req, usuario, contrasea, done) {
+    
+    var id = ;
+    
+    var isValidPassword = function(userpass, contrasea) {
+        
+        if (userpass==contrasea){
+            return true;
+        }
+        return false;
+
+    }
+
+    User.findOne({
+        where: {
+            usuario: usuario
+        }
+    }).then(function(user) {
+        if (!user) {
+            
+            return done(null, false, {
+                message: 'Credenciales incorrectas'
+            });
+
+        }
+
+        if (!isValidPassword(user.contrasea, contrasea)) {
+
+            return done(null, false, {
+                message: 'Credenciales incorrectas'
+            });
+
+        }
 
 
+        var userinfo = user.get();
+        return done(null, userinfo);
+
+
+    }).catch(function(err) {
+
+        console.log("Error:", err);
+
+        return done(null, false, {
+            message: 'Something went wrong with your Signin'
+        });
+
+    });*/
+
+module.exports = beneficiario;
