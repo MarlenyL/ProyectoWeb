@@ -10,11 +10,11 @@ block content
                 img(src="/img/Compra.ico", class="imgE")
             div(class="compras")
                 div(class="compra")
-                    form(method ="post" action ="signin" name="signin" id="signin")
+                    form(method ="post" action ="signin" name="signin" id="signin" class="formcompra")
                         label(for="usuario" class="form") Usuario a cobrar:
                         input#user(type="text", name="usuario" , required, maxlength="8")
                         label(for="cantidad" class="data") Cantidad a cobrar:
                         input#user(type="text" name="cantidad", required)
                         label(for="detalle" class="data") Detalle de la compra:
-                        input#user(type="text" name="detalle" class="detalle")      
+                        textarea(name="detalle", cols="30", rows="3")      
                         input(id="boton" type="submit" value="ENVIAR")
