@@ -1,16 +1,16 @@
 extends layout
 
 block content
-    div(class="perfil hide-mobile major lateral")
+    div(class="perfil hide-mobile lateral show-desktop")
         div(class="informacion")
             img(src='#', alt="Foto_perfil")
             p  #{nombre}
             a(href="mailto:#{usuario}@uca.edu.sv") #{usuario}@uca.edu.sv
             p "carrera"
-        div(class="Ayuda")
+        div(class="btn-lateral close")
             p Ayuda
             img(src="./img/ayudaBlanco.ico", alt="")
 
-        div(class="close")
+        div(class="btn-lateral close")
             p Cerrar Sesion
             img(src="./img/Salir.ico", alt="")

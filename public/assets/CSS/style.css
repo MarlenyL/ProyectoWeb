@@ -36,47 +36,29 @@ body {
   width: 6em;
   height: auto;
 }
-.Ayuda {
+.btn-lateral{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  padding: 0.5em;
 }
-.Ayuda a {
-  margin-left: 45%;
-  padding: 0px;
-}
-.Ayuda p {
+
+.btn-lateral p{
   margin-left: 10%;
-  padding: 0px;
+  padding: 0px; 
 }
-.Ayuda img{
+.btn-lateral img{
   width: 20%;
-  height: 20%;
+  height: auto;
 }
-.Ayuda:hover {
+.btn-lateral:hover{
   background-color: #3c445f;
 }
-.close {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-.close:hover {
-  background-color: #3c445f;
-}
-.close a {
-  margin-left: 26%;
-  padding: 0px;
-}
-.close p {
-  margin-left: 10%;
-  padding: 0px;
-}
-.close img{
-  width: 20%;
-  height: 20%;
+.close{
+  border-bottom: solid;
+  border-color: white;
+
 }
 
 .hide-mobile{
@@ -84,10 +66,37 @@ body {
 }
 
 .container{
+  padding: 0px;
   display: flex;
   justify-content: center;
   height: 85%;
 }
+
+/* Lateral */
+
+.hide-mobile {
+  display: none;
+}
+
+.show-desktop{
+  display: block ;
+}
+
+.menu {
+    background-color: #112935;
+    position: absolute;
+    z-index: 20;
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - 60px);
+    list-style: none;
+    text-align: left;
+}
+
+.lateral {
+  height: 100vh;
+}
+
 /* Header */
 
 .header {
@@ -126,9 +135,7 @@ body {
   justify-content: center;
   height: 25vh;
 }
-.hide-mobile {
-  display: none;
-}
+
 
 .tarjetas:hover {
   border-left: 0.5em solid #f9dc5c;
@@ -136,9 +143,7 @@ body {
 .header img {
   height: 4em;
 }
-.lateral {
-  height: 100vh;
-}
+
 .tarjetas {
   display: flex;
   justify-content: space-around;
@@ -150,7 +155,7 @@ body {
   box-shadow: 2px 2px 3px #928a926e;
   align-items: center;
 }
-.container {
+.contenedor {
   display: flex;
 }
 .principal {
@@ -234,6 +239,7 @@ footer {
   padding: 1em 0;
   border-bottom: solid white;
 } 
+
 .transaccion p{
   padding: 0 1em;
   margin: 0;
@@ -241,6 +247,10 @@ footer {
 
 table{
   width: 100%;
+}
+
+.exp{
+  display: none;
 }
 
 a {
@@ -387,6 +397,7 @@ a {
       margin-top: 6em;
       margin-left: 4.5em; 
     }
+
     .movimientos h3{
       font-size: 0.8em;
     }
@@ -400,13 +411,15 @@ a {
     }
 }
 @media only screen and (min-width: 1440px) {
+
+
     /*Transacciones*/
 
     .movimientos{
       width: 81.2%;
       height: 50%;
       margin-top: 6em;
-      margin-left: 4.5em; 
+      margin-left: 5em; 
     }
     .movimientos h3{
       font-size: 1em;

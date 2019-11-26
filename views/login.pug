@@ -2,15 +2,17 @@ extends layout
 
 block content
     include header
-    div(class="container")
+    div(class="contenedor")
         div(class='principal')
             div(class="yellowbar")
                 h3 BIENVENIDO
             div(class='Formulario')
-                form(method ="post" action ="signin" name="signin" id="signin")
-                    label(for="usuario" class="form") Usuario
-                    input#user(type="text", name="usuario" , required, placeholder="Usuario", maxlength="8")
-                    label(for="contrasea" class="data") Contraseña:
-                    input#password(type="password" name="contrasea", required, placeholder="Contraseña")      
-                    input(id="boton" type="submit" value="Acceder")
+                form(name="signin" id="signin")
+                    div(class="form-group")
+                        label(for="usuario" class="form") Usuario
+                        input#user(type="text" name="usuario" class="form-control" required placeholder="Usuario", maxlength="8")
+                    div(class="form-group")
+                        label(for="contrasea" class="data") Contraseña:
+                    input#password(type="password" name="contrasea" class="form-control" required placeholder="Contraseña")      
+                    input(id="boton" type="submit" value="Acceder" class="btn btn-primary btn-lg")
     div(class="footer")

@@ -1,7 +1,7 @@
 extends layout
 
 block content
-    div(class="container")
+    div(class="container")  
         include lateral
         div(class="principal")
             include header
@@ -21,16 +21,19 @@ block content
                             th
                                 h3 Monto
                     tbody#table_body
-                        //- tr(class="transaccion")
-                        //-     td
-                        //-         p Compra: Libreria Uca
-                        //-     td(class="major")
-                        //-         p 11/nov
-                        //-     td(class="major")
-                        //-         p 1236554
-                        //-     td
-                        //-         p -$1.00
-                        //-         p $14.00
+                        tr(class="transaccion")
+                            td(class="tarjeta")
+                                p Compra: Libreria Uca
+                                p(class="exp") Fecha:11/nov
+                                p(class="exp") Hora: 12:00
+                                p(class="exp") No transaccion: 1236554
+                            td(class="major")
+                                p 11/nov
+                            td(class="major")
+                                p 1236554
+                            td
+                                p -$1.00
+                                p $14.00
                         //- tr(class="transaccion")
                         //-     td
                         //-         p Compra: Libreria Uca
