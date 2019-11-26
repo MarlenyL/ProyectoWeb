@@ -30,10 +30,10 @@ const efectua = sequelize.define("efectua", {
     schema: "public"
 })
 efectua.sync({force: true});
-transferencia.hasOne(efectua, {as:'transferenciaId'});
-beneficiario.hasOne(efectua,{as:'beneficiario_donadorId'});
-beneficiario.hasOne(efectua,{as:'beneficiario_receptorId'});
-efectua.belongsTo(transferencia);
-efectua.belongsTo(beneficiario);
-efectua.belongsTo(beneficiario);
+//efectua.hasOne(transferencia,{as:'transferenciaId'});
+//beneficiario.hasOne(efectua,{as:'beneficiario_donadorId'});
+//beneficiario.hasOne(efectua,{as:'beneficiario_receptorId'});
+/*efectua.hasOne(transferencia,{as:'transferenciaId'});
+efectua.hasOne(beneficiario,{as:'beneficiario_donadorId'});
+efectua.hasOne(beneficiario,{as:'beneficiario_receptorId'});*/
 module.exports = efectua;
