@@ -193,24 +193,7 @@ body {
 }
 
 /*COMPRAS*/
-.compras{
-  display: flex;
-  flex-direction: column;
-  justify-items: center;
-  align-content: center;
-  align-items: center;
-  padding-top: 0px;
-}
-.compra{
-  margin-top: 1em;
-  background-color: #ced3dc;
-  width: 80%;
-  padding: 1em;
-}
-.compra label{
-  margin-left: 3em;
-  
-}
+
 .detalle{
   height: 10vh;
 }
@@ -529,6 +512,7 @@ a {
 
   /*recarga*/
   .recargas{
+  .compras{
     display: flex;
     flex-direction: column;
     justify-items: center;
@@ -556,6 +540,34 @@ a {
     align-items: center;
     align-content: center;
   }
+  .compra{
+    margin-top: 0em;
+    background-color: #ced3dc;
+    width: 50%;
+    padding: 1em;
+  }
+  .compra label{
+    margin-left: 3em;
+    
+  }
+  .formcompra{
+    display: flex;
+    flex-direction: column;
+  }
+  .formcompra textarea{
+    border-radius: 50%;
+    display: block;
+    margin: auto auto;
+    width: 70%;
+    margin-bottom: 2em;
+    padding: .5em 0;
+    border: none;
+    border-bottom: 1px solid #eaeaea;
+    padding-bottom: 0em;
+    color: #757575;
+    border-radius: 0.5em;
+  }
+  
 }
 @media only screen and (min-width: 1440px){
 
