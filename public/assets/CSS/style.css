@@ -160,6 +160,7 @@ body {
 }
 .container {
   display: flex;
+  z-index: 1;
 }
 .principal {
   width: 100%;
@@ -512,6 +513,23 @@ a {
     padding-bottom: 0em;
     color: #757575;
     border-radius: 0.5em;
+  }
+  .help{
+    display: flex;
+    z-index: 2;
+    right: 50%;
+    background-color: #f9dc5c;
+    top: 50%;
+    position: absolute;
+    width: 10%;
+    justify-items: center;
+    display: none;
+  }
+  .mostrar{
+    display: inline;
+  }
+  .help p{
+    text-align: center;
   }
   
 }

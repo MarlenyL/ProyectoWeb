@@ -16,6 +16,7 @@ var estadisticasRouter = require('./routes/estadisticasE');
 var vendedorRouter = require('./routes/vendedor');
 var session = require('express-session');
 var logoutRouter = require('./routes/logout');
+var datospRouter = require('./routes/datospersonales')
 var app = express();
 
 app.set('views', path.join(__dirname, 'views'));
@@ -66,6 +67,7 @@ app.use('/transaccionesE', transaccionesRouter);
 app.use('/logout',logoutRouter);
 app.use('/estadisticasE',estadisticasRouter);
 app.use('/vendedor',vendedorRouter);
+app.use('/datosP',datospRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
