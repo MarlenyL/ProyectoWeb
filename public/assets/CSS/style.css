@@ -173,12 +173,15 @@ body {
   justify-content: center;
   justify-items: center;
 }
+
 .chart_div{
   display: flex;
   justify-content: center;
   justify-items: center;
   align-items: center;
   align-content: center;
+  height: 40%;
+  width: auto;
 }
 .yellowbarE {
   display: flex;
@@ -223,6 +226,7 @@ footer {
 }
 
 .Formulario{
+  border-radius: 2em;
   background-color: #ced3dc;
   width: 80%;
   margin: auto;
@@ -234,15 +238,23 @@ footer {
     padding-bottom: 20px;
     width: 100%;
   }
+  .login{
+    display: flex;
+    flex-direction: column;
+    text-align: initial;
+  }
+  .login label{
+    margin-left: 10%;
+    margin-bottom: 5px;
+  }
   input {
     display: block;
-    margin: auto auto;
+    margin: 5px auto;
     width: 70%;
+    height: 6vh;
     margin-bottom: 2em;
-    padding: .5em 0;
     border: none;
     border-bottom: 1px solid #eaeaea;
-    padding-bottom: 1.25em;
     color: #757575;
     border-radius: 0.5em;
   }
@@ -515,23 +527,51 @@ a {
     border-radius: 0.5em;
   }
   .help{
-    display: flex;
-    z-index: 2;
-    right: 50%;
-    background-color: #f9dc5c;
-    top: 50%;
-    position: absolute;
-    width: 10%;
-    justify-items: center;
     display: none;
   }
   .mostrar{
-    display: inline;
+    display: flex;
+    z-index: 2;
+    right: 30%;
+    background-color: #0a2342;
+    top: 40%;
+    position: absolute;
+    width: 15em;
+    padding: 10px;
+    
+    height: auto;
+    flex-direction: column;
+    border-radius: 2em;
+    color: #ffffff;
+  }
+  .mostrar img{
+    width: 40%;
+    height: 10%;
+    margin-left: 4.5em;
   }
   .help p{
     text-align: center;
   }
-  
+  /*login*/
+  .Formulario{
+    width: 40%;
+    height: auto;
+    margin-top: 5%;
+  }
+  .login{
+    display: flex;
+    flex-direction: column;
+    text-align: initial;
+    height: 100%;
+
+  }
+  .login label{
+    margin-left: 10%;
+    margin-bottom: 5px;
+  }
+  .input{
+    padding-left: 5%;
+  }
 }
 @media only screen and (min-width: 1440px){
 
