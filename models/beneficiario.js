@@ -6,10 +6,8 @@ const beneficiario = sequelize.define("beneficiario", {
         type:Sequelize.INTEGER,
         primaryKey: true
     },
-    id_usuario:{
-        type:Sequelize.INTEGER,
-        references: usuario,
-        referenceKey: 'id',
+    usuarioId:{
+        type:Sequelize.INTEGER
     },
     carnet:{
         type: Sequelize.STRING
@@ -27,6 +25,7 @@ const beneficiario = sequelize.define("beneficiario", {
     freezeTableName:true,
     schema: "public"
 })
-usuario.hasMany(beneficiario);
+//beneficiario.sync({force: true});
+usuario.hasMany(beneficiario, {as:'usuarioId'});
 beneficiario.belongsTo(usuario);
 module.exports = beneficiario;

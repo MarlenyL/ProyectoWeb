@@ -24,5 +24,5 @@ const transaccion = sequelize.define("transaccion", {
     freezeTableName:true,
     schema: "public"
 })
-
+//transaccion.sync({force: true})
 module.exports = transaccion;

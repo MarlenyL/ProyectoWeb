@@ -6,10 +6,8 @@ const compra = sequelize.define("compra", {
         type:Sequelize.INTEGER,
         primaryKey: true
     },
-    id_transaccion: {
-        type: Sequelize.STRING,
-        references: transaccion,
-        referenceKey: 'id',
+    transaccionId:{
+        type:Sequelize.INTEGER
     },
     detalle: {
         type: Sequelize.STRING
@@ -27,6 +25,7 @@ const compra = sequelize.define("compra", {
     freezeTableName:true,
     schema: "public"
 })
-transaccion.hasMany(compra);
+compra.sync({force: true});
+transaccion.hasMany(compra, {as:'transaccionId'});
 compra.belongsTo(transaccion);
 module.exports = compra;

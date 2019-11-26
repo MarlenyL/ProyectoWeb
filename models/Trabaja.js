@@ -8,15 +8,11 @@ const trabaja = sequelize.define("trabaja", {
         type: Sequelize.INTEGER,
         primaryKey: true
     },
-    id_lugar: {
+    lugarId: {
         type: Sequelize.INTEGER,
-        references: lugar,
-        referenceKey: 'id',
     },
-    id_empleado: {
+    empleadoId: {
         type: Sequelize.INTEGER,
-        references: empleado,
-        referenceKey: 'id',
     },
     fecha_inicio: {
         type: Sequelize.DATEONLY
@@ -35,7 +31,10 @@ const trabaja = sequelize.define("trabaja", {
         schema: "public"
     })
 
-lugar.belongsToMany(trabaja);
-empleado.belongsToMany(trabaja);
+trabaja.sync({force: true});
+lugar.hasMany(trabaja);
+empleado.hasMany(trabaja);
+trabaja.belongsTo(lugar);
+trabaja.belongsTo(empleado);
 
 module.exports = trabaja;

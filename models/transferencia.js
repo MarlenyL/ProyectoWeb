@@ -6,12 +6,9 @@ const transferencia = sequelize.define("transferencia", {
         type:Sequelize.INTEGER,
         primaryKey: true
     },
-    id_transaccion: {
-        type: Sequelize.INTEGER,
-        references: transaccion,
-        referenceKey: 'id',
-    },
-
+    transaccionId:{
+        type:Sequelize.INTEGER,
+    }
 },
 {
     timestamps: false,
@@ -21,6 +18,7 @@ const transferencia = sequelize.define("transferencia", {
     freezeTableName:true,
     schema: "public"
 })
-transaccion.hasMany(transferencia);
+//transferencia.sync({force: true});
+transaccion.hasMany(transferencia,{as:'transaccionId'});
 transferencia.belongsTo(transaccion);
 module.exports = transferencia;

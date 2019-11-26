@@ -7,20 +7,14 @@ const efectua = sequelize.define("efectua", {
         type:Sequelize.INTEGER,
         primaryKey: true
     },
-    id_transferencia :{
-        type: Sequelize.INTEGER,
-        references: transferencia,
-        referenceKey: 'id',
+    transferenciaId :{
+        type: Sequelize.INTEGER
     },
-    id_beneficiario_donador: {
-        type: Sequelize.INTEGER,
-        references: beneficiario,
-        referenceKey: 'id',
+    beneficiario_donadorId: {
+        type: Sequelize.INTEGER
     },
-    id_beneficiario_receptor: {
-        type: Sequelize.INTEGER,
-        references: beneficiario,
-        referenceKey: 'id',
+    beneficiario_receptorId: {
+        type: Sequelize.INTEGER
     },
     monto: {
         type: Sequelize.DECIMAL(10, 2)
@@ -35,7 +29,11 @@ const efectua = sequelize.define("efectua", {
     freezeTableName:true,
     schema: "public"
 })
-transferencia.hasOne(efectua);
-beneficiario.hasOne(efectua);
-
+efectua.sync({force: true});
+transferencia.hasOne(efectua, {as:'transferenciaId'});
+beneficiario.hasOne(efectua,{as:'beneficiario_donadorId'});
+beneficiario.hasOne(efectua,{as:'beneficiario_receptorId'});
+efectua.belongsTo(transferencia);
+efectua.belongsTo(beneficiario);
+efectua.belongsTo(beneficiario);
 module.exports = efectua;
