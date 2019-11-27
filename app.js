@@ -11,6 +11,7 @@ var bodyParser = require('body-parser');
 var authRoute = require('./routes/auth');
 var indexRouter = require('./routes/index');
 var principalERouter = require('./routes/principalE');
+var principalVRouter = require('./routes/principalV')
 var transaccionesRouter = require('./routes/transaccionesE');
 var estadisticasRouter = require('./routes/estadisticasE');
 var vendedorRouter = require('./routes/vendedor');

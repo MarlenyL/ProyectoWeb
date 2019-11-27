@@ -240,7 +240,7 @@ footer {
   }
 
 
-/ESTADISTICAS/
+/*ESTADISTICAS*/
 .estadisticas{
   display: flex;
   flex-direction: column;
