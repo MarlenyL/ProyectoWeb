@@ -12,26 +12,19 @@ var authRoute = require('./routes/auth');
 var indexRouter = require('./routes/index');
 var principalERouter = require('./routes/principalE');
 var transaccionesRouter = require('./routes/transaccionesE');
-var principalVRouter = require('./routes/principalV');
-var session = require('express-session')
+var estadisticasRouter = require('./routes/estadisticasE');
+var vendedorRouter = require('./routes/vendedor');
+var session = require('express-session');
 var logoutRouter = require('./routes/logout');
+var datospRouter = require('./routes/datospersonales')
 var app = express();
 
-app.use(session({
-	secret: 'secret',
-	resave: true,
-	saveUninitialized: true
-}));
-//app.use(bodyParser.urlencoded({extended : true}));
-//app.use(bodyParser.json());
-// view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-//app.use(cookieParser());
 
 //For BodyParser
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -48,7 +41,7 @@ app.use(passport.session()); // persistent login sessions
 
 //Models
 var usuario = require("./models/usuario");
- 
+
 
 //load passport strategies
  
@@ -73,6 +66,9 @@ app.use('/principalE',principalERouter);
 app.use('/principalV', principalVRouter);
 app.use('/transaccionesE', transaccionesRouter);
 app.use('/logout',logoutRouter);
+app.use('/estadisticasE',estadisticasRouter);
+app.use('/vendedor',vendedorRouter);
+app.use('/datosP',datospRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
