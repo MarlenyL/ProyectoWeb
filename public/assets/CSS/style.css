@@ -321,6 +321,7 @@ a {
     background-color: #ced3dc;
     width: 60%;
     padding: 1em;
+    border-radius: 2em;
   }
   .compra label{
     margin-left: 3em;
@@ -372,7 +373,7 @@ a {
     height: 60%;
   }
   .header img{
-    justify-content;: flex-end;
+    justify-content; flex-end;
   }
   .header h1{
     font-size: vh;
@@ -571,6 +572,18 @@ a {
   }
   .input{
     padding-left: 5%;
+  }
+  .yellowbarL{
+    width: 50%;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .priLog{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
   }
 }
 @media only screen and (min-width: 1440px){
