@@ -1,3 +1,4 @@
+
 @import url("https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap");
 
 /* Aplicando un formato general al html
@@ -36,65 +37,35 @@ body {
   width: 6em;
   height: auto;
 }
-.btn-lateral{
+.Ayuda {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5em;
 }
-
-.btn-lateral p{
+.Ayuda a {
+  margin-left: 45%;
+  padding: 0px;
+}
+.Ayuda p {
   margin-left: 10%;
-  padding: 0px; 
+  padding: 0px;
 }
-.btn-lateral img{
+.Ayuda img{
   width: 20%;
-  height: auto;
+  height: 20%;
 }
-.btn-lateral:hover{
+.Ayuda:hover {
   background-color: #3c445f;
-}
-.close{
-  border-bottom: solid;
-  border-color: white;
-
 }
 
 .hide-mobile{
   display: none;
 }
-
 .container{
-  padding: 0px;
   display: flex;
   justify-content: center;
   height: 85%;
-}
-
-/* Lateral */
-
-.hide-mobile {
-  display: none;
-}
-
-.show-desktop{
-  display: block ;
-}
-
-.menu {
-    background-color: #112935;
-    position: absolute;
-    z-index: 20;
-    left: 0;
-    width: 100vw;
-    height: calc(100vh - 60px);
-    list-style: none;
-    text-align: left;
-}
-
-.lateral {
-  height: 100vh;
 }
 
 /* Header */
@@ -108,6 +79,10 @@ body {
   color: #ffffff;
   height: 15%;
   padding: 10px;
+}
+.fa-bars:before {
+  content: "\f0c9";
+  font-size: 5vh;
 }
 
 .major {
@@ -135,7 +110,9 @@ body {
   justify-content: center;
   height: 25vh;
 }
-
+.hide-mobile {
+  display: none;
+}
 
 .tarjetas:hover {
   border-left: 0.5em solid #f9dc5c;
@@ -143,7 +120,9 @@ body {
 .header img {
   height: 4em;
 }
-
+.lateral {
+  height: 100vh;
+}
 .tarjetas {
   display: flex;
   justify-content: space-around;
@@ -155,13 +134,104 @@ body {
   box-shadow: 2px 2px 3px #928a926e;
   align-items: center;
 }
-.contenedor {
+.tarjetas img{
+  width: 35%;
+  height: 35%;
+}
+.container {
   display: flex;
+  z-index: 1;
 }
 .principal {
   width: 100%;
 }
 
+/* Login */
+
+/*label{
+  margin-bottom: 0.5em;
+}*/
+
+#boton{
+  background-color: #0a2342;
+  color: #fff;
+}
+
+footer {
+  background-color: #0a2342;
+  height: 15%;
+}
+
+.Formulario{
+  background-color: #ced3dc;
+  width: 80%;
+  margin: auto;
+  margin-top: 10%;
+  padding: 1em;
+  text-align: center;
+}
+  .data{
+    padding-bottom: 20px;
+    width: 100%;
+  }
+  input {
+    display: block;
+    margin: auto auto;
+    width: 70%;
+    margin-bottom: 2em;
+    padding: .5em 0;
+    border: none;
+    border-bottom: 1px solid #eaeaea;
+    padding-bottom: 1.25em;
+    color: #757575;
+    border-radius: 0.5em;
+  }
+
+
+/ESTADISTICAS/
+.estadisticas{
+  display: flex;
+  flex-direction: column;
+  background-color: ;
+  justify-content: center;
+  justify-items: center;
+}
+
+.chart_div{
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+  height: 40%;
+  width: auto;
+}
+.yellowbarE {
+  display: flex;
+  flex-direction:column ;
+  justify-content: center;
+  background-color: #f9dc5c;
+  width: 100%;
+  text-align: center;
+}
+.imgE{
+  width: 10%;
+  height: auto;
+}
+
+/COMPRAS/
+
+.detalle{
+  height: 10vh;
+}
+.compra #boton{
+  width: 20%;
+  margin-left: 65%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
 /* Login */
 
 /*label{
@@ -306,7 +376,38 @@ a {
         font-size: 1.5em;
       }
 
+
+  /* Compras */
+  .compras{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    padding-top:2em
+  }
+  .compra{
+    background-color: #ced3dc;
+    width: 60%;
+    padding: 1em;
+  }
+  .compra label{
+    margin-left: 3em;
+    
+  }
+  .detalle{
+    height: 10vh;
+  }
+  .compra #boton{
+    width: 20%;
+    margin-left: 65%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  }
 }
+
 @media only screen and (min-width: 1024px) {
   .major {
     display: inline;
@@ -327,8 +428,8 @@ a {
     height: 15%;
     padding: 10px;
     align-content: center;
-    font-size: 0.8em;
   }
+  
   .tarjetas {
     width: 10em;
     height: 7em;
@@ -363,7 +464,7 @@ a {
   .tarjetas img{
     margin-left: 0px;
     justify-content: space-between;
-    width: 40%;
+    width: 70%;
   }
   .tarjeta .trans{
     width: 60%;
@@ -373,20 +474,22 @@ a {
     border-bottom: 0.5em solid #f9dc5c;
     border-left: 0px;
   }
-  .tarjeta {
+  .main{
     display: flex;
+    justify-content: space-between;
     flex-direction: row;
   }
   .yellowbar {
     background-color: #f9dc5c;
     padding: 0.5em;
-    margin: 1.5em 3em;
+    margin: 3em auto;
     width: 80%;
     height: 10%;
+    justify-content: center;
     border-radius: 1em;
     text-align: center;
+    align-content: center;
     align-items: center;
-    font-size: 1.4em;
   }
 
 /*Transacciones*/
@@ -411,7 +514,107 @@ a {
     }
 }
 @media only screen and (min-width: 1440px) {
-
+  /* ESTADISTICAS */
+  .yellowbarE{
+    background-color: #f9dc5c;
+    padding: 0.5em;
+    margin: 1.5em auto;
+    width: 80%;
+    height: 5%;
+    justify-content: center;
+    border-radius: 1em;
+    text-align: center;
+    align-content: center;
+    align-items: center;  
+  }
+  .estadisticas{
+    display: flex;
+    flex-direction: column;
+    background-color: ;
+    justify-content: center;
+    justify-items: center;
+  }
+  /* compra */
+  .compras{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    padding-top: 0px;
+  }
+  .compra{
+    background-color: #ced3dc;
+    width: 40%;
+    padding: 1em;
+  }
+  .compra label{
+    margin-left: 3em;
+    
+  }
+  .detalle{
+    height: 10vh;
+  }
+  .compra #boton{
+    width: 20%;
+    margin-left: 65%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  }
+  .compras{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    padding-top: 0px;
+  }
+  .compra{
+    margin-top: 0em;
+    background-color: #ced3dc;
+    width: 50%;
+    padding: 1em;
+  }
+  .compra label{
+    margin-left: 3em;
+    
+  }
+  .formcompra{
+    display: flex;
+    flex-direction: column;
+  }
+  .formcompra textarea{
+    border-radius: 50%;
+    display: block;
+    margin: auto auto;
+    width: 70%;
+    margin-bottom: 2em;
+    padding: .5em 0;
+    border: none;
+    border-bottom: 1px solid #eaeaea;
+    padding-bottom: 0em;
+    color: #757575;
+    border-radius: 0.5em;
+  }
+  .help{
+    display: flex;
+    z-index: 2;
+    right: 50%;
+    background-color: #f9dc5c;
+    top: 50%;
+    position: absolute;
+    width: 10%;
+    justify-items: center;
+    display: none;
+  }
+  .mostrar{
+    display: inline;
+  }
+  .help p{
+    text-align: center;
+  }
 
     /*Transacciones*/
 
