@@ -81,9 +81,9 @@
     DROP TABLE IF EXISTS EFECTUA CASCADE;
     CREATE TABLE EFECTUA(
         id INT NOT NULL,
-        id_transferencia INT NOT NULL,
-        id_beneficiario_donador INT NOT NULL,
-        id_beneficiario_receptor INT NOT NULL,
+        transferenciaId INT NOT NULL,
+        beneficiario_donadorId INT NOT NULL,
+        beneficiario_receptorId INT NOT NULL,
         monto DECIMAL(10,2) CHECK(monto>0),
         CONSTRAINT PK_efectua PRIMARY KEY(id,id_transferencia, id_beneficiario_donador, id_beneficiario_receptor),
         CONSTRAINT FK_Efectua_transferencia FOREIGN KEY (id_transferencia)

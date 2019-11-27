@@ -1,15 +1,15 @@
 var modelo = require('../models/beneficiario');
 
 var beneficiario = {};
-beneficiario.saldo = function(req,res){
+beneficiario.saldo = async function(req,res){
     var id=req.id;
     obtenerSaldo(id);
-    
 }
 
 var obtenerSaldo=function(id=4){
     var Modelo = modelo;
-    Modelo.findByPk(id,{attributes:['saldo']}).then(function(modelo) {
+    Modelo.findByPk(id,{attributes:['saldo']})
+    .then(function(modelo) {
             
         if (modelo) {
             console.log(JSON.stringify(modelo.get()))
@@ -21,7 +21,8 @@ var obtenerSaldo=function(id=4){
  
     });
 }
-obtenerSaldo();
+//transferencia.sync({force: true});
+//obtenerSaldo();
 /*function(req, usuario, contrasea, done) {
     
     var id = ;
