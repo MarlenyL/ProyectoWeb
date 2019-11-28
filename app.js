@@ -11,6 +11,7 @@ var indexRouter = require('./routes/index');
 var authRoute = require('./routes/auth');
 var principalERouter = require('./routes/principalE');
 var transaccionesRouter = require('./routes/transaccionesE');
+var cloudiRouter = require('./routes/imgChange');
 var session = require('express-session')
 var logoutRouter = require('./routes/logout');
 var app = express();
@@ -18,6 +19,7 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+app.use('/imgChange', express.static('uploads'));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -34,11 +36,6 @@ app.use(session({
   saveUninitialized:true})); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
-
-var {sequelize,Sequelize} = require('./Database/connection')
-
-//Sync Database
-
 
 //Models
 var usuario = require("./models/usuario");
@@ -68,8 +65,7 @@ relaciones.init(usuario, transaccion, lugar, beneficiario, empleado, transferenc
 //load passport strategies
 
 require('./config/passport.js')(passport, usuario);
-
-
+app.use('/imgChange', cloudiRouter);
 app.use('/', indexRouter);
 app.use('/signin',authRoute);
 app.use('/principalE',principalERouter);
