@@ -4,10 +4,11 @@ block content
     include header
     div(class= "container")
         include lateral
-        div( class = "form img-change")
-            form(enctype="multipart/form-data" method="POST")
-                input#uploadedfile(name="uploadedfile" type="file")
-                input(type="submit" value="Subir archivo")
+        div(class="principal")
+            div( class = "form img-change")
+                form(enctype="multipart/form-data" method="POST")
+                    input#uploadedfile(name="uploadedfile" type="file")
+                    input(type="submit" value="Subir archivo")
          
         
         
