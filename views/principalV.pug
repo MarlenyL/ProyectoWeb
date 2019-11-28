@@ -6,13 +6,14 @@ block content
         div(class="principal")
             include header
             div(class="yellowbar")
-                h3 Las Terrazas #{lugar}
-            div(class="tarjetas")
-                a(href="/transaccionesE")
-                    div(class="tarjetas")
-                        h3 Compra
+                h3 Saldo: #{saldo}
+            div(class="tarjeta")
+                a(href="/cobro" class="tarjetas")
+                        h3 Cobro
                         img(src='./img/compra.ico')
-                a(href="/estadisticasE")
-                    div(class="tarjetas")
-                        h3 Recarga
-                        img(src='./img/recarga.ico', alt="Es")
+                a(href="recarga" class="tarjetas")
+                    h3 Recarga
+                    img(src='./img/recarga.ico', alt="Es")
+            div(class="help")
+                  img(src="./img/ayudaBlanco.ico")
+                  p En esta pantalla se muestras dos opciones en donde la primera lo llevara a ver con detalle las transacciones que el estudiante ha realizado y la otra opcion mostrara las estadisticas.

@@ -42,19 +42,26 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  border-top: solid  2px;
+  border-bottom: solid  1px;
+  border-color: #3c445f;
 }
+
 .Ayuda a {
   margin-left: 45%;
   padding: 0px;
 }
+
 .Ayuda p {
   margin-left: 10%;
   padding: 0px;
 }
+
 .Ayuda img{
-  width: 20%;
-  height: 20%;
+  width: 15%;
+  height: auto;
 }
+
 .Ayuda:hover {
   background-color: #3c445f;
 }
@@ -105,10 +112,8 @@ body {
   color: #ffffff;
 }
 .informacion {
-  display: grid;
-  width: 100%;
+  display: inline;
   justify-content: center;
-  height: 25vh;
 }
 .hide-mobile {
   display: none;
@@ -120,8 +125,29 @@ body {
 .header img {
   height: 4em;
 }
+
+.head{
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.5em;
+  margin: 0.5em;
+}
+
+.menu {
+  display: flex;
+  background-color: #112935;
+  position: absolute;
+  z-index: 20;
+  left: 0;
+  width: 100vw;
+  height: calc(100vh - 60px);
+  list-style: none;
+  text-align: left;
+}
+
 .lateral {
   height: 100vh;
+  font-size: 1.3em;
 }
 .tarjetas {
   display: flex;
@@ -148,8 +174,7 @@ body {
 /*ESTADISTICAS*/
 .estadisticas{
   display: flex;
-  flex-direction: column;
-  background-color: ;
+  flex-direction: column; 
   justify-content: center;
   justify-items: center;
 }
@@ -191,18 +216,9 @@ body {
 }
 /* Login */
 
-/*label{
-  margin-bottom: 0.5em;
-}*/
-
 #boton{
   background-color: #0a2342;
   color: #fff;
-}
-
-footer {
-  background-color: #0a2342;
-  height: 15%;
 }
 
 .Formulario{
@@ -237,6 +253,17 @@ footer {
     border-bottom: 1px solid #eaeaea;
     color: #757575;
     border-radius: 0.5em;
+  }
+  .checkbox{
+    margin:0;
+    width: 2em;
+  }
+
+  .checkDiv{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-left: 2.5em;
   }
 
 
@@ -516,15 +543,20 @@ a {
   }
   
   .tarjetas {
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    height: auto;
     width: 10em;
-    height: 7em;
     border-left: 0px;
     border-bottom: 0.5em solid #0a2342;
     text-align: center;
   }
   .tarjetas img{
-    width: 60%;
+    width: 70%;
     height: 60%;
+    margin-left: 0px;
+    justify-content: space-between; 
   }
   .header img{
     justify-content; flex-end;
@@ -536,17 +568,9 @@ a {
   .principal {
     width: 80%;
   }
-  
-  .tarjetas{
-    flex-direction: column;
-    align-content: center;
-    align-items: center;
-    height: auto;
-  }
-  .tarjetas img{
-    margin-left: 0px;
-    justify-content: space-between;
-    width: 70%;
+  .tarjeta{
+    display: flex;
+    flex-direction: row;
   }
   .tarjeta .trans{
     width: 60%;
@@ -783,7 +807,6 @@ a {
     display: flex;
     flex-direction: column;
     text-align: initial;
-    height: 100%;
 
   }
   .login label{
