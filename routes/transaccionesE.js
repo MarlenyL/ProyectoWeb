@@ -6,7 +6,8 @@ var StudentManager = require('../controllers/StudentManager');
 /* GET home page. */
 router.get('/',isLoggedIn,function(req, res, next) {
   StudentManager.transacciones(req.user.id, function (mod) {
-      var data = {transaciones:mod, user:req.user};
+      var data = {transaciones: JSON.parse(mod), user:req.user};
+      //console.log(mod);
       res.render('transaccionesE',data)
   });  
 });
