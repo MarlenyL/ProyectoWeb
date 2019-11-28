@@ -9,8 +9,11 @@ block content
             div(class='Formulario')
                 form(method ="post" action ="signin" name="signin" id="signin")
                     label(for="usuario" class="form") Usuario
-                    input#user(type="text", name="usuario" , required, placeholder="Usuario", maxlength="8")
-                    label(for="contrasea" class="data") Contraseña:
-                    input#password(type="password" name="contrasea", required, placeholder="Contraseña")      
+                    input#user(type="text", name="usuario" , required, placeholder="Usuario", maxlength="8" class="input")
+                    label(for="contrasea" class="form") Contraseña:
+                    input#password(type="password" name="contrasea", required, placeholder="Contraseña" class="input")      
+                    label(class="wrongData hide-mobile") Datos incrrectos, intente de nuevo.
+                    div(class="checkDiv")
+                        input(type="checkbox", name="Empleado" class="checkbox")
+                        p(for="empleado") Empleado
                     input(id="boton" type="submit" value="Acceder")
-    div(class="footer")

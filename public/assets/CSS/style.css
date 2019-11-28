@@ -253,6 +253,9 @@ body {
     color: #757575;
     border-radius: 0.5em;
   }
+  .wrongData{
+    color: red;
+  }
   .checkbox{
     margin:0;
     width: 2em;
