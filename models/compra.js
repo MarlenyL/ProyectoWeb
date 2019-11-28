@@ -22,7 +22,7 @@ const compra = sequelize.define("compra", {
     freezeTableName:true,
     schema: "public"
 })
-compra.sync({force: true});
-transaccion.hasMany(compra);
-compra.belongsTo(transaccion);
+//compra.sync({force: true});
+/*transaccion.hasMany(compra);
+compra.belongsTo(transaccion);*/
 module.exports = compra;

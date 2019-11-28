@@ -19,7 +19,7 @@ const empleado = sequelize.define("empleado", {
     freezeTableName:true,
     schema: "public"
 })
-empleado.sync({force: true});
-usuario.hasMany(empleado);
-empleado.belongsTo(usuario);
+//empleado.sync({force: true});
+/*usuario.hasMany(empleado);
+empleado.belongsTo(usuario);*/
 module.exports = empleado;

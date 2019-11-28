@@ -19,6 +19,6 @@ const transferencia = sequelize.define("transferencia", {
     schema: "public"
 })
 //transferencia.sync({force: true});
-transaccion.hasMany(transferencia,{as:'transaccionId'});
-transferencia.belongsTo(transaccion);
+/*transaccion.hasMany(transferencia,{as:'transaccionId'});
+transferencia.belongsTo(transaccion);*/
 module.exports = transferencia;

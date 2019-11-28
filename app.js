@@ -28,12 +28,30 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // For Passport
-app.use(session({ 
+app.use(session({
   secret: 'burritos pastor',
-  resave: true, 
+  resave: true,
   saveUninitialized:true})); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
+
+var {sequelize,Sequelize} = require('./Database/connection')
+//load passport strategies
+
+require('./config/passport.js')(passport, usuario);
+
+//Sync Database
+
+sequelize.sync({force:true})
+         .then(function() {
+
+             console.log('Nice! Database looks fine')
+
+         }).catch(function(err) {
+
+             console.log(err, "Something went wrong with the Database Update!")
+
+         });
 
 //Models
 var usuario = require("./models/usuario");
@@ -46,23 +64,8 @@ var compra = require("./models/compra");
 var trabaja = require("./models/Trabaja");
 var efectua = require("./models/efectua");
 var realiza = require("./models/realiza");
-
-//load passport strategies
- 
-require('./config/passport.js')(passport, usuario);
- 
-//Sync Database
- 
-usuario.sequelize.sync().then(function() {
- 
-    console.log('Nice! Database looks fine')
- 
- 
-}).catch(function(err) {
- 
-    console.log(err, "Something went wrong with the Database Update!")
- 
-});
+var relaciones = require('./models/keys');
+relaciones.init(usuario, transaccion, lugar, beneficiario, empleado, transferencia, compra, trabaja, efectua, realiza);
 
 app.use('/', indexRouter);
 app.use('/signin',authRoute);
@@ -85,4 +88,4 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app; 
+module.exports = app;

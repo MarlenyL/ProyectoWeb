@@ -25,10 +25,10 @@ const trabaja = sequelize.define("trabaja", {
         schema: "public"
     })
 
-trabaja.sync({force: true});
-lugar.hasMany(trabaja);
+//trabaja.sync({force: true});
+/*lugar.hasMany(trabaja);
 empleado.hasMany(trabaja);
 trabaja.belongsTo(lugar);
-trabaja.belongsTo(empleado);
+trabaja.belongsTo(empleado);*/
 
 module.exports = trabaja;
