@@ -10,46 +10,25 @@ block content
                 img(src="/img/vector.ico", alt="$" class="imgY")
             div(class="movimientos")
                 div(class="bluebar")
-                    h3 Movimientos
+                    h3 N° Transaccion
                     h3(class="major") Fecha/Hora
-                    h3(class="major") N° Transaccion
+                    h3(class="major") Tipo
                     h3 Monto
-                div(class="transaccion")
-                    h3 Compra: Las Terrazas
-                    div(class="datos")
-                        h3(class="major") Fecha/Hora
-                        h3(class="major") N° Transaccion
-                        div(class="monto")
-                            h3 -$1.00
-                            h3 $14.00
-                div(class="transaccion")
-                    h3 Compra: Libreria Uca
-                    div(class="datos")
-                        div(class="monto")
-                            h3 -$1.00
-                            h3 $14.00
-                div(class="transaccion")
-                    h3 Compra: Libreria Uca
-                    div(class="datos")
-                        h3 -$1.00
-                        h3 $14.00
-                div(class="transaccion")
-                    h3 Compra: Libreria Uca
-                    div(class="datos")
-                        h3 -$1.00
-                        h3 $14.00
-                div(class="transaccion")
-                    h3 Compra: Libreria Uca
-                    div(class="datos")
-                        h3 -$1.00
-                        h3 $14.00
-                div(class="transaccion")
-                    h3 Compra: Libreria Uca
-                    div(class="datos")
-                        h3 -$1.00
-                        h3 $14.00
-                div(class="transaccion")
-                    h3 Compra: Libreria Uca
-                    div(class="datos")
-                        h3 -$1.00
-                        h3 $14.00
+                    h3(class="major") Lugar
+                    h3(class="major") Detalle
+                    
+                each item in transaciones
+                    div(class="transaccion")
+                        //h3='Compra ' + item.lugar.nombre
+                        div(class="datos")
+                            p= item.id
+                        div(class="datos")
+                            p= item.compra.transaccion.fecha
+                        div(class="datos")
+                            p= item.compra.tipo
+                        div(class="datos")
+                            p= item.monto
+                        div(class="datos")    
+                            p= item.lugar.nombre
+                        div(class="datos")    
+                            p= item.compra.detalle

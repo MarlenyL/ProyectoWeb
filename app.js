@@ -62,8 +62,7 @@ var relaciones = require('./models/keys');
 
              console.log(err, "Something went wrong with the Database Update!")
 
-         });
-*/
+         });*/
 relaciones.init(usuario, transaccion, lugar, beneficiario, empleado, transferencia, compra, trabaja, efectua, realiza);
 
 //load passport strategies

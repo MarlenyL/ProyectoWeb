@@ -1,10 +1,13 @@
 var express = require('express');
 var router = express.Router();
-//var passport   = require('passport');
+var StudentManager = require('../controllers/StudentManager');
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('vendedor', );
+  res.render('principalV')
 });
 
+
 module.exports = router;
+
