@@ -11,11 +11,12 @@ window.onload = function(){
 
     lateral.addEventListener("click",()=>{
         addmenu.classList.toggle("menu");
-  
+        addmenu.classList.toggle("fadeInLeftBig")
       });
 
     closeMenu.addEventListener("click", ()=>{
         addmenu.classList.toggle("menu");
+        addmenu.classList.toggle("fadeInLeftBig")
     })
 
 }
