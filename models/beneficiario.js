@@ -26,6 +26,6 @@ const beneficiario = sequelize.define("beneficiario", {
     schema: "public"
 })
 //beneficiario.sync({force: true});
-usuario.hasMany(beneficiario, {as:'usuarioId'});
-beneficiario.belongsTo(usuario);
+/*usuario.hasMany(beneficiario, {as:'usuarioId'});
+beneficiario.belongsTo(usuario);*/
 module.exports = beneficiario;

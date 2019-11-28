@@ -29,7 +29,7 @@ const efectua = sequelize.define("efectua", {
     freezeTableName:true,
     schema: "public"
 })
-efectua.sync({force: true});
+//efectua.sync({force: true});
 //efectua.hasOne(transferencia,{as:'transferenciaId'});
 //beneficiario.hasOne(efectua,{as:'beneficiario_donadorId'});
 //beneficiario.hasOne(efectua,{as:'beneficiario_receptorId'});

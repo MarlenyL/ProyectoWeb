@@ -34,12 +34,12 @@ const realiza = sequelize.define("realiza", {
     schema: "public"
 })
 //realiza.sync({force: true});
-compra.hasOne(realiza);
-beneficiario.hasOne(realiza);
-empleado.hasOne(realiza);
-lugar.hasOne(realiza);
+/*compra.hasOne(realiza);
+beneficiario.hasMany(realiza);
+empleado.hasMany(realiza);
+lugar.hasMany(realiza);
 realiza.belongsTo(compra);
 realiza.belongsTo(beneficiario);
 realiza.belongsTo(empleado);
-realiza.belongsTo(lugar);
+realiza.belongsTo(lugar);*/
 module.exports = realiza;
