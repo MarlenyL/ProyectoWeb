@@ -8,12 +8,6 @@ const trabaja = sequelize.define("trabaja", {
         type: Sequelize.INTEGER,
         primaryKey: true
     },
-    lugarId: {
-        type: Sequelize.INTEGER,
-    },
-    empleadoId: {
-        type: Sequelize.INTEGER,
-    },
     fecha_inicio: {
         type: Sequelize.DATEONLY
     },

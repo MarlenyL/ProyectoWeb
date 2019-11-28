@@ -7,9 +7,6 @@ const empleado = sequelize.define("empleado", {
         type:Sequelize.INTEGER,
         primaryKey: true
     },
-    usuarioId:{
-        type:Sequelize.INTEGER
-    },
     telefono :{
         type: Sequelize.STRING
     }  
@@ -23,6 +20,6 @@ const empleado = sequelize.define("empleado", {
     schema: "public"
 })
 empleado.sync({force: true});
-usuario.hasMany(empleado, {as:'usuarioId'});
+usuario.hasMany(empleado);
 empleado.belongsTo(usuario);
 module.exports = empleado;

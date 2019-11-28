@@ -14,6 +14,9 @@ const usuarios = sequelize.define("usuarios", {
     contrasea: {
         type: Sequelize.STRING
     },
+    foto: {
+        type: Sequelize.STRING
+    },
     
 },
 {

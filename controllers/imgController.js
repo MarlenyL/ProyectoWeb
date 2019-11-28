@@ -2,13 +2,14 @@ var usuario = require('../models/usuario');
 
 
 var usuario = {};
-usuario.saldo = function(req,res){
+usuario.foto = function(req,res){
     var id=req.id;
-    obtenerSaldo(id);
+var actulizarFoto=function(id, ruta ){
+  actulizarFoto(id);
     
 }
-
-var obtenerSaldo=function(id, ruta ){
+}
+var actulizarFoto =function(id, ruta ){
     var User = usuario;
     User.update(
         {foto: ruta},
