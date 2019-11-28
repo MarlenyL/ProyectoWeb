@@ -306,6 +306,32 @@ a {
   display: flex;
 
 }
+.help{
+  display: none;
+}
+.mostrar{
+  display: flex;
+  z-index: 2;
+  right: 30%;
+  background-color: #0a2342;
+  top: 40%;
+  position: absolute;
+  width: 15em;
+  padding: 10px;
+  
+  height: auto;
+  flex-direction: column;
+  border-radius: 2em;
+  color: #ffffff;
+}
+.mostrar img{
+  width: 40%;
+  height: 10%;
+  margin-left: 4.5em;
+}
+.help p{
+  text-align: center;
+}
 
 
 @media only screen and (min-width: 768px) {

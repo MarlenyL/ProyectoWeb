@@ -26,37 +26,37 @@
     DROP TABLE IF EXISTS BENEFICIARIO CASCADE;
     CREATE TABLE BENEFICIARIO(
         id INT NOT NULL,
-        id_usuario INT NOT NULL,
+        usuarioId INT NOT NULL,
         carnet VARCHAR(8) NOT NULL,
         saldo DECIMAL(10,2) CHECK (saldo>=0),
         CONSTRAINT PK_beneficiario PRIMARY KEY(id),
-        CONSTRAINT FK_Usuario_beneficiario FOREIGN KEY (id_usuario)
+        CONSTRAINT FK_Usuario_beneficiario FOREIGN KEY (usuarioId)
         references USUARIOS(id) on delete cascade on update cascade
     );
 
     DROP TABLE IF EXISTS EMPLEADO CASCADE;
     CREATE TABLE EMPLEADO(
         id INT NOT NULL,
-        id_usuario INT NOT NULL,
+        usuarioId INT NOT NULL,
         telefono VARCHAR(50),
         CONSTRAINT PK_empleado PRIMARY KEY(id),
-        CONSTRAINT FK_Usuario_empleado FOREIGN KEY (id_usuario)
+        CONSTRAINT FK_Usuario_empleado FOREIGN KEY (usuarioId)
         references USUARIOS(id) on delete cascade on update cascade
     );
 
     DROP TABLE IF EXISTS TRANSFERENCIA CASCADE;
     CREATE TABLE TRANSFERENCIA(
         id INT NOT NULL,
-        id_transaccion INT NOT NULL,
+        transaccionId INT NOT NULL,
         CONSTRAINT PK_transferencia PRIMARY KEY(id),
-        CONSTRAINT FK_Transaccion_transferencia FOREIGN KEY (id_transaccion)
+        CONSTRAINT FK_Transaccion_transferencia FOREIGN KEY (transaccionId)
         references TRANSACCION(id) on delete cascade on update cascade
     );
 
     DROP TABLE IF EXISTS COMPRA CASCADE;
     CREATE TABLE COMPRA(
         id INT NOT NULL,
-        id_transaccion INT NOT NULL,
+        transaccionId INT NOT NULL,
         detalle VARCHAR(50) NOT NULL,
         tipo TEXT NOT NULL,
         CONSTRAINT PK_compra PRIMARY KEY(id),
@@ -67,11 +67,11 @@
     DROP TABLE IF EXISTS TRABAJA CASCADE;
     CREATE TABLE TRABAJA(
         id INT NOT NULL,
-        id_lugar INT NOT NULL,
-        id_empleado INT NOT NULL,
+        lugarId INT NOT NULL,
+        empleadoId INT NOT NULL,
         fecha_inicio DATE,
         fecha_fin DATE,
-        CONSTRAINT PK_trabaja PRIMARY KEY(id,id_lugar,id_empleado),
+        CONSTRAINT PK_trabaja PRIMARY KEY(id,lugarId,empleadoId),
         CONSTRAINT FK_Trabaja_lugar FOREIGN KEY (id_lugar)
         references LUGAR(id) on delete cascade on update cascade,
         CONSTRAINT FK_Trabaja_empleado  FOREIGN KEY (id_empleado)
@@ -81,9 +81,9 @@
     DROP TABLE IF EXISTS EFECTUA CASCADE;
     CREATE TABLE EFECTUA(
         id INT NOT NULL,
-        id_transferencia INT NOT NULL,
-        id_beneficiario_donador INT NOT NULL,
-        id_beneficiario_receptor INT NOT NULL,
+        transferenciaId INT NOT NULL,
+        beneficiario_donadorId INT NOT NULL,
+        beneficiario_receptorId INT NOT NULL,
         monto DECIMAL(10,2) CHECK(monto>0),
         CONSTRAINT PK_efectua PRIMARY KEY(id,id_transferencia, id_beneficiario_donador, id_beneficiario_receptor),
         CONSTRAINT FK_Efectua_transferencia FOREIGN KEY (id_transferencia)

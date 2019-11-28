@@ -14,6 +14,9 @@ const usuarios = sequelize.define("usuarios", {
     contrasea: {
         type: Sequelize.STRING
     },
+    foto: {
+        type: Sequelize.STRING
+    },
     
 },
 {
@@ -24,5 +27,5 @@ const usuarios = sequelize.define("usuarios", {
     freezeTableName:true,
     schema: "public"
 })
-
+//usuarios.sync({force: true});
 module.exports = usuarios;

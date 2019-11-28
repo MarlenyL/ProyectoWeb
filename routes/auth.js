@@ -8,7 +8,7 @@ var authController = require('../controllers/authcontroller');
 router.get('/', authController.signin);
 
  
-router.get('/principalE',authController.principalE);
+router.get('/principalE',isLoggedIn,authController.principalE);
 
 
 router.post('/', passport.authenticate('local-signin', {
@@ -16,28 +16,27 @@ router.post('/', passport.authenticate('local-signin', {
  
         failureRedirect: '/signin'
     }
-));
+))
 
  
  
-/*function isLoggedIn(req, res, next) {
+function isLoggedIn(req, res, next) {
  
     if (req.isAuthenticated()){
         return next();
     }
     res.redirect('/signin');
  
-}
+}/*
 function isLoggedIn(req, res, next) {
  
     if (req.isAuthenticated()){
         res.redirect('/principalE');
     }
-    
-  
-  }*/
+    res.redirect('/signin');
+  }
  
- 
+ */
 
 
 module.exports = router;

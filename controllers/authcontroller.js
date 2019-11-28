@@ -1,7 +1,6 @@
 var exportss =  {}
  
 exportss.signin = function(req, res) {
- 
     res.render('index');
  
 }

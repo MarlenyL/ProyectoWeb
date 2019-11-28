@@ -1,7 +1,7 @@
 var {sequelize,Sequelize} = require('../Database/connection')
 var compra = require('../models/compra');
-var beneficiario = require('../models/beneficiario');
-var empleado = require('../models/empleado');
+//var beneficiario = require('../models/beneficiario');
+//var empleado = require('../models/empleado');
 var lugar = require('../models/lugar')
 
 const realiza = sequelize.define("realiza", {
@@ -9,25 +9,17 @@ const realiza = sequelize.define("realiza", {
         type:Sequelize.INTEGER,
         primaryKey: true
     },
-    id_compra :{
+    compraId:{
         type: Sequelize.INTEGER,
-        references: compra,
-        referenceKey: 'id',
     },
-    id_beneficiario: {
+    beneficiarioId: {
         type: Sequelize.INTEGER,
-        references: beneficiario,
-        referenceKey: 'id',
     },
-    id_empleado: {
+    empleadoId: {
         type: Sequelize.INTEGER,
-        references: empleado,
-        referenceKey: 'id',
     },
-    id_lugar: {
+    lugarId: {
         type: Sequelize.INTEGER,
-        references: lugar,
-        referenceKey: 'id',
     },
     monto: {
         type: Sequelize.DECIMAL(10,2)
@@ -41,9 +33,10 @@ const realiza = sequelize.define("realiza", {
     freezeTableName:true,
     schema: "public"
 })
-compra.hasOne(realiza);
-beneficiario.hasOne(realiza);
-empleado.hasOne(realiza);
-lugar.hasOne(realiza);
-
+realiza.sync({force: true});
+/*compra.hasOne(realiza,{as: 'compraId'});
+beneficiario.hasOne(realiza,{as:'beneficiarioId',foreignKey:'FK_realiza_beneficiario'});
+empleado.hasOne(realiza,{as:'empleadoId',foreignKey:'FK_Realiza_empleado'});
+lugar.hasOne(realiza,{as: 'lugarId'});
+*/
 module.exports = realiza;
