@@ -7,7 +7,7 @@ const lugar = sequelize.define("lugar", {
     },
     nombre :{
         type: Sequelize.STRING
-    },
+    }
     
 },
 {

@@ -122,7 +122,7 @@
     BEGIN
         IF TG_OP = 'INSERT' THEN
             monto_a_sumar := NEW.monto;
-            UPDATE TRANSACCION SET monto_inicial = (SELECT SALDO FROM BENEFICIARIO WHERE id=NEW.beneficiarioId) WHERE id = (SELECT transaccionId FROM COMPRA WHERE id = NEW.compraId);
+            UPDATE TRANSACCION SET monto_inicial = (SELECT SALDO FROM BENEFICIARIO WHERE id=NEW.beneficiarioId) WHERE id = (SELECT compra.transaccionId FROM COMPRA WHERE id = NEW.compraId);
             UPDATE BENEFICIARIO SET saldo=saldo+monto_a_sumar WHERE id=NEW.beneficiarioId;
             UPDATE TRANSACCION SET monto_final = (SELECT SALDO FROM BENEFICIARIO WHERE id=NEW.beneficiarioId) WHERE id = (SELECT transaccionId FROM COMPRA WHERE id = NEW.compraId);
             RAISE NOTICE 'Debido a la compra en el lugar %, se va a sumar/restar al beneficiario % el monto de $%',(SELECT l.nombre FROM LUGAR l WHERE l.id = NEW.lugarId), (SELECT u.nombre FROM USUARIOS u, BENEFICIARIO b WHERE u.id = b.usuarioId AND b.id = NEW.beneficiarioId),monto_a_sumar;
@@ -141,13 +141,13 @@
     BEGIN
         IF TG_OP = 'INSERT' THEN
             monto_a_sumar := NEW.monto;
-            UPDATE TRANSACCION SET monto_inicial = (SELECT SALDO FROM BENEFICIARIO WHERE id=NEW.beneficiario_donadorId) WHERE id = (SELECT transaccionId FROM TRANSFERENCIA WHERE id = NEW.transferenciaId);
-            UPDATE BENEFICIARIO SET saldo=saldo-monto_a_sumar WHERE id=NEW.beneficiario_donadorId;
-            UPDATE TRANSACCION SET monto_final = (SELECT SALDO FROM BENEFICIARIO WHERE id=NEW.beneficiario_donadorId) WHERE id = (SELECT transaccionId FROM TRANSFERENCIA WHERE id = NEW.transferenciaId);
-            UPDATE TRANSACCION SET monto_inicial = (SELECT SALDO FROM BENEFICIARIO WHERE id=NEW.beneficiario_receptorId) WHERE id = (SELECT transaccionId FROM TRANSFERENCIA WHERE id = NEW.transferenciaId);
-            UPDATE BENEFICIARIO SET saldo=saldo+monto_a_sumar WHERE id=NEW.beneficiario_receptorId;
-            UPDATE TRANSACCION SET monto_final = (SELECT SALDO FROM BENEFICIARIO WHERE id=NEW.beneficiario_receptorId) WHERE id = (SELECT transaccionId FROM TRANSFERENCIA WHERE id = NEW.transferenciaId);
-            RAISE NOTICE 'Debido a la transferencia, se va a sumar al beneficiario % el monto de $% y al beneficiario % se le restara el monto de $% ',(SELECT u.nombre FROM USUARIOS u, BENEFICIARIO b WHERE u.id = b.usuarioId AND b.id = NEW.beneficiario_receptorId),monto_a_sumar,(SELECT u.nombre FROM USUARIOS u, BENEFICIARIO b WHERE u.id = b.usuarioId AND b.id = NEW.beneficiario_donadorId), monto_a_sumar;
+            UPDATE TRANSACCION SET monto_inicial = (SELECT SALDO FROM BENEFICIARIO WHERE id=NEW."beneficiario_donadorId") WHERE id = (SELECT "transaccionId" FROM TRANSFERENCIA WHERE id = NEW."transferenciaId");
+            UPDATE BENEFICIARIO SET saldo=saldo-monto_a_sumar WHERE id=NEW."beneficiario_donadorId";
+            UPDATE TRANSACCION SET monto_final = (SELECT SALDO FROM BENEFICIARIO WHERE id=NEW."beneficiario_donadorId") WHERE id = (SELECT "transaccionId" FROM TRANSFERENCIA WHERE id = NEW."transferenciaId");
+            UPDATE TRANSACCION SET monto_inicial = (SELECT SALDO FROM BENEFICIARIO WHERE id=NEW."beneficiario_receptorId") WHERE id = (SELECT "transaccionId" FROM TRANSFERENCIA WHERE id = NEW."transferenciaId");
+            UPDATE BENEFICIARIO SET saldo=saldo+monto_a_sumar WHERE id=NEW."beneficiario_receptorId";
+            UPDATE TRANSACCION SET monto_final = (SELECT SALDO FROM BENEFICIARIO WHERE id=NEW."beneficiario_receptorId") WHERE id = (SELECT "transaccionId" FROM TRANSFERENCIA WHERE id = NEW."transferenciaId");
+            RAISE NOTICE 'Debido a la transferencia, se va a sumar al beneficiario % el monto de $% y al beneficiario % se le restara el monto de $% ',(SELECT u.nombre FROM USUARIOS u, BENEFICIARIO b WHERE u.id = b."usuarioId" AND b.id = NEW."beneficiario_receptorId"),monto_a_sumar,(SELECT u.nombre FROM USUARIOS u, BENEFICIARIO b WHERE u.id = b."usuarioId" AND b.id = NEW."beneficiario_donadorId"), monto_a_sumar;
             RETURN NEW;
         END IF;
     END;
@@ -222,21 +222,21 @@
     INSERT INTO TRANSACCION VALUES(4,0.00,0.00,'2019-11-01');
     INSERT INTO TRANSACCION VALUES(5,0.00,0.00,'2019-11-01');
     INSERT INTO TRANSACCION VALUES(6,0.00,0.00,'2019-11-01');
-    INSERT INTO COMPRA VALUES(1,1,'Recarga inicial','Recarga');
-    INSERT INTO COMPRA VALUES(2,2,'Recarga inicial','Recarga');
-    INSERT INTO COMPRA VALUES(3,3,'Recarga inicial','Recarga');
-    INSERT INTO COMPRA VALUES(4,4,'Recarga inicial','Recarga');
-    INSERT INTO COMPRA VALUES(5,5,'Recarga inicial','Recarga');
-    INSERT INTO COMPRA VALUES(6,6,'Recarga inicial','Recarga');
+    INSERT INTO COMPRA VALUES(1,'Recarga inicial','Recarga',1);
+    INSERT INTO COMPRA VALUES(2,'Recarga inicial','Recarga',2);
+    INSERT INTO COMPRA VALUES(3,'Recarga inicial','Recarga',3);
+    INSERT INTO COMPRA VALUES(4,'Recarga inicial','Recarga',4);
+    INSERT INTO COMPRA VALUES(5,'Recarga inicial','Recarga',5);
+    INSERT INTO COMPRA VALUES(6,'Recarga inicial','Recarga',6);
 
     --REALIZA
     BEGIN;
-    INSERT INTO REALIZA VALUES(1,1,1,1,1,15.00);
-    INSERT INTO REALIZA VALUES(2,2,2,5,5,15.00);
-    INSERT INTO REALIZA VALUES(3,3,3,4,2,15.00);
-    INSERT INTO REALIZA VALUES(4,4,4,3,4,20.00);
-    INSERT INTO REALIZA VALUES(5,5,5,2,6,25.00);
-    INSERT INTO REALIZA VALUES(6,6,6,4,2,100.00);
+    INSERT INTO REALIZA VALUES(1,15.00,1,1,1,1);
+    INSERT INTO REALIZA VALUES(2,15.00,2,2,5,5);
+    INSERT INTO REALIZA VALUES(3,15.00,3,3,4,2);
+    INSERT INTO REALIZA VALUES(4,20.00,4,4,3,4);
+    INSERT INTO REALIZA VALUES(5,25.00,5,5,2,6);
+    INSERT INTO REALIZA VALUES(6,100.00,6,6,4,2);
     COMMIT;
     --TRANSACCION/TRANSFERENCIA
     INSERT INTO TRANSACCION VALUES(7,0.00,0.00,'2019-11-05');
@@ -267,10 +267,10 @@
 
     --REALIZA
     BEGIN;
-    INSERT INTO REALIZA VALUES(7,7,1,1,1,-1.20);
-    INSERT INTO REALIZA VALUES(8,8,2,5,5,-2.25);
-    INSERT INTO REALIZA VALUES(9,9,3,4,2,-1.25);
-    INSERT INTO REALIZA VALUES(10,10,4,3,4,-0.80);
-    INSERT INTO REALIZA VALUES(11,11,5,2,6,-0.65);
-    INSERT INTO REALIZA VALUES(12,12,6,4,4,-1.50);
+    INSERT INTO REALIZA VALUES(7,-1.20,7,1,1,1);
+    INSERT INTO REALIZA VALUES(8,-2.25,8,2,5,5);
+    INSERT INTO REALIZA VALUES(9,-1.25,9,3,4,2);
+    INSERT INTO REALIZA VALUES(10,-0.80,10,4,3,4);
+    INSERT INTO REALIZA VALUES(11,-0.65,11,5,2,6);
+    INSERT INTO REALIZA VALUES(12,-1.50,12,6,4,4);
     COMMIT;

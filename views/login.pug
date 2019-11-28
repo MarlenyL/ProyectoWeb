@@ -3,14 +3,14 @@ extends layout
 block content
     include header
     div(class="container")
-        div(class='principal priLog')
-            div(class="yellowbar yellowbarL")
+        div(class='principal')
+            div(class="yellowbar")
                 h3 BIENVENIDO
             div(class='Formulario')
-                form(method ="post" action ="signin" name="signin" id="signin" class="login")
+                form(method ="post" action ="signin" name="signin" id="signin")
                     label(for="usuario" class="form") Usuario
-                    input#user(type="text", name="usuario" , required, placeholder="Usuario", maxlength="8" class="input")
-                    label(for="contrasea" class="form") Contraseña:
-                    input#password(type="password" name="contrasea", required, placeholder="Contraseña" class="input")      
+                    input#user(type="text", name="usuario" , required, placeholder="Usuario", maxlength="8")
+                    label(for="contrasea" class="data") Contraseña:
+                    input#password(type="password" name="contrasea", required, placeholder="Contraseña")      
                     input(id="boton" type="submit" value="Acceder")
     div(class="footer")

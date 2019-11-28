@@ -6,9 +6,6 @@ const beneficiario = sequelize.define("beneficiario", {
         type:Sequelize.INTEGER,
         primaryKey: true
     },
-    usuarioId:{
-        type:Sequelize.INTEGER
-    },
     carnet:{
         type: Sequelize.STRING
     },
