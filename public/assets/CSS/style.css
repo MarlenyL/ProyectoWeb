@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap");
+@import  url("https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap");
 
 /* Aplicando un formato general al html
 *, ::before, ::after {
@@ -280,7 +280,7 @@ a {
     height: 60%;
   }
   .header img{
-    justify-content;: flex-end;
+    justify-content: flex-end;
   }
   .header h1{
     font-size: vh;
@@ -348,6 +348,5 @@ a {
   }
 }
 @media only screen and (min-width: 1440px) {
-  h1 {
-  }
+ 
 }

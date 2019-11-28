@@ -1,75 +1,46 @@
 var modelo = require('../models/beneficiario');
+var realiza = require('../models/realiza');
+var lugar = require('../models/lugar');
+var compra = require('../models/compra');
+var transaccion = require('../models/Transaccion');
 
 var beneficiario = {};
-beneficiario.saldo = async function(req,res){
-    var id=req.id;
-    obtenerSaldo(id);
-}
-
-var obtenerSaldo=function(id=4){
+beneficiario.saldo = async function(id, callback){
     var Modelo = modelo;
     Modelo.findByPk(id,{attributes:['saldo']})
-    .then(function(modelo) {
-            
+    .then(function(modelo) { 
+        var mod = {};           
         if (modelo) {
-            console.log(JSON.stringify(modelo.get()))
-            return JSON.stringify(modelo.get());
+            mod = modelo.get();
         }
-        else{
-            return 0;
-        }
- 
+        return callback(mod);
     });
 }
-//transferencia.sync({force: true});
-//obtenerSaldo();
-/*function(req, usuario, contrasea, done) {
-    
-    var id = ;
-    
-    var isValidPassword = function(userpass, contrasea) {
-        
-        if (userpass==contrasea){
-            return true;
-        }
-        return false;
 
-    }
-
-    User.findOne({
-        where: {
-            usuario: usuario
-        }
-    }).then(function(user) {
-        if (!user) {
+beneficiario.transacciones = async function(id, callback){
+    var query = {
+        where: {beneficarioId: 4},
+        include: [
+            {model:lugar},
+            {
+                model:compra,
+                include:[
+                    {model:transaccion}
+                ]
+            },
             
-            return done(null, false, {
-                message: 'Credenciales incorrectas'
-            });
-
+        ]
+    }
+    var Realiza= realiza;
+    Realiza.findAll(query)
+    .then(function(realiza) { 
+        var real = {};           
+        if (realiza) {
+            console.log(realiza);
+            real = realiza.get();
         }
-
-        if (!isValidPassword(user.contrasea, contrasea)) {
-
-            return done(null, false, {
-                message: 'Credenciales incorrectas'
-            });
-
-        }
-
-
-        var userinfo = user.get();
-        return done(null, userinfo);
-
-
-    }).catch(function(err) {
-
-        console.log("Error:", err);
-
-        return done(null, false, {
-            message: 'Something went wrong with your Signin'
-        });
-
-    });*/
+        return callback(real);
+    });
+}
 
 module.exports = beneficiario;

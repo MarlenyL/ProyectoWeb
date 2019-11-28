@@ -4,9 +4,10 @@ var StudentManager = require('../controllers/StudentManager');
 var passport = require('passport');
 
 router.get('/',isLoggedIn,function(req, res, next) {
-  var saldo = StudentManager;
-  console.log(saldo.saldo(req.user.id));
-  res.render('principalE',{saldo:saldo.saldo(req.user.id),user:req.user})
+    StudentManager.saldo(req.user.id, function (mod) {
+        var data = {saldo:mod, user:req.user};
+        res.render('principalE',data)
+    });  
 });
 
 function isLoggedIn(req, res, next) {
