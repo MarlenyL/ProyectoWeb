@@ -41,7 +41,15 @@ app.use(passport.session()); // persistent login sessions
 
 //Models
 var usuario = require("./models/usuario");
-
+var transaccion = require("./models/Transaccion");
+var lugar = require("./models/lugar");
+var beneficiario = require("./models/beneficiario");
+var empleado = require("./models/empleado");
+var transferencia = require("./models/transferencia");
+var compra = require("./models/compra");
+var trabaja = require("./models/Trabaja");
+var efectua = require("./models/efectua");
+var realiza = require("./models/realiza");
 
 //load passport strategies
  
