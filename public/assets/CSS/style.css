@@ -511,6 +511,9 @@ a {
 .help p{
   text-align: center;
 }
+.input{
+  height: 2vh;
+}
 
 
 @media only screen and (min-width: 768px) {
@@ -621,6 +624,15 @@ a {
     text-align: center;
     align-content: center;
     align-items: center;
+  }
+  .yellowbarL{
+    margin: 1em auto;
+  }
+  .input{
+    height: 2vh;
+  }
+  .Formulario{
+    width: 50%;
   }
 
 /*Transacciones*/
