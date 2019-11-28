@@ -42,13 +42,11 @@ app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 
 var {sequelize,Sequelize} = require('./Database/connection')
-//load passport strategies
 
-require('./config/passport.js')(passport, usuario);
 
 //Sync Database
 
-sequelize.sync({force:true})
+sequelize.sync()
          .then(function() {
 
              console.log('Nice! Database looks fine')
@@ -72,6 +70,10 @@ var efectua = require("./models/efectua");
 var realiza = require("./models/realiza");
 var relaciones = require('./models/keys');
 relaciones.init(usuario, transaccion, lugar, beneficiario, empleado, transferencia, compra, trabaja, efectua, realiza);
+
+//load passport strategies
+
+require('./config/passport.js')(passport, usuario);
 
 app.use('/', indexRouter);
 app.use('/signin',authRoute);
