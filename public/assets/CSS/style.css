@@ -705,7 +705,7 @@ a {
   .estadisticas{
     display: flex;
     flex-direction: column;
-    background-color: ;
+    /*background-color: ;*/
     justify-content: center;
     justify-items: center;
   }

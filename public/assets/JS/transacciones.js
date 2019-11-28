@@ -20,7 +20,7 @@ function addRow(descripcion,fecha,no,monto,real, tbody){
 
   }
 
-  expand() {
+function expand(){
     
     this.element.addEventListener("submit", (e) => {
         console.log("Capturin Form Submit of ", this.element);
