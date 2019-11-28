@@ -1,9 +1,10 @@
-    DROP TABLE IF EXISTS USUARIO CASCADE;
+       DROP TABLE IF EXISTS USUARIOS CASCADE;
     CREATE TABLE USUARIOS(
         id INT NOT NULL,
         nombre VARCHAR(50) NOT NULL,
         usuario VARCHAR(25) NOT NULL,
-        contraseña VARCHAR(12) NOT NULL,
+        contraseña VARCHAR(50) NOT NULL,
+        foto VARCHAR(250),
         CONSTRAINT PK_usuario PRIMARY KEY(id)
     );
 
@@ -60,7 +61,7 @@
         detalle VARCHAR(50) NOT NULL,
         tipo TEXT NOT NULL,
         CONSTRAINT PK_compra PRIMARY KEY(id),
-        CONSTRAINT FK_Transaccion_compra FOREIGN KEY (id_transaccion)
+        CONSTRAINT FK_Transaccion_compra FOREIGN KEY (transaccionId)
         references TRANSACCION(id) on delete cascade on update cascade
     );
 
@@ -72,9 +73,9 @@
         fecha_inicio DATE,
         fecha_fin DATE,
         CONSTRAINT PK_trabaja PRIMARY KEY(id,lugarId,empleadoId),
-        CONSTRAINT FK_Trabaja_lugar FOREIGN KEY (id_lugar)
+        CONSTRAINT FK_Trabaja_lugar FOREIGN KEY (lugarId)
         references LUGAR(id) on delete cascade on update cascade,
-        CONSTRAINT FK_Trabaja_empleado  FOREIGN KEY (id_empleado)
+        CONSTRAINT FK_Trabaja_empleado  FOREIGN KEY (empleadoId)
         references EMPLEADO(id) on delete cascade on update cascade
     );
 
@@ -85,66 +86,104 @@
         beneficiario_donadorId INT NOT NULL,
         beneficiario_receptorId INT NOT NULL,
         monto DECIMAL(10,2) CHECK(monto>0),
-        CONSTRAINT PK_efectua PRIMARY KEY(id,id_transferencia, id_beneficiario_donador, id_beneficiario_receptor),
-        CONSTRAINT FK_Efectua_transferencia FOREIGN KEY (id_transferencia)
+        CONSTRAINT PK_efectua PRIMARY KEY(id,transferenciaId, beneficiario_donadorId, beneficiario_receptorId),
+        CONSTRAINT FK_Efectua_transferencia FOREIGN KEY (transferenciaId)
         references TRANSFERENCIA(id) on delete cascade on update cascade,
-        CONSTRAINT FK_efectua_beneficiario_donador FOREIGN KEY (id_beneficiario_donador)
+        CONSTRAINT FK_efectua_beneficiario_donador FOREIGN KEY (beneficiario_donadorId)
         references BENEFICIARIO(id) on delete cascade on update cascade,
-        CONSTRAINT FK_efectua_beneficiario_receptor FOREIGN KEY (id_beneficiario_receptor)
+        CONSTRAINT FK_efectua_beneficiario_receptor FOREIGN KEY (beneficiario_receptorId)
         references BENEFICIARIO(id) on delete cascade on update cascade
     );
 
     DROP TABLE IF EXISTS REALIZA CASCADE;
     CREATE TABLE REALIZA(
         id INT NOT NULL,
-        id_compra INT NOT NULL,
-        id_beneficiario INT NOT NULL,
-        id_empleado INT NOT NULL,
-        id_lugar INT NOT NULL,
+        compraId INT NOT NULL,
+        beneficiarioId INT NOT NULL,
+        empleadoId INT NOT NULL,
+        lugarId INT NOT NULL,
         monto DECIMAL(10,2),
-        CONSTRAINT PK_realiza PRIMARY KEY(id, id_compra, id_beneficiario, id_empleado, id_lugar),
-        CONSTRAINT FK_Realiza_compra FOREIGN KEY (id_compra)
+        CONSTRAINT PK_realiza PRIMARY KEY(id, compraId, beneficiarioId, empleadoId, lugarId),
+        CONSTRAINT FK_Realiza_compra FOREIGN KEY (compraId)
         references COMPRA(id) on delete cascade on update cascade,
-        CONSTRAINT FK_realiza_beneficiario FOREIGN KEY (id_beneficiario)
+        CONSTRAINT FK_realiza_beneficiario FOREIGN KEY (beneficiarioId)
         references BENEFICIARIO(id) on delete cascade on update cascade,
-        CONSTRAINT FK_Realiza_empleado FOREIGN KEY (id_empleado)
+        CONSTRAINT FK_Realiza_empleado FOREIGN KEY (empleadoId)
         references EMPLEADO(id) on delete cascade on update cascade,
-        CONSTRAINT FK_Realiza_lugar FOREIGN KEY (id_lugar)
+        CONSTRAINT FK_Realiza_lugar FOREIGN KEY (lugarId)
         references LUGAR(id) on delete cascade on update cascade
     );
 
-    --USUARIO
-    INSERT INTO USUARIOS VALUES(1,'Carlos Francisco Estévez Lemus','00120218','00120218');
-    INSERT INTO USUARIOS VALUES(2,'Christian Gerardo Chinchilla Ramirez','00049518','00049518');
-    INSERT INTO USUARIOS VALUES(3,'Andrea Pamela Ochoa Figueroa','00094118','00094118');
-    INSERT INTO USUARIOS VALUES(4,'Rocio Marleny Landaverde Solis','00153118','00153118');
-    INSERT INTO USUARIOS VALUES(5,'Vania Michelle Benitez Noches','00171419','00171419');
-    INSERT INTO USUARIOS VALUES(6,'Rodrigo Alessandro Carrero Pineda','00193019','00193019');
-    INSERT INTO USUARIOS VALUES(7,'Jose Miguel Ramos Garcia','00192618','00192618');
-    INSERT INTO USUARIOS VALUES(8,'Fernando Josue Vasquez Hernandez','00179118','00179118');
+    --PROCEDIMIENTO PARA PODER CALCULAR EL SALDO EN COMPRA Y ACTUALIZAR MONTO INICIAL Y FINAL EN TRANSACCION
 
-    INSERT INTO USUARIOS VALUES(9,'Marleny Solis','msolis','root');
-    INSERT INTO USUARIOS VALUES(10,'Michelle Noches','mnoches','root');
-    INSERT INTO USUARIOS VALUES(11,'Rodrigo Pineda','rpineda','root');
-    INSERT INTO USUARIOS VALUES(12,'Miguel Garcia','mgarcia','root');
-    INSERT INTO USUARIOS VALUES(13,'Josue Hernandez','jhernandez','root');
-    
+    CREATE OR REPLACE FUNCTION saldo_acumulado_beneficiario() RETURNS trigger AS $$
+    DECLARE
+        monto_a_sumar BENEFICIARIO.saldo%TYPE;
+    BEGIN
+        IF TG_OP = 'INSERT' THEN
+            monto_a_sumar := NEW.monto;
+            UPDATE TRANSACCION SET monto_inicial = (SELECT SALDO FROM BENEFICIARIO WHERE id=NEW.beneficiarioId) WHERE id = (SELECT transaccionId FROM COMPRA WHERE id = NEW.compraId);
+            UPDATE BENEFICIARIO SET saldo=saldo+monto_a_sumar WHERE id=NEW.beneficiarioId;
+            UPDATE TRANSACCION SET monto_final = (SELECT SALDO FROM BENEFICIARIO WHERE id=NEW.beneficiarioId) WHERE id = (SELECT transaccionId FROM COMPRA WHERE id = NEW.compraId);
+            RAISE NOTICE 'Debido a la compra en el lugar %, se va a sumar/restar al beneficiario % el monto de $%',(SELECT l.nombre FROM LUGAR l WHERE l.id = NEW.lugarId), (SELECT u.nombre FROM USUARIOS u, BENEFICIARIO b WHERE u.id = b.usuarioId AND b.id = NEW.beneficiarioId),monto_a_sumar;
+            RETURN NEW;
+        END IF;
+    END;
+    $$ LANGUAGE plpgsql;
+
+    DROP TRIGGER IF EXISTS actualiza_saldo_acumulado_beneficiario ON REALIZA;
+    CREATE TRIGGER actualiza_saldo_acumulado_beneficiario BEFORE INSERT ON REALIZA FOR EACH ROW EXECUTE PROCEDURE saldo_acumulado_beneficiario();
+
+    --PROCEDIMIENTO PARA PODER CALCULAR EL SALDO EN TRANSFERENCIAS Y ACTUALIZAR MONTO INICIAL Y FINAL EN TRANSACCION
+    CREATE OR REPLACE FUNCTION saldo_acumulado_transferencia_beneficiario() RETURNS trigger AS $$
+    DECLARE
+        monto_a_sumar BENEFICIARIO.saldo%TYPE;
+    BEGIN
+        IF TG_OP = 'INSERT' THEN
+            monto_a_sumar := NEW.monto;
+            UPDATE TRANSACCION SET monto_inicial = (SELECT SALDO FROM BENEFICIARIO WHERE id=NEW.beneficiario_donadorId) WHERE id = (SELECT transaccionId FROM TRANSFERENCIA WHERE id = NEW.transferenciaId);
+            UPDATE BENEFICIARIO SET saldo=saldo-monto_a_sumar WHERE id=NEW.beneficiario_donadorId;
+            UPDATE TRANSACCION SET monto_final = (SELECT SALDO FROM BENEFICIARIO WHERE id=NEW.beneficiario_donadorId) WHERE id = (SELECT transaccionId FROM TRANSFERENCIA WHERE id = NEW.transferenciaId);
+            UPDATE TRANSACCION SET monto_inicial = (SELECT SALDO FROM BENEFICIARIO WHERE id=NEW.beneficiario_receptorId) WHERE id = (SELECT transaccionId FROM TRANSFERENCIA WHERE id = NEW.transferenciaId);
+            UPDATE BENEFICIARIO SET saldo=saldo+monto_a_sumar WHERE id=NEW.beneficiario_receptorId;
+            UPDATE TRANSACCION SET monto_final = (SELECT SALDO FROM BENEFICIARIO WHERE id=NEW.beneficiario_receptorId) WHERE id = (SELECT transaccionId FROM TRANSFERENCIA WHERE id = NEW.transferenciaId);
+            RAISE NOTICE 'Debido a la transferencia, se va a sumar al beneficiario % el monto de $% y al beneficiario % se le restara el monto de $% ',(SELECT u.nombre FROM USUARIOS u, BENEFICIARIO b WHERE u.id = b.usuarioId AND b.id = NEW.beneficiario_receptorId),monto_a_sumar,(SELECT u.nombre FROM USUARIOS u, BENEFICIARIO b WHERE u.id = b.usuarioId AND b.id = NEW.beneficiario_donadorId), monto_a_sumar;
+            RETURN NEW;
+        END IF;
+    END;
+    $$ LANGUAGE plpgsql;
+
+    DROP TRIGGER IF EXISTS actualiza_saldo_acumulado_transferencia_beneficiario ON REALIZA;
+    CREATE TRIGGER actualiza_saldo_acumulado_transferencia_beneficiario BEFORE INSERT ON EFECTUA FOR EACH ROW EXECUTE PROCEDURE saldo_acumulado_transferencia_beneficiario();
+
+    --USUARIO/BENEFICIARIO
+    INSERT INTO USUARIOS VALUES(1,'Carlos Francisco Estévez Lemus','00120218','00120218','https://res.cloudinary.com/ste0219/image/upload/v1574811825/Base/perfil_i5hmiy.jpg');
+    INSERT INTO USUARIOS VALUES(2,'Christian Gerardo Chinchilla Ramirez','00049518','00049518','https://res.cloudinary.com/ste0219/image/upload/v1574811825/Base/perfil_i5hmiy.jpg');
+    INSERT INTO USUARIOS VALUES(3,'Andrea Pamela Ochoa Figueroa','00094118','00094118','https://res.cloudinary.com/ste0219/image/upload/v1574811825/Base/perfil_i5hmiy.jpg');
+    INSERT INTO USUARIOS VALUES(4,'Rocio Marleny Landaverde Solis','00153118','00153118','https://res.cloudinary.com/ste0219/image/upload/v1574811825/Base/perfil_i5hmiy.jpg');
+    INSERT INTO USUARIOS VALUES(5,'Vania Michelle Benitez Nochez','00171419','00171419','https://res.cloudinary.com/ste0219/image/upload/v1574811825/Base/perfil_i5hmiy.jpg');
+    INSERT INTO USUARIOS VALUES(6,'Carlo Juan Martín Perez','cmartin','lapalabramagica','https://res.cloudinary.com/ste0219/image/upload/v1574811825/Base/perfil_i5hmiy.jpg');
+    --USUARIO/EMPLEADO
+    INSERT INTO USUARIOS VALUES(7,'Marleny Solis','msolis','root','https://res.cloudinary.com/ste0219/image/upload/v1574811825/Base/perfil_i5hmiy.jpg');
+    INSERT INTO USUARIOS VALUES(8,'Michelle Noches','mnoches','root','https://res.cloudinary.com/ste0219/image/upload/v1574811825/Base/perfil_i5hmiy.jpg');
+    INSERT INTO USUARIOS VALUES(9,'Rodrigo Pineda','rpineda','root','https://res.cloudinary.com/ste0219/image/upload/v1574811825/Base/perfil_i5hmiy.jpg');
+    INSERT INTO USUARIOS VALUES(10,'Miguel Garcia','mgarcia','root','https://res.cloudinary.com/ste0219/image/upload/v1574811825/Base/perfil_i5hmiy.jpg');
+    INSERT INTO USUARIOS VALUES(11,'Josue Hernandez','jhernandez','root','https://res.cloudinary.com/ste0219/image/upload/v1574811825/Base/perfil_i5hmiy.jpg');
+
     --BENEFICIARIO
-    INSERT INTO BENEFICIARIO VALUES(1,1,'00120218',0);
-    INSERT INTO BENEFICIARIO VALUES(2,2,'00049518',0);
-    INSERT INTO BENEFICIARIO VALUES(3,3,'00094118',0);
-    INSERT INTO BENEFICIARIO VALUES(4,4,'00153118',0);
-    INSERT INTO BENEFICIARIO VALUES(5,5,'00171419',0);
-    INSERT INTO BENEFICIARIO VALUES(6,6,'00193019',0);
-    INSERT INTO BENEFICIARIO VALUES(7,7,'00192618',0);
-    INSERT INTO BENEFICIARIO VALUES(8,8,'00179118',0);
+    INSERT INTO BENEFICIARIO VALUES(1,1,'00120218',0.00);
+    INSERT INTO BENEFICIARIO VALUES(2,2,'00049518',0.00);
+    INSERT INTO BENEFICIARIO VALUES(3,3,'00094118',0.00);
+    INSERT INTO BENEFICIARIO VALUES(4,4,'00153118',0.00);
+    INSERT INTO BENEFICIARIO VALUES(5,5,'00171419',0.00);
+    INSERT INTO BENEFICIARIO VALUES(6,6,'cmartin',0.00);
 
     --EMPLEADO
-    INSERT INTO EMPLEADO VALUES(1,9,'7845-1523');
-    INSERT INTO EMPLEADO VALUES(2,10,'7743-2363');
-    INSERT INTO EMPLEADO VALUES(3,11,'7503-2623');
-    INSERT INTO EMPLEADO VALUES(4,12,'7964-7854');
-    INSERT INTO EMPLEADO VALUES(5,13,'7423-3127');
+    INSERT INTO EMPLEADO VALUES(1,7,'7845-1523');
+    INSERT INTO EMPLEADO VALUES(2,8,'7743-2363');
+    INSERT INTO EMPLEADO VALUES(3,9,'7503-2623');
+    INSERT INTO EMPLEADO VALUES(4,10,'7964-7854');
+    INSERT INTO EMPLEADO VALUES(5,11,'7423-3127');
     --LUGAR
     INSERT INTO LUGAR VALUES(1,'Cafeteria ICAS');
     INSERT INTO LUGAR VALUES(2,'Cafeteria Central');
@@ -175,3 +214,63 @@
     INSERT INTO TRABAJA VALUES(16,8,1,'2019-01-01','2020-01-01');
     INSERT INTO TRABAJA VALUES(17,9,2,'2019-01-01','2020-01-01');
     INSERT INTO TRABAJA VALUES(18,9,3,'2019-01-01','2020-01-01');
+    
+    --TRANSACCION/COMPRA/RECARGA
+    INSERT INTO TRANSACCION VALUES(1,0.00,0.00,'2019-11-01');
+    INSERT INTO TRANSACCION VALUES(2,0.00,0.00,'2019-11-01');
+    INSERT INTO TRANSACCION VALUES(3,0.00,0.00,'2019-11-01');
+    INSERT INTO TRANSACCION VALUES(4,0.00,0.00,'2019-11-01');
+    INSERT INTO TRANSACCION VALUES(5,0.00,0.00,'2019-11-01');
+    INSERT INTO TRANSACCION VALUES(6,0.00,0.00,'2019-11-01');
+    INSERT INTO COMPRA VALUES(1,1,'Recarga inicial','Recarga');
+    INSERT INTO COMPRA VALUES(2,2,'Recarga inicial','Recarga');
+    INSERT INTO COMPRA VALUES(3,3,'Recarga inicial','Recarga');
+    INSERT INTO COMPRA VALUES(4,4,'Recarga inicial','Recarga');
+    INSERT INTO COMPRA VALUES(5,5,'Recarga inicial','Recarga');
+    INSERT INTO COMPRA VALUES(6,6,'Recarga inicial','Recarga');
+
+    --REALIZA
+    BEGIN;
+    INSERT INTO REALIZA VALUES(1,1,1,1,1,15.00);
+    INSERT INTO REALIZA VALUES(2,2,2,5,5,15.00);
+    INSERT INTO REALIZA VALUES(3,3,3,4,2,15.00);
+    INSERT INTO REALIZA VALUES(4,4,4,3,4,20.00);
+    INSERT INTO REALIZA VALUES(5,5,5,2,6,25.00);
+    INSERT INTO REALIZA VALUES(6,6,6,4,2,100.00);
+    COMMIT;
+    --TRANSACCION/TRANSFERENCIA
+    INSERT INTO TRANSACCION VALUES(7,0.00,0.00,'2019-11-05');
+    INSERT INTO TRANSACCION VALUES(8,0.00,0.00,'2019-11-07');
+    INSERT INTO TRANSACCION VALUES(9,0.00,0.00,'2019-11-04');
+    INSERT INTO TRANSFERENCIA VALUES(1,7);
+    INSERT INTO TRANSFERENCIA VALUES(2,8);
+    INSERT INTO TRANSFERENCIA VALUES(3,9);
+
+    --EFECTUA
+    INSERT INTO EFECTUA VALUES(1,1,1,2,2.50);
+    INSERT INTO EFECTUA VALUES(2,2,3,1,3.50);
+    INSERT INTO EFECTUA VALUES(3,3,4,3,4.50);
+
+    --TRANSACCION/COMPRA/GASTO
+    INSERT INTO TRANSACCION VALUES(10,0.00,0.00,'2019-11-08');
+    INSERT INTO TRANSACCION VALUES(11,0.00,0.00,'2019-11-09');
+    INSERT INTO TRANSACCION VALUES(12,0.00,0.00,'2019-11-10');
+    INSERT INTO TRANSACCION VALUES(13,0.00,0.00,'2019-11-08');
+    INSERT INTO TRANSACCION VALUES(14,0.00,0.00,'2019-11-07');
+    INSERT INTO TRANSACCION VALUES(15,0.00,0.00,'2019-11-11');
+    INSERT INTO COMPRA VALUES(7,1,'Dulces','Gasto');
+    INSERT INTO COMPRA VALUES(8,2,'Churros','Gasto');
+    INSERT INTO COMPRA VALUES(9,3,'Cafe mocaccino','Gasto');
+    INSERT INTO COMPRA VALUES(10,4,'Maruchan','Gasto');
+    INSERT INTO COMPRA VALUES(11,5,'Coca-Cola','Gasto');
+    INSERT INTO COMPRA VALUES(12,6,'Café negro y pan dulce','Gasto');
+
+    --REALIZA
+    BEGIN;
+    INSERT INTO REALIZA VALUES(7,7,1,1,1,-1.20);
+    INSERT INTO REALIZA VALUES(8,8,2,5,5,-2.25);
+    INSERT INTO REALIZA VALUES(9,9,3,4,2,-1.25);
+    INSERT INTO REALIZA VALUES(10,10,4,3,4,-0.80);
+    INSERT INTO REALIZA VALUES(11,11,5,2,6,-0.65);
+    INSERT INTO REALIZA VALUES(12,12,6,4,4,-1.50);
+    COMMIT;
