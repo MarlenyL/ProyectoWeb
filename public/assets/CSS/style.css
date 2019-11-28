@@ -148,6 +148,11 @@ body {
   height: 100vh;
   font-size: 1.3em;
 }
+
+
+.perfil:hover{ 
+}
+
 .tarjetas {
   display: flex;
   justify-content: space-around;
