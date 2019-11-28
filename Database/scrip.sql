@@ -1,4 +1,4 @@
-       DROP TABLE IF EXISTS USUARIOS CASCADE;
+    DROP TABLE IF EXISTS USUARIOS CASCADE;
     CREATE TABLE USUARIOS(
         id INT NOT NULL,
         nombre VARCHAR(50) NOT NULL,
@@ -162,21 +162,25 @@
     INSERT INTO USUARIOS VALUES(3,'Andrea Pamela Ochoa Figueroa','00094118','00094118','https://res.cloudinary.com/ste0219/image/upload/v1574811825/Base/perfil_i5hmiy.jpg');
     INSERT INTO USUARIOS VALUES(4,'Rocio Marleny Landaverde Solis','00153118','00153118','https://res.cloudinary.com/ste0219/image/upload/v1574811825/Base/perfil_i5hmiy.jpg');
     INSERT INTO USUARIOS VALUES(5,'Vania Michelle Benitez Nochez','00171419','00171419','https://res.cloudinary.com/ste0219/image/upload/v1574811825/Base/perfil_i5hmiy.jpg');
-    INSERT INTO USUARIOS VALUES(6,'Carlo Juan Martín Perez','cmartin','lapalabramagica','https://res.cloudinary.com/ste0219/image/upload/v1574811825/Base/perfil_i5hmiy.jpg');
+    INSERT INTO USUARIOS VALUES(6,'Nestor Santigo Aldana','naldana','naldana','https://res.cloudinary.com/ste0219/image/upload/v1574811825/Base/perfil_i5hmiy.jpg');
     --USUARIO/EMPLEADO
     INSERT INTO USUARIOS VALUES(7,'Marleny Solis','msolis','root','https://res.cloudinary.com/ste0219/image/upload/v1574811825/Base/perfil_i5hmiy.jpg');
     INSERT INTO USUARIOS VALUES(8,'Michelle Noches','mnoches','root','https://res.cloudinary.com/ste0219/image/upload/v1574811825/Base/perfil_i5hmiy.jpg');
     INSERT INTO USUARIOS VALUES(9,'Rodrigo Pineda','rpineda','root','https://res.cloudinary.com/ste0219/image/upload/v1574811825/Base/perfil_i5hmiy.jpg');
     INSERT INTO USUARIOS VALUES(10,'Miguel Garcia','mgarcia','root','https://res.cloudinary.com/ste0219/image/upload/v1574811825/Base/perfil_i5hmiy.jpg');
     INSERT INTO USUARIOS VALUES(11,'Josue Hernandez','jhernandez','root','https://res.cloudinary.com/ste0219/image/upload/v1574811825/Base/perfil_i5hmiy.jpg');
-
+    INSERT INTO USUARIOS VALUES(12,'Monica Solis','mosolis','root','https://res.cloudinary.com/ste0219/image/upload/v1574811825/Base/perfil_i5hmiy.jpg');
+    INSERT INTO USUARIOS VALUES(13,'Jose Noches','jnoches','root','https://res.cloudinary.com/ste0219/image/upload/v1574811825/Base/perfil_i5hmiy.jpg');
+    INSERT INTO USUARIOS VALUES(14,'Rodrigo Garcia','rgarcia','root','https://res.cloudinary.com/ste0219/image/upload/v1574811825/Base/perfil_i5hmiy.jpg');
+    INSERT INTO USUARIOS VALUES(15,'Miguel Pineda','mpineda','root','https://res.cloudinary.com/ste0219/image/upload/v1574811825/Base/perfil_i5hmiy.jpg');
+    
     --BENEFICIARIO
     INSERT INTO BENEFICIARIO VALUES(1,1,'00120218',0.00);
     INSERT INTO BENEFICIARIO VALUES(2,2,'00049518',0.00);
     INSERT INTO BENEFICIARIO VALUES(3,3,'00094118',0.00);
     INSERT INTO BENEFICIARIO VALUES(4,4,'00153118',0.00);
     INSERT INTO BENEFICIARIO VALUES(5,5,'00171419',0.00);
-    INSERT INTO BENEFICIARIO VALUES(6,6,'cmartin',0.00);
+    INSERT INTO BENEFICIARIO VALUES(6,6,'naldana',0.00);
 
     --EMPLEADO
     INSERT INTO EMPLEADO VALUES(1,7,'7845-1523');
@@ -184,6 +188,11 @@
     INSERT INTO EMPLEADO VALUES(3,9,'7503-2623');
     INSERT INTO EMPLEADO VALUES(4,10,'7964-7854');
     INSERT INTO EMPLEADO VALUES(5,11,'7423-3127');
+    INSERT INTO EMPLEADO VALUES(6,12,'7845-1523');
+    INSERT INTO EMPLEADO VALUES(7,13,'7743-2363');
+    INSERT INTO EMPLEADO VALUES(8,14,'7503-2623');
+    INSERT INTO EMPLEADO VALUES(9,15,'7964-7854');
+  
     --LUGAR
     INSERT INTO LUGAR VALUES(1,'Cafeteria ICAS');
     INSERT INTO LUGAR VALUES(2,'Cafeteria Central');
@@ -197,23 +206,14 @@
 
     --Trabaja
     INSERT INTO TRABAJA VALUES(1,1,1,'2019-01-01','2020-01-01');
-    INSERT INTO TRABAJA VALUES(2,1,2,'2019-01-01','2020-01-01');
-    INSERT INTO TRABAJA VALUES(3,2,3,'2019-01-01','2020-01-01');
-    INSERT INTO TRABAJA VALUES(4,2,4,'2019-01-01','2020-01-01');
-    INSERT INTO TRABAJA VALUES(5,3,5,'2019-01-01','2020-01-01');
-    INSERT INTO TRABAJA VALUES(6,3,1,'2019-01-01','2020-01-01');
-    INSERT INTO TRABAJA VALUES(7,4,2,'2019-01-01','2020-01-01');
-    INSERT INTO TRABAJA VALUES(8,4,3,'2019-01-01','2020-01-01');
-    INSERT INTO TRABAJA VALUES(9,5,4,'2019-01-01','2020-01-01');
-    INSERT INTO TRABAJA VALUES(10,5,5,'2019-01-01','2020-01-01');
-    INSERT INTO TRABAJA VALUES(11,6,1,'2019-01-01','2020-01-01');
-    INSERT INTO TRABAJA VALUES(12,6,2,'2019-01-01','2020-01-01');
-    INSERT INTO TRABAJA VALUES(13,7,3,'2019-01-01','2020-01-01');
-    INSERT INTO TRABAJA VALUES(14,7,4,'2019-01-01','2020-01-01');
-    INSERT INTO TRABAJA VALUES(15,8,5,'2019-01-01','2020-01-01');
-    INSERT INTO TRABAJA VALUES(16,8,1,'2019-01-01','2020-01-01');
-    INSERT INTO TRABAJA VALUES(17,9,2,'2019-01-01','2020-01-01');
-    INSERT INTO TRABAJA VALUES(18,9,3,'2019-01-01','2020-01-01');
+    INSERT INTO TRABAJA VALUES(2,2,2,'2019-01-01','2020-01-01');
+    INSERT INTO TRABAJA VALUES(3,3,3,'2019-01-01','2020-01-01');
+    INSERT INTO TRABAJA VALUES(4,4,4,'2019-01-01','2020-01-01');
+    INSERT INTO TRABAJA VALUES(5,5,5,'2019-01-01','2020-01-01');
+    INSERT INTO TRABAJA VALUES(6,6,6,'2019-01-01','2020-01-01');
+    INSERT INTO TRABAJA VALUES(7,7,7,'2019-01-01','2020-01-01');
+    INSERT INTO TRABAJA VALUES(8,8,8,'2019-01-01','2020-01-01');
+    INSERT INTO TRABAJA VALUES(9,9,9,'2019-01-01','2020-01-01');
     
     --TRANSACCION/COMPRA/RECARGA
     INSERT INTO TRANSACCION VALUES(1,0.00,0.00,'2019-11-01');
