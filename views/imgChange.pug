@@ -1,13 +1,17 @@
 extends layout
 
 block content
-    include header
+    
     div(class= "container")
         include lateral
-        div( class = "form img-change")
-            form(enctype="multipart/form-data" method="POST")
-                input#uploadedfile(name="uploadedfile" type="file")
-                input(type="submit" value="Subir archivo")
+        div(class="principal")
+            include header
+            div(class="yellowbar")
+                h3 Cambio de imagen
+            div( class = "Formulario img-change")
+                form(enctype="multipart/form-data" method="POST" )
+                    input#uploadedfile(name="uploadedfile" type="file")
+                    input(type="submit" value="Subir archivo")
          
         
         

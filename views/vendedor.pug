@@ -1,0 +1,24 @@
+extends layout
+
+block content
+    div(class="container")
+        include lateral
+        div(class="principal")
+            include header
+            div(class="yellowbar")
+                h3 Realizar Cobro
+                img(src="/img/Compra.ico", class="imgE")
+            div(class="compras")
+                div(class="compra")
+                    form(method ="post" action ="signin" name="signin" id="signin" class="formcompra")
+                        label(for="usuario" class="form") Usuario a cobrar:
+                        input#user(type="text", name="usuario" , required, maxlength="8")
+                        label(for="cantidad" class="form") Cantidad a cobrar:
+                        input#user(type="text" name="cantidad", required)
+                        label(for="detalle" class="form") Detalle de la compra:
+                        textarea(name="detalle", cols="30", rows="3")      
+                        input(id="boton" type="submit" value="ENVIAR")
+                div(class="help")
+                  img(src="./img/ayudaBlanco.ico")
+                  p En la pantalla Estadisticas se muestra en una grafica el porcentaje de ingresos y egresos que a realizado y debajo se muestra el lugar donde mas a consumido 
+                        
