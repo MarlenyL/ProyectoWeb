@@ -68,7 +68,8 @@ app.use('/logout',logoutRouter);
 app.use('/estadisticasE',estadisticasRouter);
 app.use('/vendedor',vendedorRouter);
 app.use('/datosP',datospRouter);
-app.use('/imgChange',imgchangeRouter)
+app.use('/imgChange',imgchangeRouter);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
