@@ -3,6 +3,7 @@ window.onload = function(){
     var divayuda= document.querySelector(".help");
     var lateral = document.querySelector(".fa-bars");
     var addmenu = document.querySelector("#lateral");
+    var closeMenu = document.querySelector(".fa-times");
     
     ayudabutton.addEventListener("click",()=>{
         divayuda.classList.toggle("mostrar");
@@ -10,8 +11,11 @@ window.onload = function(){
 
     lateral.addEventListener("click",()=>{
         addmenu.classList.toggle("menu");
-        add
   
       });
+
+    closeMenu.addEventListener("click", ()=>{
+        addmenu.classList.toggle("menu");
+    })
 
 }
