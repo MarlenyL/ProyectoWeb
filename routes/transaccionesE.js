@@ -7,7 +7,7 @@ var StudentManager = require('../controllers/StudentManager');
 router.get('/',isLoggedIn,function(req, res, next) {
   StudentManager.transacciones(req.user.id, function (mod) {
       var data = {transaciones: JSON.parse(mod), user:req.user};
-      //console.log(mod);
+      console.log(mod);
       res.render('transaccionesE',data)
   });  
 });
