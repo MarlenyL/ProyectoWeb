@@ -10,15 +10,9 @@ var bodyParser = require('body-parser');
 var indexRouter = require('./routes/index');
 var authRoute = require('./routes/auth');
 var principalERouter = require('./routes/principalE');
-var principalVRouter = require('./routes/principalV')
 var transaccionesRouter = require('./routes/transaccionesE');
-var estadisticasRouter = require('./routes/estadisticasE');
-var vendedorRouter = require('./routes/vendedor');
-var session = require('express-session');
+var session = require('express-session')
 var logoutRouter = require('./routes/logout');
-var datospRouter = require('./routes/datospersonales')
-var imgchangeRouter = require('./routes/imgChange');
-var recargaRouter = require('./routes/recarga');
 var app = express();
 
 app.set('views', path.join(__dirname, 'views'));
@@ -43,19 +37,8 @@ app.use(passport.session()); // persistent login sessions
 
 var {sequelize,Sequelize} = require('./Database/connection')
 
-
 //Sync Database
 
-sequelize.sync()
-         .then(function() {
-
-             console.log('Nice! Database looks fine')
-
-         }).catch(function(err) {
-
-             console.log(err, "Something went wrong with the Database Update!")
-
-         });
 
 //Models
 var usuario = require("./models/usuario");
@@ -69,23 +52,30 @@ var trabaja = require("./models/Trabaja");
 var efectua = require("./models/efectua");
 var realiza = require("./models/realiza");
 var relaciones = require('./models/keys');
+
+/*sequelize.sync({force:true})
+         .then(function() {
+
+             console.log('Nice! Database looks fine')
+
+         }).catch(function(err) {
+
+             console.log(err, "Something went wrong with the Database Update!")
+
+         });
+*/
 relaciones.init(usuario, transaccion, lugar, beneficiario, empleado, transferencia, compra, trabaja, efectua, realiza);
 
 //load passport strategies
 
 require('./config/passport.js')(passport, usuario);
 
+
 app.use('/', indexRouter);
 app.use('/signin',authRoute);
 app.use('/principalE',principalERouter);
-app.use('/principalV', principalVRouter);
 app.use('/transaccionesE', transaccionesRouter);
 app.use('/logout',logoutRouter);
-app.use('/estadisticasE',estadisticasRouter);
-app.use('/vendedor',vendedorRouter);
-app.use('/datosP',datospRouter);
-app.use('/imgChange',imgchangeRouter);
-app.use('/recarga',recargaRouter)
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

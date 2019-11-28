@@ -25,11 +25,11 @@ Relaciones.init = function (usuario, transaccion, lugar, beneficiario, empleado,
 
     //efectua
     transferencia.hasOne(efectua);
-    //beneficiario.hasOne(efectua,{foreignKey:'beneficiario_donadorId'});
-    //beneficiario.hasOne(efectua,{foreignKey:'beneficiario_receptorId'});
+    beneficiario.hasOne(efectua,{foreignKey:'beneficiario_donadorId'});
+    beneficiario.hasOne(efectua,{foreignKey:'beneficiario_receptorId'});
     efectua.belongsTo(transferencia,);
-    //efectua.belongsTo(beneficiario);
-    //efectua.belongsTo(beneficiario);
+    efectua.belongsTo(beneficiario);
+    efectua.belongsTo(beneficiario);
 
     //realiza
     compra.hasOne(realiza);

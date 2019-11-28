@@ -5,9 +5,6 @@ const transferencia = sequelize.define("transferencia", {
     id:{
         type:Sequelize.INTEGER,
         primaryKey: true
-    },
-    transaccionId:{
-        type:Sequelize.INTEGER,
     }
 },
 {

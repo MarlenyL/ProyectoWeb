@@ -7,7 +7,7 @@ const efectua = sequelize.define("efectua", {
         type:Sequelize.INTEGER,
         primaryKey: true
     },
-    transferenciaId :{
+    /*transferenciaId :{
         type: Sequelize.INTEGER
     },
     beneficiario_donadorId: {
@@ -15,7 +15,7 @@ const efectua = sequelize.define("efectua", {
     },
     beneficiario_receptorId: {
         type: Sequelize.INTEGER
-    },
+    },*/
     monto: {
         type: Sequelize.DECIMAL(10, 2)
     },

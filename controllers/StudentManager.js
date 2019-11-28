@@ -19,7 +19,7 @@ beneficiario.saldo = async function(id, callback){
 
 beneficiario.transacciones = async function(id, callback){
     var query = {
-        where: {beneficarioId: 4},
+        where: {beneficiarioId: 4},
         include: [
             {model:lugar},
             {
@@ -32,12 +32,12 @@ beneficiario.transacciones = async function(id, callback){
         ]
     }
     var Realiza= realiza;
-    Realiza.findAll(query)
+    Realiza.findAll(query,{attributes:['"realiza"."Id"','"transaccion"."fecha"','"compra"."tipo"','"realiza"."monto"','"compra"."detalle"','"lugar"."nombre"']})
     .then(function(realiza) { 
         var real = {};           
         if (realiza) {
-            console.log(realiza);
-            real = realiza.get();
+            console.log(JSON.stringify(realiza));
+            real = JSON.stringify(realiza);
         }
         return callback(real);
     });
