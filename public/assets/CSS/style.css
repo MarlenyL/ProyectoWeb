@@ -1,4 +1,5 @@
-@import  url("https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap");
+
+@import url("https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap");
 
 /* Aplicando un formato general al html
 *, ::before, ::after {
@@ -41,53 +42,39 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  border-top: solid  2px;
+  border-bottom: solid  1px;
+  border-color: #3c445f;
 }
+
 .Ayuda a {
   margin-left: 45%;
   padding: 0px;
 }
+
 .Ayuda p {
   margin-left: 10%;
   padding: 0px;
 }
+
 .Ayuda img{
-  width: 20%;
-  height: 20%;
+  width: 15%;
+  height: auto;
 }
+
 .Ayuda:hover {
   background-color: #3c445f;
-}
-.close {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-.close:hover {
-  background-color: #3c445f;
-}
-.close a {
-  margin-left: 26%;
-  padding: 0px;
-}
-.close p {
-  margin-left: 10%;
-  padding: 0px;
-}
-.close img{
-  width: 20%;
-  height: 20%;
 }
 
 .hide-mobile{
   display: none;
 }
-
 .container{
   display: flex;
   justify-content: center;
   height: 85%;
 }
+
 /* Header */
 
 .header {
@@ -125,10 +112,8 @@ body {
   color: #ffffff;
 }
 .informacion {
-  display: grid;
-  width: 100%;
+  display: inline;
   justify-content: center;
-  height: 25vh;
 }
 .hide-mobile {
   display: none;
@@ -140,8 +125,29 @@ body {
 .header img {
   height: 4em;
 }
+
+.head{
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.5em;
+  margin: 0.5em;
+}
+
+.menu {
+  display: flex;
+  background-color: #112935;
+  position: absolute;
+  z-index: 20;
+  left: 0;
+  width: 100vw;
+  height: calc(100vh - 60px);
+  list-style: none;
+  text-align: left;
+}
+
 .lateral {
   height: 100vh;
+  font-size: 1.3em;
 }
 .tarjetas {
   display: flex;
@@ -168,8 +174,7 @@ body {
 /*ESTADISTICAS*/
 .estadisticas{
   display: flex;
-  flex-direction: column;
-  background-color: ;
+  flex-direction: column; 
   justify-content: center;
   justify-items: center;
 }
@@ -211,18 +216,9 @@ body {
 }
 /* Login */
 
-/*label{
-  margin-bottom: 0.5em;
-}*/
-
 #boton{
   background-color: #0a2342;
   color: #fff;
-}
-
-footer {
-  background-color: #0a2342;
-  height: 15%;
 }
 
 .Formulario{
@@ -258,6 +254,102 @@ footer {
     color: #757575;
     border-radius: 0.5em;
   }
+  .checkbox{
+    margin:0;
+    width: 2em;
+  }
+
+  .checkDiv{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-left: 2.5em;
+  }
+
+
+/*ESTADISTICAS*/
+.estadisticas{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+}
+
+.chart_div{
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+  height: 40%;
+  width: auto;
+}
+.yellowbarE {
+  display: flex;
+  flex-direction:column ;
+  justify-content: center;
+  background-color: #f9dc5c;
+  width: 100%;
+  text-align: center;
+}
+.imgE{
+  width: 10%;
+  height: auto;
+}
+
+/* COMPRAS */
+
+.detalle{
+  height: 10vh;
+}
+.compra #boton{
+  width: 20%;
+  margin-left: 65%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+/* Login */
+
+/*label{
+  margin-bottom: 0.5em;
+}*/
+
+#boton{
+  background-color: #0a2342;
+  color: #fff;
+}
+
+footer {
+  background-color: #0a2342;
+  height: 15%;
+}
+
+.Formulario{
+  background-color: #ced3dc;
+  width: 80%;
+  margin: auto;
+  margin-top: 10%;
+  padding: 1em;
+  text-align: center;
+}
+  .data{
+    padding-bottom: 20px;
+    width: 100%;
+  }
+  input {
+    display: block;
+    margin: auto auto;
+    width: 70%;
+    margin-bottom: 2em;
+    padding: .5em 0;
+    border: none;
+    border-bottom: 1px solid #eaeaea;
+    padding-bottom: 1.25em;
+    color: #757575;
+    border-radius: 0.5em;
+  }
 
 /* Transacciones */
 
@@ -267,10 +359,11 @@ footer {
   border-color: #0a2342;
   border-radius: 1em;
   overflow: scroll;
-  width: 85%;
-  height: 70%;
-  margin: 1em;
-  margin-left: 1.6em ;
+  width: 80%;
+  height: 60%;
+  margin: 3em;
+  margin-left: 2.4em ;
+  padding-top: 2.5em;
 }
 
 .bluebar{
@@ -278,23 +371,34 @@ footer {
   background-color: #0a2342;
   border-radius: 0.8em 0.8em 0 0;
   color: white;
-  font-size: 1em;
   justify-content: space-between;
-  position: fixed;
-  width: 66%;
+  position:fixed;
+  width: 62.4%;
   padding: 0.4em 2.5em;
-}
+  margin-left: -0.36em;
+  margin-top: -4em;
+} 
 
-.transaccion{
+ .transaccion{
   display: flex;
+  width: 100%;
   align-items: center;
   justify-content: space-between;
   padding: 1em 0;
   border-bottom: solid white;
-}
-.transaccion h3{
+} 
+
+.transaccion p{
   padding: 0 1em;
   margin: 0;
+}
+
+table{
+  width: 100%;
+}
+
+.exp{
+  display: none;
 }
 
 a {
@@ -302,9 +406,84 @@ a {
   color: #fff;
 }
 
-.datos{
-  display: flex;
+@media only screen and (min-width: 768px) {
 
+
+      /* General */
+
+      .yellowbar{
+        font-size: 1.5em;
+      }
+      .imgY{
+        height: 6em;
+        width: auto;
+      } 
+
+      /* Header */
+
+      .fa-bars{
+        font-size: 2em;
+        margin-left: 1em;
+      }
+
+      .header img{
+        height: 6em;
+        margin-right: 1em;
+      }
+      
+      /*Transacciones*/
+
+      .movimientos{
+        height: 60%;
+        margin-left: 4.5em;
+        margin-top: 6em;
+        padding-top: 2em ;
+      }
+
+      .bluebar{
+        width: 70.3%;
+        margin-left: -0.3em;
+        margin-top: -6em;
+        
+      } 
+      .bluebar h3{
+        font-size: 1.8em;
+      }
+
+      .transaccion{
+        font-size: 1.5em;
+      }
+
+
+  /* Compras */
+  .compras{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    padding-top:2em
+  }
+  .compra{
+    background-color: #ced3dc;
+    width: 60%;
+    padding: 1em;
+  }
+  .compra label{
+    margin-left: 3em;
+    
+  }
+  .detalle{
+    height: 10vh;
+  }
+  .compra #boton{
+    width: 20%;
+    margin-left: 65%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  }
 }
 .help{
   display: none;
@@ -374,6 +553,7 @@ a {
   }
   .perfil {
     width: 20%;
+    background-color: #0a2342;
   }
   .header {
     display: flex;
@@ -388,15 +568,20 @@ a {
   }
   
   .tarjetas {
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    height: auto;
     width: 10em;
-    height: 7em;
     border-left: 0px;
     border-bottom: 0.5em solid #0a2342;
     text-align: center;
   }
   .tarjetas img{
-    width: 60%;
+    width: 70%;
     height: 60%;
+    margin-left: 0px;
+    justify-content: space-between; 
   }
   .header img{
     justify-content: flex-end;
@@ -408,20 +593,9 @@ a {
   .principal {
     width: 80%;
   }
-  .perfil {
-    background-color: #0a2342;
-  }
-  
-  .tarjetas{
-    flex-direction: column;
-    align-content: center;
-    align-items: center;
-    height: auto;
-  }
-  .tarjetas img{
-    margin-left: 0px;
-    justify-content: space-between;
-    width: 70%;
+  .tarjeta{
+    display: flex;
+    flex-direction: row;
   }
   .tarjeta .trans{
     width: 60%;
@@ -431,8 +605,9 @@ a {
     border-bottom: 0.5em solid #f9dc5c;
     border-left: 0px;
   }
-  .tarjeta {
+  .main{
     display: flex;
+    justify-content: space-between;
     flex-direction: row;
   }
   .yellowbar {
@@ -447,29 +622,30 @@ a {
     align-content: center;
     align-items: center;
   }
-  /*Transacciones*/
 
-  .imgY{
-    height: 5em;
-    width: auto;
-  }
-  .imgE{
-    height: 4em;
-    width: auto;
-  }
-  .yellowbar{
-    font-size: 1.4em;
-    margin: 1em;
-    margin-left: 4em;
-  }
-  .movimientos{
-    margin-left: 5em;
-  }
+/*Transacciones*/
 
-  .bluebar{
-    width: 62.3%;
-  }
-  /*ESTADISTICAS*/
+    .movimientos{
+      width: 81.2%;
+      height: 50%;
+      margin-top: 6em;
+      margin-left: 4.5em; 
+    }
+
+    .movimientos h3{
+      font-size: 0.8em;
+    }
+  
+    .bluebar{
+      width: 57.7%;
+    }
+
+    .bluebar h3{
+      font-size: 1.2em;
+    }
+}
+@media only screen and (min-width: 1440px) {
+  /* ESTADISTICAS */
   .yellowbarE{
     background-color: #f9dc5c;
     padding: 0.5em;
@@ -489,7 +665,7 @@ a {
     justify-content: center;
     justify-items: center;
   }
-  /*compra*/
+  /* compra */
   .compras{
     display: flex;
     flex-direction: column;
@@ -498,15 +674,36 @@ a {
     align-items: center;
     padding-top: 0px;
   }
-  .compra{
-    background-color: #ced3dc;
-    width: 40%;
-    padding: 1em;
+  .imgE{
+    height: 4em;
+    width: auto;
   }
-  .compra label{
-    margin-left: 3em;
-    
+  .yellowbar{
+    font-size: 1.4em;
+    margin: 1em;
+    margin-left: 4em;
   }
+  
+  /*ESTADISTICAS*/
+  .yellowbarE{
+    background-color: #f9dc5c;
+    padding: 0.5em;
+    margin: 1.5em auto;
+    width: 80%;
+    height: 5%;
+    justify-content: center;
+    border-radius: 1em;
+    text-align: center;
+    align-content: center;
+    align-items: center;  
+  }
+  .estadisticas{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+  }
+  /*compra*/
   .detalle{
     height: 10vh;
   }
@@ -517,14 +714,6 @@ a {
     justify-content: center;
     align-items: center;
     align-content: center;
-  }
-  .compras{
-    display: flex;
-    flex-direction: column;
-    justify-items: center;
-    align-content: center;
-    align-items: center;
-    padding-top: 0px;
   }
   .compra{
     margin-top: 0em;
@@ -579,6 +768,26 @@ a {
   .help p{
     text-align: center;
   }
+
+    /*Transacciones*/
+
+    .movimientos{
+      width: 81.2%;
+      height: 50%;
+      margin-top: 6em;
+      margin-left: 5em; 
+    }
+    .movimientos h3{
+      font-size: 1em;
+    }
+  
+    .bluebar{
+      width: 59.9%;
+    }
+
+    .bluebar h3{
+      font-size: 1.5em;
+    }
   /*login*/
   .Formulario{
     width: 40%;
@@ -589,7 +798,6 @@ a {
     display: flex;
     flex-direction: column;
     text-align: initial;
-    height: 100%;
 
   }
   .login label{
@@ -611,7 +819,4 @@ a {
     align-content: center;
     align-items: center;
   }
-}
-@media only screen and (min-width: 1440px){
-
 }

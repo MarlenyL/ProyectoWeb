@@ -10,6 +10,7 @@ var bodyParser = require('body-parser');
 var indexRouter = require('./routes/index');
 var authRoute = require('./routes/auth');
 var principalERouter = require('./routes/principalE');
+var principalVRouter = require('./routes/principalV')
 var transaccionesRouter = require('./routes/transaccionesE');
 var estadisticasRouter = require('./routes/estadisticasE');
 var vendedorRouter = require('./routes/vendedor');
@@ -72,6 +73,7 @@ usuario.sequelize.sync().then(function() {
 app.use('/', indexRouter);
 app.use('/signin',authRoute);
 app.use('/principalE',principalERouter);
+app.use('/principalV', principalVRouter);
 app.use('/transaccionesE', transaccionesRouter);
 app.use('/logout',logoutRouter);
 app.use('/estadisticasE',estadisticasRouter);
