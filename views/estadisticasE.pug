@@ -1,0 +1,20 @@
+extends layout 
+
+block content
+    div(class="container")
+        include lateral
+        div(class="principal")
+            include header
+            div(class="yellowbar")
+                h3 Estadisticas
+                img(src="/img/estadisticas.ico", class="imgE")
+            div(class="estadisticas")
+                div(class="chart_div", id="chart_div")
+                div(class="yellowbarE")
+                    p Gasto Promedio Mensual: $15.00
+                    p Lugar Favorito: Las Terrazas
+                div(class="help")
+                  img(src="./img/ayudaBlanco.ico")
+                  p En la pantalla Estadisticas se muestra en una grafica el porcentaje de ingresos y egresos que a realizado y debajo se muestra el lugar donde mas a consumido 
+                  
+                

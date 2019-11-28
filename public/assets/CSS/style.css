@@ -29,7 +29,6 @@ body {
   display: flex;
   justify-content: center;
   background-color: #f9dc5c;
-  padding: 0 0.5em;
   width: 100%;
   text-align: center;
 }
@@ -101,6 +100,10 @@ body {
   height: 15%;
   padding: 10px;
 }
+.fa-bars:before {
+  content: "\f0c9";
+  font-size: 5vh;
+}
 
 .major {
   display: none;
@@ -151,13 +154,61 @@ body {
   box-shadow: 2px 2px 3px #928a926e;
   align-items: center;
 }
+.tarjetas img{
+  width: 35%;
+  height: 35%;
+}
 .container {
   display: flex;
+  z-index: 1;
 }
 .principal {
   width: 100%;
 }
+/*ESTADISTICAS*/
+.estadisticas{
+  display: flex;
+  flex-direction: column;
+  background-color: ;
+  justify-content: center;
+  justify-items: center;
+}
 
+.chart_div{
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+  height: 40%;
+  width: auto;
+}
+.yellowbarE {
+  display: flex;
+  flex-direction:column ;
+  justify-content: center;
+  background-color: #f9dc5c;
+  width: 100%;
+  text-align: center;
+}
+.imgE{
+  width: 10%;
+  height: auto;
+}
+
+/*COMPRAS*/
+
+.detalle{
+  height: 10vh;
+}
+.compra #boton{
+  width: 20%;
+  margin-left: 65%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
 /* Login */
 
 /*label{
@@ -175,6 +226,7 @@ footer {
 }
 
 .Formulario{
+  border-radius: 2em;
   background-color: #ced3dc;
   width: 80%;
   margin: auto;
@@ -186,15 +238,23 @@ footer {
     padding-bottom: 20px;
     width: 100%;
   }
+  .login{
+    display: flex;
+    flex-direction: column;
+    text-align: initial;
+  }
+  .login label{
+    margin-left: 10%;
+    margin-bottom: 5px;
+  }
   input {
     display: block;
-    margin: auto auto;
+    margin: 5px auto;
     width: 70%;
+    height: 6vh;
     margin-bottom: 2em;
-    padding: .5em 0;
     border: none;
     border-bottom: 1px solid #eaeaea;
-    padding-bottom: 1.25em;
     color: #757575;
     border-radius: 0.5em;
   }
@@ -246,8 +306,66 @@ a {
   display: flex;
 
 }
+.help{
+  display: none;
+}
+.mostrar{
+  display: flex;
+  z-index: 2;
+  right: 30%;
+  background-color: #0a2342;
+  top: 40%;
+  position: absolute;
+  width: 15em;
+  padding: 10px;
+  
+  height: auto;
+  flex-direction: column;
+  border-radius: 2em;
+  color: #ffffff;
+}
+.mostrar img{
+  width: 40%;
+  height: 10%;
+  margin-left: 4.5em;
+}
+.help p{
+  text-align: center;
+}
+
 
 @media only screen and (min-width: 768px) {
+  .compras{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    padding-top:2em
+  }
+  .compra{
+    background-color: #ced3dc;
+    width: 60%;
+    padding: 1em;
+    border-radius: 2em;
+  }
+  .compra label{
+    margin-left: 3em;
+    
+  }
+  .detalle{
+    height: 10vh;
+  }
+  .compra #boton{
+    width: 20%;
+    margin-left: 65%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  }
+}
+@media only screen and (min-width: 1024px) {
   .major {
     display: inline;
   }
@@ -268,6 +386,7 @@ a {
     padding: 10px;
     align-content: center;
   }
+  
   .tarjetas {
     width: 10em;
     height: 7em;
@@ -280,7 +399,7 @@ a {
     height: 60%;
   }
   .header img{
-    justify-content;: flex-end;
+    justify-content; flex-end;
   }
   .header h1{
     font-size: vh;
@@ -302,7 +421,7 @@ a {
   .tarjetas img{
     margin-left: 0px;
     justify-content: space-between;
-    width: 40%;
+    width: 70%;
   }
   .tarjeta .trans{
     width: 60%;
@@ -334,6 +453,10 @@ a {
     height: 5em;
     width: auto;
   }
+  .imgE{
+    height: 4em;
+    width: auto;
+  }
   .yellowbar{
     font-size: 1.4em;
     margin: 1em;
@@ -346,8 +469,149 @@ a {
   .bluebar{
     width: 62.3%;
   }
-}
-@media only screen and (min-width: 1440px) {
-  h1 {
+  /*ESTADISTICAS*/
+  .yellowbarE{
+    background-color: #f9dc5c;
+    padding: 0.5em;
+    margin: 1.5em auto;
+    width: 80%;
+    height: 5%;
+    justify-content: center;
+    border-radius: 1em;
+    text-align: center;
+    align-content: center;
+    align-items: center;  
   }
+  .estadisticas{
+    display: flex;
+    flex-direction: column;
+    background-color: ;
+    justify-content: center;
+    justify-items: center;
+  }
+  /*compra*/
+  .compras{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    padding-top: 0px;
+  }
+  .compra{
+    background-color: #ced3dc;
+    width: 40%;
+    padding: 1em;
+  }
+  .compra label{
+    margin-left: 3em;
+    
+  }
+  .detalle{
+    height: 10vh;
+  }
+  .compra #boton{
+    width: 20%;
+    margin-left: 65%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  }
+  .compras{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    padding-top: 0px;
+  }
+  .compra{
+    margin-top: 0em;
+    background-color: #ced3dc;
+    width: 50%;
+    padding: 1em;
+  }
+  .compra label{
+    margin-left: 3em;
+    
+  }
+  .formcompra{
+    display: flex;
+    flex-direction: column;
+  }
+  .formcompra textarea{
+    border-radius: 50%;
+    display: block;
+    margin: auto auto;
+    width: 70%;
+    margin-bottom: 2em;
+    padding: .5em 0;
+    border: none;
+    border-bottom: 1px solid #eaeaea;
+    padding-bottom: 0em;
+    color: #757575;
+    border-radius: 0.5em;
+  }
+  .help{
+    display: none;
+  }
+  .mostrar{
+    display: flex;
+    z-index: 2;
+    right: 30%;
+    background-color: #0a2342;
+    top: 40%;
+    position: absolute;
+    width: 15em;
+    padding: 10px;
+    
+    height: auto;
+    flex-direction: column;
+    border-radius: 2em;
+    color: #ffffff;
+  }
+  .mostrar img{
+    width: 40%;
+    height: 10%;
+    margin-left: 4.5em;
+  }
+  .help p{
+    text-align: center;
+  }
+  /*login*/
+  .Formulario{
+    width: 40%;
+    height: auto;
+    margin-top: 5%;
+  }
+  .login{
+    display: flex;
+    flex-direction: column;
+    text-align: initial;
+    height: 100%;
+
+  }
+  .login label{
+    margin-left: 10%;
+    margin-bottom: 5px;
+  }
+  .input{
+    padding-left: 5%;
+  }
+  .yellowbarL{
+    width: 50%;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .priLog{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+  }
+}
+@media only screen and (min-width: 1440px){
+
 }

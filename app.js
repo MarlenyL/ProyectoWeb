@@ -11,8 +11,12 @@ var indexRouter = require('./routes/index');
 var authRoute = require('./routes/auth');
 var principalERouter = require('./routes/principalE');
 var transaccionesRouter = require('./routes/transaccionesE');
-var session = require('express-session')
+var estadisticasRouter = require('./routes/estadisticasE');
+var vendedorRouter = require('./routes/vendedor');
+var session = require('express-session');
 var logoutRouter = require('./routes/logout');
+var datospRouter = require('./routes/datospersonales')
+var imgchangeRouter = require('./routes/imgChange')
 var app = express();
 
 app.set('views', path.join(__dirname, 'views'));
@@ -61,6 +65,10 @@ app.use('/signin',authRoute);
 app.use('/principalE',principalERouter);
 app.use('/transaccionesE', transaccionesRouter);
 app.use('/logout',logoutRouter);
+app.use('/estadisticasE',estadisticasRouter);
+app.use('/vendedor',vendedorRouter);
+app.use('/datosP',datospRouter);
+app.use('/imgChange',imgchangeRouter)
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
