@@ -30,6 +30,7 @@ body {
   justify-content: center;
   background-color: #f9dc5c;
   width: 100%;
+  font-size: 1.5em;
   text-align: center;
 }
 .imgY {
@@ -113,6 +114,7 @@ body {
 .informacion {
   display: inline;
   justify-content: center;
+  padding: 1em;
 }
 .hide-mobile {
   display: none;
@@ -160,8 +162,8 @@ body {
   align-items: center;
 }
 .tarjetas img{
-  width: 35%;
-  height: 35%;
+  width: 8em;
+  height: auto;
 }
 .container {
   display: flex;
@@ -377,7 +379,7 @@ footer {
   position:fixed;
   width: 62.4%;
   padding: 0.4em 2.5em;
-  margin-left: -0.36em;
+  margin-left: -0.26em;
   margin-top: -4em;
 } 
 
@@ -472,7 +474,7 @@ a {
 
       .bluebar{
         width: 70.3%;
-        margin-left: -0.3em;
+        margin-left: -0.2em;
         margin-top: -6em;
         
       } 
@@ -481,7 +483,7 @@ a {
       }
 
       .transaccion{
-        font-size: 1.5em;
+        font-size: 1.2em;
       }
 
 
@@ -521,6 +523,10 @@ a {
 
 
 @media only screen and (min-width: 768px) {
+
+  .yellowbar h3{
+    font-size: 1.5em;
+  }
   .compras{
     display: flex;
     flex-direction: column;
@@ -550,6 +556,26 @@ a {
     align-items: center;
     align-content: center;
   }
+  .tarjetas h3{
+    font-size: 2em;
+  }
+  .informacion{
+    text-align: center;
+  }
+
+  .informacion p{
+    font-size: 1.5em;
+    text-align: center;
+  }
+
+  .informacion a{
+    font-size: 1.5em;
+    text-align: center;
+  }
+
+  .lateral{
+    font-size: 1.5em;
+  }
 
 }
 @media only screen and (min-width: 1024px) {
@@ -575,19 +601,21 @@ a {
     align-content: center;
   }
   
+  
   .tarjetas {
     flex-direction: column;
     align-content: center;
     align-items: center;
     height: auto;
-    width: 10em;
+    width: 15em;
     border-left: 0px;
     border-bottom: 0.5em solid #0a2342;
     text-align: center;
   }
+
   .tarjetas img{
-    width: 70%;
-    height: 60%;
+    width: 10em;
+    height: auto;
     margin-left: 0px;
     justify-content: space-between; 
   }
@@ -601,9 +629,9 @@ a {
   .principal {
     width: 80%;
   }
-  .tarjeta{
+  .tarjetaPrincipal{
     display: flex;
-    flex-direction: row;
+    justify-content: center;
   }
   .tarjeta .trans{
     width: 60%;
@@ -640,6 +668,21 @@ a {
     width: 50%;
   }
 
+  .lateral{
+    font-size: 1em;
+  }
+  .informacion p{
+    font-size: 1.4em;
+    text-align: center;
+  }
+
+  .informacion a{
+    font-size: 1.2em;
+    text-align: center;
+  }
+  
+  
+
 /*Transacciones*/
 
     .movimientos{
@@ -654,11 +697,32 @@ a {
     }
   
     .bluebar{
-      width: 57.7%;
+      width: 57.8%;
     }
 
     .bluebar h3{
       font-size: 1.2em;
+    }
+
+    #concepto{
+      width: 45%;
+      height: auto;
+      text-align: center;
+
+    }
+    #fecha{
+      width: 20%;
+      text-align: center;
+
+    }
+    #transaccion{
+      width: 20%;
+      text-align: center;
+
+    }
+    #monto{
+      width: 15%;
+      text-align: end;
     }
 
     /* Lateral */
@@ -729,6 +793,12 @@ a {
     font-size: 1.4em;
     margin: 1em;
     margin-left: 4em;
+  }
+
+  .lateral{
+    font-size: 1.3em;
+  }
+
   }
   
   /*ESTADISTICAS*/

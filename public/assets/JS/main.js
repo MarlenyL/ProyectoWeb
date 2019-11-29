@@ -1,21 +1,15 @@
-ventana . onload  =  function () {
-    var ayudabutton =  documento . querySelector ( " #ayuda " );
-    var divayuda =  documento . querySelector ( " .help " );
-    var lateral =  documento . querySelector ( " .fa-bars " );
-    var addmenu =  documento . querySelector ( " #lateral " );
-    var closeMenu =  documento . querySelector ( " .fa-times " );
+
+window.onload = function(){
+    var ayudabutton = document.querySelector("#ayuda");
+    var divayuda= document.querySelector(".help");
+    var lateral = document.querySelector(".fa-bars");
+    var addmenu = document.querySelector("#lateral");
+    var closeMenu = document.querySelector(".fa-times");
     
-    // ayudabutton . addEventListener ( " click " , () => {
-    //     divayuda . classList . alternar ( " mostrar " );
-    // });
-
-    // lateral . addEventListener ( " click " , () => {
-    //     AgregarMenú . classList . alternar ( " menú " );
-  
-    //   });
-
-    // closeMenu . addEventListener ( " click " , () => {
-    //     AgregarMenú . classList . alternar ( " menú " );
+    ayudabutton.addEventListener("click",()=>{
+        divayuda.classList.toggle("mostrar");
+        console.log("Entra")
+    });
 
     lateral.addEventListener("click",()=>{
         addmenu.classList.toggle("menu");

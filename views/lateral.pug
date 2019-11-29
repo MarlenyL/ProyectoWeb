@@ -1,19 +1,22 @@
+
 extends layout
 
 block content
     div(class="perfil hide-mobile major lateral animated" id="lateral")
         div(class="informacion")
             div(class="head")
-                img(src='#', alt="Foto_perfil")
                 div(class="movil")
                     a(href="#" class="fas fa-times movil")
             p  #{user.nombre}
-            a(href="mailto:#{user.usuario}@uca.edu.sv") #{user.usuario}@uca.edu.sv
-            p "carrera"
-        div(class="Ayuda")
+            a(href="mailto:#{user.usuario}@uca.edu.sv") #{user.usuario  }@uca.edu.sv
+
+        a(href="/principalE" class="Ayuda")
+            p Página Principal
+
+        div(class="Ayuda" id="ayuda")
             p Ayuda
             img(src="./img/ayudaBlanco.ico", alt="")
 
-        div(class="Ayuda")
+        a(href="/logout" class="Ayuda")
             p Cerrar Sesion
             img(src="./img/Salir.ico", alt="")

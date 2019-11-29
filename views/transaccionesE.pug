@@ -10,25 +10,22 @@ block content
                 img(src="/img/vector.ico", alt="$" class="imgY")
             div(class="movimientos")
                 div(class="bluebar")
-                    h3 N° Transaccion
-                    h3(class="major") Fecha/Hora
-                    h3(class="major") Tipo
-                    h3 Monto
-                    h3(class="major") Lugar
-                    h3(class="major") Detalle
+                    h3(id="concepto") Concepto
+                    h3(class="major" id ="fecha") Fecha
+                    h3(class="major" id = "transaccion") Transaccion N°
+                    h3(id = "monto") Monto
                     
                 each item in transaciones
                     div(class="transaccion")
-                        //h3='Compra ' + item.lugar.nombre
-                        div(class="datos")
-                            p= item.id
-                        div(class="datos")
+                        div(class = "datos" id="concepto")
+                            p= item.compra.tipo + ": " + item.lugar.nombre + " " + item.compra.detalle
+                        div(class="datos major" id='fecha')
                             p= item.compra.transaccion.fecha
-                        div(class="datos")
-                            p= item.compra.tipo
-                        div(class="datos")
+                        div(class="datos major" id="transaccion")
+                            p= item.id
+                        div(class="datos" id="monto")
                             p= item.monto
-                        div(class="datos")    
-                            p= item.lugar.nombre
-                        div(class="datos")    
-                            p= item.compra.detalle
+                            p= item.compra.transaccion.monto_final
+            div(class="help")
+                img(src="./img/ayudaBlanco.ico")
+                p En esta pantalla se mostrara dos opciones en donde el vendedor podra realizar una compra o se podra realizar una recarga

@@ -8,12 +8,10 @@ block content
             include header
             div(class="yellowbar")
                 h3 Saldo: #{saldo.saldo}
-            div(class="tarjeta")
+            div(class="tarjetaPrincipal")
                 a(href='/transaccionesE' class="tarjetas")
-                    //*div(class="tarjetas")
                     h3 Transacciones
-                    img(src='./img/transaccion.ico')
-                a(href='/estadisticasE' class="tarjetas")
-                    h3 Estadisticas
-                    img(src='./img/estadisticas.ico', alt="Es")
-
+                    img(src='./img/transaccion.ico' class="imgP")
+            div(class="help")
+                img(src="./img/ayudaBlanco.ico")
+                p En esta pantalla se muestras dos opciones en donde la primera lo llevara a ver con detalle las transacciones que el estudiante ha realizado y la otra opcion mostrara las estadisticas.
