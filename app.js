@@ -17,7 +17,7 @@ var vendedorRouter = require('./routes/vendedor');
 var session = require('express-session');
 var logoutRouter = require('./routes/logout');
 var datospRouter = require('./routes/datospersonales')
-// var recargaRouter = require('./routes/recarga');
+var recargaRouter = require('./routes/recarga');
 var app = express();
 
 app.set('views', path.join(__dirname, 'views'));
@@ -84,7 +84,7 @@ app.use('/logout',logoutRouter);
 app.use('/estadisticasE',estadisticasRouter);
 app.use('/vendedor',vendedorRouter);
 app.use('/datosP',datospRouter);
-// app.use('/recarga',recargaRouter)
+app.use('/recarga',recargaRouter)
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
